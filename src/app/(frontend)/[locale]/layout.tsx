@@ -1,5 +1,4 @@
 import React from 'react'
-import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import './styles.css'
 
 export const metadata = {
@@ -13,9 +12,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <NextIntlClientProvider>
-          <main>{children}</main>
-        </NextIntlClientProvider>
+        <main>{children}</main>
       </body>
     </html>
   )
