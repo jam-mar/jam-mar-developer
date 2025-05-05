@@ -1,1 +1,28 @@
-{}
+{
+  "common": {
+    "languages": {
+      "en": "English",
+      "nb": "Norwegian (Bokmål)"
+    }
+  },
+  "hero": {
+    "heading": "Hello, I'm",
+    "name": "James Marriott",
+    "subheading": "Full Stack Developer"
+  },
+  "about_me_section": {
+    "heading": "About Me",
+    "sub_heading": "I am a British full-stack developer, teacher and mentor. I love creating innovative web solutions, helping people learn to code and sharing my knowledge with others. Based in Kristiansand, Norway, I blend technical expertise with a creative approach to problem-solving.",
+    "paragraphs": [
+      "I have extensive experience in both front-end and back-end development, specializing in building responsive, user-friendly web applications using modern frameworks and tools. My technical background allows me to tackle complex challenges across the entire development stack.",
+      "I'm currently open to new opportunities within Norway, the EU, and the UK.",
+      "I am passionate about teaching and mentoring, and I enjoy sharing my knowledge with others. I have experience in leading workshops, giving talks, and mentoring junior developers."
+    ]
+  },
+  "navigation": {
+    "home": "Home",
+    "about_me": "About Me",
+    "projects": "Projects",
+    "contact": "Contact"
+  }
+}
