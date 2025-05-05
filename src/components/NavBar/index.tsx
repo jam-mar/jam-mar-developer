@@ -371,9 +371,9 @@ export default function DeveloperNavBar({ scrollBehavior = false }) {
           <a
             className="text-muted-foreground hover:text-foreground transition-colors"
             style={{ writingMode: 'vertical-rl' }}
-            href="mailto:developer@example.com"
+            href="mailto:jamesrmarriott@gmail.com"
           >
-            developer@example.com
+            jamesrmarriott@gmail.com
           </a>
           <div className="mx-3 h-40 w-px bg-border"></div>
         </div>
