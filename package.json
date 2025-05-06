@@ -15,7 +15,6 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "three": "^0.176.0",
     "@payloadcms/db-sqlite": "3.33.0",
     "@payloadcms/next": "3.33.0",
     "@payloadcms/payload-cloud": "3.33.0",
@@ -40,9 +39,10 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-scroll-area": "^0.1.2",
+    "sharp": "0.32.6",
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7",
-    "sharp": "0.32.6"
+    "three": "^0.176.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
