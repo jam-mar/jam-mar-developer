@@ -1,4 +1,5 @@
 import Hero from '@/sections/Hero'
+import AboutMe from '@/sections/AboutMe'
 // import PayLoadAdmin from '@/sections/PayloadAdmin'
 import React from 'react'
 
@@ -12,6 +13,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <>
       <Hero locale={locale} />
+      <AboutMe locale={locale} />
       {/* <PayLoadAdmin locale={locale} /> */}
     </>
   )

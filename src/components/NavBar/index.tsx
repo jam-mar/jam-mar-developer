@@ -216,7 +216,7 @@ export default function NavBar({ scrollBehavior = false }) {
               className="flex items-center space-x-2 py-1.5 px-3 border border-input hover:bg-accent hover:text-accent-foreground rounded-md text-sm transition-colors"
               download
             >
-              <span>{t('nav.cv')}</span>
+              <span>{t('navigation.cv')}</span>
               <Download className="h-4 w-4" />
             </a>
           </div>
