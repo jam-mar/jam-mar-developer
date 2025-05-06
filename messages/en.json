@@ -21,6 +21,8 @@
   },
   "navigation": {
     "home": "Home",
+    "brand": "James Marriott",
+    "work": "Work",
     "about_me": "About Me",
     "projects": "Projects",
     "contact": "Contact"
