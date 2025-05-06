@@ -7,7 +7,6 @@ interface HeroProps {
 }
 
 export default async function Hero({ locale }: HeroProps) {
-  // Get translations on the server
   const t = await getTranslations({ locale, namespace: 'hero' })
 
   return (
@@ -22,7 +21,10 @@ export default async function Hero({ locale }: HeroProps) {
             width={65}
           />
         </picture>
-        <h1>{t('heading')}</h1>
+        <p>{t('preTitle')}</p>
+        <h1>{t('name')}</h1>
+        <h2>{t('heading')}</h2>
+        <h3>{t('subheading')}</h3>
         <div className="links"></div>
       </div>
     </section>
