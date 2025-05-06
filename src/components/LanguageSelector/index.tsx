@@ -3,7 +3,6 @@
 import React from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import Link from 'next/link'
 import { Globe } from 'lucide-react'
 import {
   DropdownMenu,
@@ -11,7 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
-import { Button } from '../ui/button'
+import { navigationMenuTriggerStyle } from '../ui/navigation-menu'
+import { cn } from '@/lib/utils'
 
 const LanguageSelector = () => {
   const locale = useLocale()
@@ -30,7 +30,7 @@ const LanguageSelector = () => {
   const currentLocale = locales.find((l) => l.code === locale) || locales[0]
 
   // Handle language change
-  const changeLanguage = (newLocale: string) => {
+  const changeLanguage = (newLocale) => {
     const newPath = `/${newLocale}/${pathnameWithoutLocale}`
     router.push(newPath)
   }
@@ -38,11 +38,10 @@ const LanguageSelector = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="bg-primary/10 border-primary/20">
+        <button className={cn(navigationMenuTriggerStyle(), 'flex items-center justify-center')}>
           <Globe className="h-4 w-4 mr-2" />
-          <span>{currentLocale.flag}</span>
-          <span className="ml-2">{currentLocale.name}</span>
-        </Button>
+          <span>{currentLocale.name}</span>
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {locales.map((lang) => (
@@ -51,7 +50,6 @@ const LanguageSelector = () => {
             className={`cursor-pointer ${locale === lang.code ? 'font-medium' : ''}`}
             onClick={() => changeLanguage(lang.code)}
           >
-            <span className="mr-2">{lang.flag}</span>
             {lang.name}
           </DropdownMenuItem>
         ))}
