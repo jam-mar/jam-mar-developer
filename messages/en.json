@@ -1,30 +1,112 @@
 {
-  "common": {
-    "languages": {
-      "en": "English",
-      "nb": "Norwegian (Bokmål)"
-    }
-  },
-  "hero": {
-    "heading": "Hello, I'm",
-    "name": "James Marriott",
-    "subheading": "Full Stack Developer"
-  },
-  "about_me_section": {
-    "heading": "About Me",
-    "sub_heading": "I am a British full-stack developer, teacher and mentor. I love creating innovative web solutions, helping people learn to code and sharing my knowledge with others. Based in Kristiansand, Norway, I blend technical expertise with a creative approach to problem-solving.",
-    "paragraphs": [
-      "I have extensive experience in both front-end and back-end development, specializing in building responsive, user-friendly web applications using modern frameworks and tools. My technical background allows me to tackle complex challenges across the entire development stack.",
-      "I'm currently open to new opportunities within Norway, the EU, and the UK.",
-      "I am passionate about teaching and mentoring, and I enjoy sharing my knowledge with others. I have experience in leading workshops, giving talks, and mentoring junior developers."
-    ]
-  },
   "navigation": {
-    "home": "Home",
     "brand": "James Marriott",
-    "work": "Work",
+    "home": "Home",
     "about_me": "About Me",
     "projects": "Projects",
-    "contact": "Contact"
+    "experience": "Experience",
+    "contact": "Contact",
+    "cv": "CV"
+  },
+  "hero": {
+    "preTitle": "Hello, I'm",
+    "name": "James Marriott",
+    "heading": "Full-Stack Developer & UI/UX Designer",
+    "subheading": "Creating beautiful, functional web experiences"
+  },
+  "aboutMe": {
+    "heading": "About Me",
+    "description": "I'm a passionate full-stack developer with expertise in React, Next.js, and modern web technologies. With a keen eye for design and a love for clean code, I create digital experiences that are both beautiful and functional.",
+    "skillsHeading": "My Skills",
+    "profileImageAlt": "Profile photo"
+  },
+  "projects": {
+    "heading": "My Projects",
+    "description": "Here are some of the projects I've worked on. Each represents a unique challenge and learning experience.",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code",
+    "projectOne": {
+      "title": "Portfolio Website",
+      "description": "A responsive portfolio website built with Next.js, featuring GSAP animations and multi-language support."
+    },
+    "projectTwo": {
+      "title": "E-commerce Platform",
+      "description": "A full-featured online store with user authentication, product management, and payment processing."
+    },
+    "projectThree": {
+      "title": "Mobile App",
+      "description": "A cross-platform mobile application built with React Native for both iOS and Android devices."
+    }
+  },
+  "workExperience": {
+    "heading": "Work Experience",
+    "description": "My professional journey in the world of web development.",
+    "companyOne": {
+      "name": "Tech Innovations Inc.",
+      "position": "Senior Front-end Developer",
+      "period": "2022 - Present",
+      "description": "Leading the front-end development team in creating innovative web applications.",
+      "achievements": {
+        "one": "Implemented a new component library that reduced development time by 30%",
+        "two": "Optimized site performance, improving load times by 40%",
+        "three": "Mentored junior developers and conducted code reviews"
+      }
+    },
+    "companyTwo": {
+      "name": "Digital Solutions Ltd.",
+      "position": "Full-Stack Developer",
+      "period": "2019 - 2022",
+      "description": "Worked on various web projects using React, Node.js, and MongoDB.",
+      "achievements": {
+        "one": "Developed a customer portal that improved client satisfaction by 25%",
+        "two": "Implemented CI/CD pipelines that streamlined deployment processes",
+        "three": "Contributed to open-source projects and shared knowledge through tech talks"
+      }
+    },
+    "companyThree": {
+      "name": "Creative Web Agency",
+      "position": "Junior Developer",
+      "period": "2017 - 2019",
+      "description": "Started my career working on websites for small businesses and startups.",
+      "achievements": {
+        "one": "Built responsive websites for over 15 clients",
+        "two": "Learned and implemented modern JavaScript frameworks",
+        "three": "Collaborated with designers to create cohesive user experiences"
+      }
+    }
+  },
+  "contactMe": {
+    "heading": "Get In Touch",
+    "description": "Have a project in mind or want to chat? Feel free to reach out!",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "formName": "Name",
+    "formNamePlaceholder": "Enter your name",
+    "formEmail": "Email",
+    "formEmailPlaceholder": "Enter your email",
+    "formSubject": "Subject",
+    "formSubjectPlaceholder": "What is this about?",
+    "formMessage": "Message",
+    "formMessagePlaceholder": "Tell me about your project or inquiry",
+    "formSubmit": "Send Message",
+    "sending": "Sending...",
+    "successMessage": "Your message has been sent successfully!",
+    "errorMessage": "There was an error sending your message. Please try again.",
+    "errorGeneric": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "siteName": "James Marriott",
+    "tagline": "Building the web, one pixel at a time",
+    "navigation": "Navigation",
+    "home": "Home",
+    "aboutMe": "About Me",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "connect": "Connect",
+    "languages": "Languages",
+    "copyright": "All Rights Reserved",
+    "poweredBy": "Powered by"
   }
 }

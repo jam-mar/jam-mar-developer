@@ -6,9 +6,9 @@
     }
   },
   "hero": {
-    "heading": "Hello, I'm asdasdasd",
+    "heading": "Hello, I'm",
     "name": "James Marriott",
-    "subheading": "Full Stack Developer"
+    "title": "Full Stack Developer"
   },
   "about_me_section": {
     "heading": "About Me",
@@ -20,11 +20,13 @@
     ]
   },
   "navigation": {
-    "home": "sdf",
+    "home": "Home",
     "brand": "James Marriott",
-    "work": "Worasdfasdk",
-    "about_me": "About asdfadsfsaMe",
+    "work": "Work",
+    "about_me": "About Me",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "blog": "Blog",
+    "cv": "CV"
   }
 }
