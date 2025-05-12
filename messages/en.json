@@ -12,7 +12,8 @@
     "preTitle": "Hello, I'm",
     "name": "James Marriott",
     "heading": "Full-Stack Developer & UI/UX Designer",
-    "subheading": "Creating beautiful, functional web experiences"
+    "subheading": "Creating beautiful, functional web experiences",
+    "email": "jamesrmarriott@gmail.com"
   },
   "aboutMe": {
     "heading": "About Me",
