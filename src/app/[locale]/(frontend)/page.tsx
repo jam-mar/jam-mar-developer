@@ -1,20 +1,27 @@
+'use client'
+import { FullPageProvider } from '@/context/index'
+import NavBar from '@/components/NavBar'
+import FullPageSections from '@/components/FullPageSections'
 import Hero from '@/sections/Hero'
 import AboutMe from '@/sections/AboutMe'
-// import PayLoadAdmin from '@/sections/PayloadAdmin'
-import React from 'react'
-
+import { useLocale } from 'next-intl'
 import './styles.css'
 import '@/styles/globals.css'
 
-export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  // Await the params promise
-  const { locale } = await params
+const HOME_PAGE_SECTION_IDS = ['hero', 'about', 'projects', 'work', 'contact', 'footer']
+
+export default function HomePage() {
+  const locale = useLocale()
 
   return (
-    <>
-      <Hero locale={locale} />
-      <AboutMe locale={locale} />
-      {/* <PayLoadAdmin locale={locale} /> */}
-    </>
+    <FullPageProvider sectionIds={HOME_PAGE_SECTION_IDS}>
+      <NavBar scrollBehavior={true} /> {/* scrollBehavior for non-fullpage pages */}
+      <main>
+        <FullPageSections sectionIdsProp={HOME_PAGE_SECTION_IDS} locale={locale}>
+          <Hero />
+          <AboutMe />
+        </FullPageSections>
+      </main>
+    </FullPageProvider>
   )
 }
