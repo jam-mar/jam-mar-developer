@@ -1,205 +1,224 @@
 'use client'
-
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import { Menu, X, Download } from 'lucide-react'
-
 import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet'
 import LanguageSelector from '@/components/LanguageSelector'
+import { useFullPage } from '@/context/index'
+
+function SpaSectionNavLinkCtx({
+  targetSectionId,
+  children,
+  onClick,
+}: {
+  targetSectionId: string
+  children: React.ReactNode
+  onClick?: () => void
+}) {
+  const { activeSectionId, navigateToSection, getSectionIds } = useFullPage()
+  const sectionIds = getSectionIds()
+  const isActive =
+    activeSectionId === targetSectionId ||
+    (targetSectionId === sectionIds[0] &&
+      (activeSectionId === '' || activeSectionId === sectionIds[0]))
+
+  const handleClick = (event: React.MouseEvent) => {
+    event.preventDefault()
+    navigateToSection(targetSectionId)
+    if (onClick) onClick()
+  }
+
+  return (
+    <a
+      href={`#${targetSectionId === sectionIds[0] ? '' : targetSectionId}`}
+      onClick={handleClick}
+      className={cn(
+        'text-sm hover:text-foreground hover:underline underline-offset-4 transition-colors ease-in-out px-3 py-2 rounded-md',
+        isActive ? 'text-foreground font-medium underline' : 'text-muted-foreground',
+      )}
+      aria-current={isActive ? 'page' : undefined}
+    >
+      {children}
+    </a>
+  )
+}
 
 export default function NavBar({ scrollBehavior = false }) {
   const pathname = usePathname()
-  const router = useRouter()
   const locale = useLocale()
   const t = useTranslations()
+  const { isFullPageActive, getSectionIds } = useFullPage()
+
+  const SECTION_IDS = getSectionIds()
 
   const [isOpen, setIsOpen] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
   const previousScrollTop = useRef(0)
-  const navBarRef = useRef(null)
+  const navBarRef = useRef<HTMLDivElement | null>(null)
 
-  // Function to prefix links with locale
-  const localizedHref = (path) => `/${locale}${path}`
+  const effectiveScrollBehavior = isFullPageActive ? false : scrollBehavior
 
-  // Handle scroll effects if scrollBehavior is enabled
-  useEffect(() => {
-    if (!scrollBehavior) return
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      setScrollY(currentScrollY)
-
-      if (currentScrollY > previousScrollTop.current) {
-        setIsVisible(false) // Hide when scrolling down
-      } else {
-        setIsVisible(true) // Show when scrolling up
-      }
-
-      previousScrollTop.current = currentScrollY
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [scrollBehavior])
-
-  // Get the current section based on hash or path
-  const getCurrentSection = () => {
-    // If there's a hash in the URL, use that as the current section
-    if (typeof window !== 'undefined' && window.location.hash) {
-      return window.location.hash.substring(1) // Remove the # character
-    }
-
-    // Otherwise use the path
-    const path = pathname?.split('/').pop() || ''
-    return path === '' ? 'home' : path
+  const localizedHref = (path: string): string => {
+    if (path.startsWith('/#')) return `/${locale}${path}`
+    if (path === '/') return `/${locale}`
+    return `/${locale}${path}`
   }
 
-  const currentSection = getCurrentSection()
+  useEffect(() => {
+    if (!effectiveScrollBehavior) {
+      setIsVisible(true)
+      if (navBarRef.current) navBarRef.current.style.transform = ''
+      return
+    }
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const navHeight = navBarRef.current ? navBarRef.current.offsetHeight : 70
+      if (currentScrollY > previousScrollTop.current && currentScrollY > navHeight * 1.2)
+        setIsVisible(false)
+      else if (currentScrollY < previousScrollTop.current) setIsVisible(true)
+      previousScrollTop.current = currentScrollY < 0 ? 0 : currentScrollY
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [effectiveScrollBehavior])
+
+  const navItems = [
+    { id: SECTION_IDS[0], labelKey: 'navigation.home', isRootPageLink: true },
+    { id: SECTION_IDS[1], labelKey: 'navigation.about_me' },
+    { id: SECTION_IDS[2], labelKey: 'navigation.projects' },
+    { id: SECTION_IDS[3], labelKey: 'navigation.contact' },
+    { id: SECTION_IDS[4], labelKey: 'navigation.work' },
+    { id: SECTION_IDS[5], labelKey: 'navigation.footer' },
+  ].slice(0, SECTION_IDS.length)
 
   return (
     <>
-      {/* Main Navigation Bar */}
       <div
         ref={navBarRef}
         className={cn(
-          'border-b z-10 bg-background/80 backdrop-blur-sm transition-transform duration-300',
-          scrollBehavior && 'fixed top-0 left-0 right-0',
-          scrollBehavior && !isVisible && '-translate-y-full',
+          'border-b z-50 bg-background/80 backdrop-blur-sm transition-transform duration-300 w-full',
+          (effectiveScrollBehavior || isFullPageActive) && 'fixed top-0 left-0 right-0',
+          effectiveScrollBehavior && !isVisible && '-translate-y-full',
         )}
       >
         <div className="flex h-16 items-center px-4 container mx-auto">
-          <Link href={localizedHref('/')} className="mr-6 flex items-center space-x-2">
+          <Link href={`/${locale}`} className="mr-6 flex items-center space-x-2">
             <span className="font-bold sm:inline-block">{t('navigation.brand')}</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href={localizedHref('/')} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    {t('navigation.home')}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href={localizedHref('/#about')} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    {t('navigation.about_me')}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href={localizedHref('/#projects')} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    {t('navigation.projects')}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href={localizedHref('/#contact')} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    {t('navigation.contact')}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+              {navItems.map((item) => (
+                <NavigationMenuItem key={item.id}>
+                  {isFullPageActive ? (
+                    <SpaSectionNavLinkCtx targetSectionId={item.id}>
+                      {t(item.labelKey)}
+                    </SpaSectionNavLinkCtx>
+                  ) : (
+                    <Link
+                      href={
+                        item.isRootPageLink ? localizedHref('/') : localizedHref(`/#${item.id}`)
+                      }
+                      passHref
+                      legacyBehavior
+                    >
+                      <NavigationMenuLink
+                        className={cn(
+                          navigationMenuTriggerStyle(),
+                          (item.isRootPageLink &&
+                            (pathname === `/${locale}` || pathname === '/')) ||
+                            (typeof window !== 'undefined' &&
+                              window.location.hash === `#${item.id}`)
+                            ? 'font-medium text-foreground underline'
+                            : 'text-muted-foreground',
+                        )}
+                      >
+                        {t(item.labelKey)}
+                      </NavigationMenuLink>
+                    </Link>
+                  )}
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* Mobile Navigation Trigger */}
+          {/* Mobile Navigation */}
           <div className="md:hidden ml-auto flex items-center">
-            {/* Language Picker for Mobile */}
             <div className="mr-2">
               <LanguageSelector />
             </div>
-
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <button className="p-2 text-foreground focus:outline-none" aria-label="Open menu">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[270px] sm:w-[300px] px-0 z-50">
+              <SheetContent side="right" className="w-[270px] sm:w-[300px] px-0 z-[60]">
                 <div className="px-6 py-4 flex items-center justify-between">
-                  <Link
-                    href={localizedHref('/')}
-                    className="font-bold"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Link href={`/${locale}`} className="font-bold" onClick={() => setIsOpen(false)}>
                     {t('hero.name')}
                   </Link>
-                  <SheetClose className="p-2 rounded-sm opacity-70 focus:outline-none">
-                    <X className="h-4 w-4" />
-                    <span className="sr-only">Close</span>
+                  <SheetClose asChild>
+                    <button className="p-2 rounded-sm opacity-70 focus:outline-none">
+                      <X className="h-4 w-4" />
+                      <span className="sr-only">Close</span>
+                    </button>
                   </SheetClose>
                 </div>
                 <div className="px-6">
                   <nav className="flex flex-col">
-                    <div className="py-3 border-b">
-                      <Link
-                        href={localizedHref('/')}
-                        className="block w-full text-left py-2 hover:text-foreground transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t('navigation.home')}
-                      </Link>
-                    </div>
-
-                    <div className="py-3 border-b">
-                      <Link
-                        href={localizedHref('/#about')}
-                        className="block w-full text-left py-2 hover:text-foreground transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t('navigation.about_me')}
-                      </Link>
-                    </div>
-
-                    <div className="py-3 border-b">
-                      <Link
-                        href={localizedHref('/#projects')}
-                        className="block w-full text-left py-2 hover:text-foreground transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t('navigation.projects')}
-                      </Link>
-                    </div>
-
-                    <div className="py-3 border-b">
-                      <Link
-                        href={localizedHref('/#contact')}
-                        className="block w-full text-left py-2 hover:text-foreground transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t('navigation.contact')}
-                      </Link>
-                    </div>
-
-                    {/* CV Download Button */}
+                    {navItems.map((item) => (
+                      <div key={item.id} className="py-3 border-b">
+                        {isFullPageActive ? (
+                          <SpaSectionNavLinkCtx
+                            targetSectionId={item.id}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {t(item.labelKey)}
+                          </SpaSectionNavLinkCtx>
+                        ) : (
+                          <Link
+                            href={
+                              item.isRootPageLink
+                                ? localizedHref('/')
+                                : localizedHref(`/#${item.id}`)
+                            }
+                            className={cn(
+                              'block w-full text-left py-2 hover:text-foreground transition-colors',
+                              (item.isRootPageLink &&
+                                (pathname === `/${locale}` || pathname === '/')) ||
+                                (typeof window !== 'undefined' &&
+                                  window.location.hash === `#${item.id}`)
+                                ? 'text-foreground font-medium'
+                                : '',
+                            )}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {t(item.labelKey)}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
                     <div className="mt-4 py-2">
-                      <Link
+                      <a
                         href="/assets/developer-cv.pdf"
                         target="_blank"
-                        className="flex items-center space-x-2 py-2 px-3 bg-primary/10 border border-primary/20 text-primary-foreground rounded-md text-sm"
-                        download
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 py-2 px-3 bg-primary/10 border border-primary/20 text-primary rounded-md text-sm" // Adjusted colors for primary accent
                       >
-                        <span>Download CV</span>
+                        <span>{t('navigation.cv')}</span>
                         <Download className="h-4 w-4" />
-                      </Link>
+                      </a>
                     </div>
                   </nav>
                 </div>
@@ -207,14 +226,13 @@ export default function NavBar({ scrollBehavior = false }) {
             </Sheet>
           </div>
 
-          {/* Desktop Right Side - Language Picker and CV */}
           <div className="ml-auto hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <a
               href="/assets/developer-cv.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center space-x-2 py-1.5 px-3 border border-input hover:bg-accent hover:text-accent-foreground rounded-md text-sm transition-colors"
-              download
             >
               <span>{t('navigation.cv')}</span>
               <Download className="h-4 w-4" />
@@ -223,67 +241,18 @@ export default function NavBar({ scrollBehavior = false }) {
         </div>
       </div>
 
-      {/* Optional Floating Navigation for Single Page Applications */}
-      {scrollBehavior && (
-        <div className="fixed top-4 inset-x-0 hidden md:flex justify-center z-50 pointer-events-none">
-          <nav className="flex space-x-4 py-2 px-5 items-center bg-background/45 backdrop-blur-lg rounded-full border border-border/50 shadow-md pointer-events-auto">
-            <a
-              href="#top"
-              className={cn(
-                'size-3 rounded-full transition-colors ease-in-out',
-                currentSection === 'home' ? 'bg-primary' : 'bg-muted hover:bg-muted/80',
-              )}
-              aria-label="Go to top"
-            />
-            <NavLink href="#about" active={currentSection === 'about'}>
-              {t('navigation.about_me')}
-            </NavLink>
-            <NavLink href="#projects" active={currentSection === 'projects'}>
-              {t('navigation.projects')}
-            </NavLink>
-            <NavLink href="#contact" active={currentSection === 'contact'}>
-              {t('navigation.contact')}
-            </NavLink>
-            <Link
-              href="/assets/developer-cv.pdf"
-              target="_blank"
-              className="text-sm border bg-primary/10 border-primary/20 hover:bg-accent hover:text-accent-foreground rounded-md px-2 py-1 flex transition-all duration-200 items-center space-x-1"
-              download
-            >
-              <span>CV</span>
-              <Download className="h-3.5 w-3.5" />
-            </Link>
-          </nav>
-        </div>
-      )}
-
       <div className="fixed top-0 right-0 h-screen hidden lg:flex flex-col justify-end z-40 pointer-events-none">
         <div className="flex flex-col space-y-6 px-5 items-center pb-8 pointer-events-auto">
           <a
             className="text-muted-foreground hover:text-foreground transition-colors"
             style={{ writingMode: 'vertical-rl' }}
-            href="mailto:jamesrmarriott@gmail.com"
+            href={`mailto:${t('hero.email')}`}
           >
-            jamesrmarriott@gmail.com
+            {t('hero.email')}
           </a>
-          <div className="mx-3 h-40 w-px bg-border"></div>
+          <div className="mx-3 h-24 sm:h-40 w-px bg-border"></div>
         </div>
       </div>
     </>
-  )
-}
-
-// Helper component for navigation links
-function NavLink({ href, active, children }) {
-  return (
-    <a
-      href={href}
-      className={cn(
-        'text-sm hover:text-foreground hover:underline underline-offset-4 transition-colors ease-in-out',
-        active ? 'text-foreground underline' : 'text-muted-foreground',
-      )}
-    >
-      {children}
-    </a>
   )
 }

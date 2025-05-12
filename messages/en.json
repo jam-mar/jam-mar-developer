@@ -6,7 +6,10 @@
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact",
-    "cv": "CV"
+    "cv": "CV",
+    "work": "Work",
+    "blog": "Blog",
+    "footer": "Footer"
   },
   "hero": {
     "preTitle": "Hello, I'm",
@@ -39,7 +42,7 @@
       "description": "A cross-platform mobile application built with React Native for both iOS and Android devices."
     }
   },
-  "workExperience": {
+  "work": {
     "heading": "Work Experience",
     "description": "My professional journey in the world of web development.",
     "companyOne": {
