@@ -1,13 +1,11 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'next-intl'
 
-interface HeroProps {
-  locale: string
-}
-
-export default async function Hero({ locale }: HeroProps) {
-  const t = await getTranslations({ locale, namespace: 'hero' })
+export default function Hero() {
+  const t = useTranslations('hero')
 
   return (
     <section className="home">
