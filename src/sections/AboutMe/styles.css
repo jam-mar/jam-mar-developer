@@ -26,6 +26,54 @@
   transform: scale(1.05);
 }
 
+.profile-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 300px;
+}
+
+.profile-image {
+  position: relative;
+  transition:
+    filter 1s ease-out,
+    transform 0.3s ease;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile-image-blur {
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+
+.profile-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.profile-image-container:hover .profile-image-overlay {
+  opacity: 1;
+}
+
+.profile-image-sparkle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 15;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+}
+
 .skills {
   margin-top: 2rem;
 }

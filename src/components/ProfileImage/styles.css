@@ -1,0 +1,84 @@
+.profile-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 300px;
+}
+
+.profile-image {
+  position: relative;
+  transition:
+    filter 1s ease-out,
+    transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.profile-image-blur {
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+
+.profile-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  z-index: 10;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.matrix-code {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  font-family: monospace;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+  cursor: none;
+}
+
+.matrix-code.active {
+  opacity: 1;
+}
+
+.matrix-code-column {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 12px;
+  font-size: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0;
+  opacity: 0.7;
+}
+
+.matrix-code-character {
+  display: block;
+  text-align: center;
+  opacity: 0.1;
+  transform: translateY(0);
+}
+
+.head-character {
+  opacity: 1;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 12px #0f0;
+}
+
+.profile-image-container:hover .profile-image-overlay {
+  opacity: 1;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}

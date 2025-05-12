@@ -1,14 +1,13 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
-import Image from 'next/image'
+import React, { useRef, useEffect, JSX } from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { DynamicIcon, IconName } from '@/components/Icons'
+import ProfileImage from '@/components/ProfileImage'
 import './styles.css'
-import { JSX } from 'react/jsx-runtime'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -124,36 +123,33 @@ export default function AboutMe(): JSX.Element {
   const sectionRef = useRef<HTMLElement | null>(null)
   const headingRef = useRef<HTMLHeadingElement | null>(null)
   const descriptionRef = useRef<HTMLParagraphElement | null>(null)
-  const profileImageRef = useRef<HTMLDivElement | null>(null)
   const skillsHeadingRef = useRef<HTMLHeadingElement | null>(null)
   const skillItemRefs = useRef<Array<HTMLDivElement | null>>([])
-
   const profileDescription =
     'Adaptable Full Stack Developer with extensive experience in building enterprise-level sustainability solutions and a background in project management and education. Proven ability to collaborate effectively in agile teams and deliver performant web applications. Passionate about creating user-focused solutions and leveraging technology for positive impact. Eager team worker committed to continuous learning.'
 
   const skills: Skill[] = [
-    { name: 'TypeScript', iconName: IconName.TYPESCRIPT },
-    { name: 'JavaScript (ES6+)', iconName: IconName.JAVASCRIPT },
-    { name: 'HTML', iconName: IconName.HTML5 },
+    { name: 'Auth0/OAuth', iconName: IconName.AUTH0 },
     { name: 'CSS', iconName: IconName.CSS },
-    { name: 'SQL', iconName: IconName.SQL },
-    { name: 'GraphQL', iconName: IconName.GRAPHQL },
-    { name: 'Python', iconName: IconName.PYTHON },
-    { name: 'React', iconName: IconName.REACT },
-    { name: 'Next.js', iconName: IconName.NEXTJS },
-    { name: 'Node.js', iconName: IconName.NODEJS },
-    { name: 'Flask', iconName: IconName.FLASK },
-    { name: 'PostgreSQL', iconName: IconName.POSTGRESQL },
-    { name: 'MongoDB', iconName: IconName.MONGODB },
-    { name: 'Firebase', iconName: IconName.FIREBASE },
     { name: 'Docker', iconName: IconName.DOCKER },
+    { name: 'Figma', iconName: IconName.FIGMA },
+    { name: 'Firebase', iconName: IconName.FIREBASE },
+    { name: 'Flask', iconName: IconName.FLASK },
+    { name: 'GSAP', iconName: IconName.GSAP },
     { name: 'GitHub Actions', iconName: IconName.GITHUBACTIONS },
     { name: 'Google Cloud', iconName: IconName.GOOGLECLOUD },
+    { name: 'GraphQL', iconName: IconName.GRAPHQL },
+    { name: 'HTML', iconName: IconName.HTML5 },
+    { name: 'JavaScript (ES6+)', iconName: IconName.JAVASCRIPT },
+    { name: 'MongoDB', iconName: IconName.MONGODB },
+    { name: 'Next.js', iconName: IconName.NEXTJS },
+    { name: 'Node.js', iconName: IconName.NODEJS },
+    { name: 'PostgreSQL', iconName: IconName.POSTGRESQL },
     { name: 'Prisma', iconName: IconName.PRISMA },
-    { name: 'Drizzle', iconName: IconName.DRIZZLE },
-    { name: 'Auth0/OAuth', iconName: IconName.AUTH0 },
-    { name: 'Figma', iconName: IconName.FIGMA },
-    { name: 'GSAP', iconName: IconName.GSAP },
+    { name: 'Python', iconName: IconName.PYTHON },
+    { name: 'React', iconName: IconName.REACT },
+    { name: 'SQL', iconName: IconName.SQL },
+    { name: 'TypeScript', iconName: IconName.TYPESCRIPT },
   ]
 
   useEffect(() => {
@@ -164,15 +160,14 @@ export default function AboutMe(): JSX.Element {
     () => {
       if (!sectionRef.current) return
 
-      const allElementsToAnimate = [
+      const elementsToAnimate = [
         headingRef.current,
         descriptionRef.current,
-        profileImageRef.current,
         skillsHeadingRef.current,
         ...skillItemRefs.current.filter(Boolean),
       ].filter(Boolean)
 
-      gsap.set(allElementsToAnimate, {
+      gsap.set(elementsToAnimate, {
         autoAlpha: 0,
         y: 40,
         scale: 0.8,
@@ -204,18 +199,6 @@ export default function AboutMe(): JSX.Element {
           ease: 'back.out(1.4)',
         },
         '-=0.5',
-      )
-
-      mainTl.to(
-        profileImageRef.current,
-        {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          ease: 'back.out(1.7)',
-        },
-        '<',
       )
 
       mainTl.to(
@@ -254,24 +237,15 @@ export default function AboutMe(): JSX.Element {
   )
 
   return (
-    <section
-      className="about-me py-16 md:py-24 bg-background text-foreground"
-      id="about"
-      ref={sectionRef}
-    >
+    <section className="about-me py-16 md:py-24" id="about" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start md:items-center">
-          <div
-            className="about-image md:order-last flex justify-center md:justify-end"
-            ref={profileImageRef}
-          >
-            <Image
-              src={`/images/james.jpeg`}
+          <div className="about-image md:order-last">
+            <ProfileImage
+              src="/images/james.jpg"
               alt={t('profileImageAlt')}
               width={300}
               height={300}
-              className="profile-image rounded-full shadow-lg object-cover aspect-square"
-              priority
             />
           </div>
           <div className="about-content md:col-span-2">
