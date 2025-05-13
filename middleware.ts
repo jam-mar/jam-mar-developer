@@ -1,15 +1,11 @@
 import createMiddleware from 'next-intl/middleware'
+import { routing } from '@/i18n/routing'
 
-export default createMiddleware({
-  locales: ['en', 'nb'],
-  defaultLocale: 'en',
-})
+export default createMiddleware(routing)
 
-// Specify which routes should use the middleware
 export const config = {
   // Match all pathnames except for
-  // - API routes
-  // - Static files
-  // - etc.
-  matcher: ['/((?!api|_next|.*\\..*).*)'],
+  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
 }

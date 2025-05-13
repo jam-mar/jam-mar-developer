@@ -1,36 +1,26 @@
 import '@/styles/globals.css'
-import Navbar from '@/components/NavBar'
 import React from 'react'
-import { NextIntlClientProvider } from 'next-intl'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'James Marriott - Portfolio',
+  keywords: 'James Marriott, Portfolio, Web Developer, Software Engineer',
 }
-export default async function Layout({
+
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ locale: string }>
+  params: unknown
 }) {
-  const localeData = await params
-
-  const { locale } = localeData
+  // TODO: Locale Undefined - FIX
 
   return (
-    <html lang={locale}>
+    <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>
-        <NextIntlClientProvider>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-          </div>
-        </NextIntlClientProvider>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
