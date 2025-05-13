@@ -229,7 +229,7 @@ export default function NavBar({ scrollBehavior = false }) {
           <div className="ml-auto hidden md:flex items-center space-x-4">
             <LanguageSelector />
             <a
-              href="/assets/developer-cv.pdf"
+              href="assets/James Marriott - cv@latest v0.0.1.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 py-1.5 px-3 border border-input hover:bg-accent hover:text-accent-foreground rounded-md text-sm transition-colors"
