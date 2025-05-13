@@ -2,15 +2,9 @@
 
 A portfolio & personal website for Full-Stack Developer James Marriott - Built with NextJS, TypeScript, Tailwind CSS, ShadCN and Three.js. CMS powered by Payload CMS.
 
-## Quick Start - local setup
+## Development
 
 To spin up this template locally, follow these steps:
-
-### Clone
-
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
-
-### Development
 
 1. First [clone the repo](#clone) if you have not done so already
 2. `cd my-project && cp .env.example .env` to copy the example environment variables. I am using SQLite for with[turso](https://payloadcms.com/posts/guides/how-to-set-up-payload-with-sqlite-and-turso-for-deployment-on-vercel)
