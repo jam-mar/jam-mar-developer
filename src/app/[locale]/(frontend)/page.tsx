@@ -15,7 +15,7 @@ export default function HomePage() {
 
   return (
     <FullPageProvider sectionIds={HOME_PAGE_SECTION_IDS}>
-      <NavBar scrollBehavior={true} /> {/* scrollBehavior for non-fullpage pages */}
+      <NavBar scrollBehavior={true} />
       <main>
         <FullPageSections sectionIdsProp={HOME_PAGE_SECTION_IDS} locale={locale}>
           <Hero />

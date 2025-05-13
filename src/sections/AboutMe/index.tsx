@@ -125,8 +125,6 @@ export default function AboutMe(): JSX.Element {
   const descriptionRef = useRef<HTMLParagraphElement | null>(null)
   const skillsHeadingRef = useRef<HTMLHeadingElement | null>(null)
   const skillItemRefs = useRef<Array<HTMLDivElement | null>>([])
-  const profileDescription =
-    'Adaptable Full Stack Developer with extensive experience in building enterprise-level sustainability solutions and a background in project management and education. Proven ability to collaborate effectively in agile teams and deliver performant web applications. Passionate about creating user-focused solutions and leveraging technology for positive impact. Eager team worker committed to continuous learning.'
 
   const skills: Skill[] = [
     { name: 'Auth0/OAuth', iconName: IconName.AUTH0 },
@@ -253,7 +251,7 @@ export default function AboutMe(): JSX.Element {
               {t('heading')}
             </h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed" ref={descriptionRef}>
-              {profileDescription}
+              {t('description')}
             </p>
             <div className="skills">
               <h3 className="text-2xl font-semibold mb-6" ref={skillsHeadingRef}>
