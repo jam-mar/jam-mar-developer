@@ -1,32 +1,116 @@
 {
-  "common": {
-    "languages": {
-      "en": "English",
-      "nb": "Norwegian (Bokmål)"
-    }
+  "navigation": {
+    "brand": "James Marriott",
+    "home": "Hjem",
+    "about_me": "Om Meg",
+    "projects": "Prosjekter",
+    "experience": "Erfaring",
+    "contact": "Kontakt",
+    "cv": "CV",
+    "work": "Arbeid",
+    "blog": "Blogg",
+    "footer": "Bunntekst"
   },
   "hero": {
-    "heading": "Hello, I'm",
+    "preTitle": "Hei, jeg er",
     "name": "James Marriott",
-    "title": "Full Stack Developer"
+    "heading": "Full-Stack Utvikler",
+    "subheading": "Skaper engasjerende, ytelsessterke nettapplikasjoner",
+    "email": "jamesrmarriott@gmail.com"
   },
-  "about_me_section": {
-    "heading": "About Me",
-    "sub_heading": "I am a British full-stack developer, teacher and mentor. I love creating innovative web solutions, helping people learn to code and sharing my knowledge with others. Based in Kristiansand, Norway, I blend technical expertise with a creative approach to problem-solving.",
-    "paragraphs": [
-      "I have extensive experience in both front-end and back-end development, specializing in building responsive, user-friendly web applications using modern frameworks and tools. My technical background allows me to tackle complex challenges across the entire development stack.",
-      "I'm currently open to new opportunities within Norway, the EU, and the UK.",
-      "I am passionate about teaching and mentoring, and I enjoy sharing my knowledge with others. I have experience in leading workshops, giving talks, and mentoring junior developers."
-    ]
+  "aboutMe": {
+    "heading": "Om Meg",
+    "description": "Jeg er en lidenskapelig full-stack utvikler med ekspertise i React, Next.js og moderne nettteknologier. Med et godt øye for design og kjærlighet til ren kode, skaper jeg digitale opplevelser som er både vakre og funksjonelle.",
+    "skillsHeading": "Mine Ferdigheter",
+    "profileImageAlt": "Profilbilde"
   },
-  "navigation": {
-    "home": "Home",
-    "brand": "James Marriott",
-    "work": "Work",
-    "about_me": "About Me",
-    "projects": "Projects",
-    "contact": "Contact",
-    "blog": "Blog",
-    "cv": "CV"
+  "projects": {
+    "heading": "Mine Prosjekter",
+    "description": "Her er noen av prosjektene jeg har jobbet med. Hvert representerer en unik utfordring og læringsopplevelse.",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Kildekode",
+    "projectOne": {
+      "title": "Porteføljenettsted",
+      "description": "Et responsivt porteføljenettsted bygget med Next.js, med GSAP-animasjoner og støtte for flere språk."
+    },
+    "projectTwo": {
+      "title": "E-handelsplattform",
+      "description": "En komplett nettbutikk med brukerautentisering, produktadministrasjon og betalingsbehandling."
+    },
+    "projectThree": {
+      "title": "Mobilapplikasjon",
+      "description": "En kryssplattform mobilapplikasjon bygget med React Native for både iOS- og Android-enheter."
+    }
+  },
+  "work": {
+    "heading": "Arbeidserfaring",
+    "description": "Min profesjonelle reise i verden av nettutvkling.",
+    "companyOne": {
+      "name": "Tech Innovations Inc.",
+      "position": "Senior Front-end Utvikler",
+      "period": "2022 - Nåværende",
+      "description": "Leder front-end utviklingsteamet i å skape innovative nettapplikasjoner.",
+      "achievements": {
+        "one": "Implementerte et nytt komponentbibliotek som reduserte utviklingstiden med 30%",
+        "two": "Optimaliserte nettstedets ytelse, forbedret lastetiden med 40%",
+        "three": "Veiledet juniorutviklere og gjennomførte kodegjennomganger"
+      }
+    },
+    "companyTwo": {
+      "name": "Digital Solutions Ltd.",
+      "position": "Full-Stack Utvikler",
+      "period": "2019 - 2022",
+      "description": "Jobbet med ulike nettprosjekter ved hjelp av React, Node.js og MongoDB.",
+      "achievements": {
+        "one": "Utviklet en kundeportal som forbedret kundetilfredsheten med 25%",
+        "two": "Implementerte CI/CD-pipelines som effektiviserte utrullingsprosesser",
+        "three": "Bidro til open-source prosjekter og delte kunnskap gjennom tekniske foredrag"
+      }
+    },
+    "companyThree": {
+      "name": "Creative Web Agency",
+      "position": "Juniorutvikler",
+      "period": "2017 - 2019",
+      "description": "Startet karrieren min med å jobbe på nettsteder for små bedrifter og startups.",
+      "achievements": {
+        "one": "Bygget responsive nettsteder for over 15 kunder",
+        "two": "Lærte og implementerte moderne JavaScript-rammeverk",
+        "three": "Samarbeidet med designere for å skape sammenhengende brukeropplevelser"
+      }
+    }
+  },
+  "contactMe": {
+    "heading": "Ta Kontakt",
+    "description": "Har du et prosjekt i tankene eller vil du bare slå av en prat? Ikke nøl med å ta kontakt!",
+    "email": "E-post",
+    "phone": "Telefon",
+    "location": "Sted",
+    "formName": "Navn",
+    "formNamePlaceholder": "Skriv inn navnet ditt",
+    "formEmail": "E-post",
+    "formEmailPlaceholder": "Skriv inn e-postadressen din",
+    "formSubject": "Emne",
+    "formSubjectPlaceholder": "Hva gjelder dette?",
+    "formMessage": "Melding",
+    "formMessagePlaceholder": "Fortell meg om prosjektet ditt eller forespørselen",
+    "formSubmit": "Send Melding",
+    "sending": "Sender...",
+    "successMessage": "Meldingen din er sendt!",
+    "errorMessage": "Det oppstod en feil ved sending av meldingen din. Vennligst prøv igjen.",
+    "errorGeneric": "Noe gikk galt. Vennligst prøv igjen."
+  },
+  "footer": {
+    "siteName": "James Marriott",
+    "tagline": "Bygger nettet, én piksel om gangen",
+    "navigation": "Navigasjon",
+    "home": "Hjem",
+    "aboutMe": "Om Meg",
+    "projects": "Prosjekter",
+    "experience": "Erfaring",
+    "contact": "Kontakt",
+    "connect": "Koble til",
+    "languages": "Språk",
+    "copyright": "Alle Rettigheter Reservert",
+    "poweredBy": "Drevet av"
   }
 }
