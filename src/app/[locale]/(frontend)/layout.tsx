@@ -1,9 +1,9 @@
-// app/[locale]/(frontend)/layout.tsx
 import React from 'react'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { getMessages } from 'next-intl/server'
 import Navbar from '@/components/NavBar'
+import Footer from '@/sections/Footer'
 
 export default async function LocaleLayout({
   children,
@@ -28,6 +28,7 @@ export default async function LocaleLayout({
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
+        <Footer />
       </div>
     </NextIntlClientProvider>
   )
