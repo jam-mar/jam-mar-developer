@@ -19,8 +19,8 @@ const LanguageSelector = () => {
   const router = useRouter()
 
   const locales = [
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'nb', name: 'Norsk', flag: '🇳🇴' },
+    { code: 'en', name: 'English' },
+    { code: 'nb', name: 'Norsk' },
   ]
 
   const pathnameWithoutLocale = pathname.split('/').slice(2).join('/')

@@ -185,10 +185,8 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
 
         const y = parseFloat(column.style.top || '-20')
 
-        // Move column down
-        const newY = y + speed / 60 // Approximating 60fps
+        const newY = y + speed / 60
 
-        // Reset if off screen
         if (newY > height) {
           column.style.top = '-20px'
           this.refreshColumnCharacters(column)
@@ -230,8 +228,9 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
   })
 
   useEffect(() => {
+    const currentAnimation = animation.current
     return () => {
-      animation.current.cleanup()
+      currentAnimation.cleanup()
     }
   }, [])
 
