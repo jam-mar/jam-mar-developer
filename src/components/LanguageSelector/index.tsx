@@ -9,8 +9,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu'
-import { navigationMenuTriggerStyle } from '../ui/navigation-menu'
+} from '@/components/ui/dropdown-menu'
+import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
 
 const LanguageSelector = () => {
@@ -18,19 +18,16 @@ const LanguageSelector = () => {
   const pathname = usePathname()
   const router = useRouter()
 
-  // Define available locales and their display names
   const locales = [
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'nb', name: 'Norsk', flag: '🇳🇴' },
   ]
 
-  // Extract the path without the locale prefix - more robust approach
   const pathnameWithoutLocale = pathname.split('/').slice(2).join('/')
 
   const currentLocale = locales.find((l) => l.code === locale) || locales[0]
 
-  // Handle language change
-  const changeLanguage = (newLocale) => {
+  const changeLanguage = (newLocale: string) => {
     const newPath = `/${newLocale}/${pathnameWithoutLocale}`
     router.push(newPath)
   }
