@@ -1,6 +1,6 @@
 'use client'
 
-import React, { JSX } from 'react'
+import React from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -9,7 +9,7 @@ import './styles.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function AboutMe(): JSX.Element {
+export default function AboutMe() {
   const t = useTranslations('aboutMe')
 
   return (
