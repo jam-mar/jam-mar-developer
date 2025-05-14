@@ -25,6 +25,8 @@ export enum IconName {
   THREE = 'three',
   DRIZZLE = 'drizzle',
   GSAP = 'gsap',
+  TAILWIND = 'tailwind',
+  VERCEL = 'vercel',
 }
 
 interface SvgIconProps extends React.ComponentPropsWithoutRef<typeof Image> {
@@ -63,6 +65,8 @@ export const ReactIcon = () => <SvgIcon src="/icons/react.svg" alt="React" />
 export const SqlIcon = () => <SvgIcon src="/icons/sql.svg" alt="SQL" />
 export const TypeScriptIcon = () => <SvgIcon src="/icons/typescript.svg" alt="TypeScript" />
 export const ThreeJSIcon = () => <SvgIcon src="/icons/threejs.svg" alt="Three.js" />
+export const TailwindIcon = () => <SvgIcon src="/icons/tailwind.svg" alt="Tailwind CSS" />
+export const VercelIcon = () => <SvgIcon src="/icons/vercel.svg" alt="Vercel" />
 
 const iconMap: Record<IconName, React.FC> = {
   [IconName.AUTH0]: Auth0Icon,
@@ -88,6 +92,8 @@ const iconMap: Record<IconName, React.FC> = {
   [IconName.SQL]: SqlIcon,
   [IconName.TYPESCRIPT]: TypeScriptIcon,
   [IconName.THREE]: ThreeJSIcon,
+  [IconName.TAILWIND]: TailwindIcon,
+  [IconName.VERCEL]: VercelIcon,
 }
 
 interface DynamicIconProps {
@@ -113,6 +119,35 @@ export const DynamicIcon: React.FC<DynamicIconProps> = ({ name, size, className,
   const Icon = iconMap[iconKey] || (() => null)
 
   return <Icon {...props} />
+}
+
+interface TechIconProps {
+  iconName: IconName | keyof typeof IconName
+  name: string
+  href?: string
+}
+
+export const TechIcon: React.FC<TechIconProps> = ({ iconName, name, href }) => {
+  const IconComponent = () => <DynamicIcon name={iconName} />
+
+  const content = (
+    <div
+      className="p-1.5 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors flex items-center justify-center"
+      title={name}
+    >
+      <IconComponent />
+    </div>
+  )
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={name}>
+        {content}
+      </a>
+    )
+  }
+
+  return content
 }
 
 export default DynamicIcon
