@@ -44,9 +44,8 @@ const FullPageSections = ({
       setIsFullPageActive(false)
     }
   }, [setIsFullPageActive])
-
   const scrollToSectionById = useCallback(
-    (id: string, animDuration = 0.75) => {
+    (id: string, useTransition = false) => {
       const stInstance = mainScrollTriggerRef.current
       const panels = sectionRefs.current.map((ref) => ref.current).filter(Boolean)
       const numActualPanels = panels.length
@@ -80,6 +79,7 @@ const FullPageSections = ({
         console.warn(
           `FullPageSections: Target index ${targetIndex} is out of bounds for ${numActualPanels} panels.`,
         )
+        return
       }
 
       let targetScrollY
@@ -90,29 +90,87 @@ const FullPageSections = ({
         targetScrollY = stInstance.start
       }
 
-      const wasSnapEnabled = stInstance.vars.snap
-      if (stInstance.vars.snap) stInstance.vars.snap = undefined
+      const originalSnapConfig = stInstance.vars.snap
 
-      gsap.to(window, {
-        scrollTo: { y: targetScrollY, autoKill: true },
-        duration: animDuration,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          if (wasSnapEnabled && stInstance.vars) stInstance.vars.snap = wasSnapEnabled
+      stInstance.vars.snap = undefined
 
-          const currentPanel = panels[targetIndex]
-          if (currentPanel) {
-            const idToSetActive = targetIndex === 0 ? resolvedSectionIds[0] : currentPanel.id
-            setActiveSectionIdDirectly(idToSetActive)
+      ScrollTrigger.getAll().forEach((st) => st.disable(false, false))
+
+      if (!useTransition) {
+        window.scrollTo(0, targetScrollY)
+
+        const currentPanel = panels[targetIndex]
+        if (currentPanel) {
+          const idToSetActive = targetIndex === 0 ? resolvedSectionIds[0] : currentPanel.id
+          setActiveSectionIdDirectly(idToSetActive)
+        }
+
+        setTimeout(() => {
+          ScrollTrigger.getAll().forEach((st) => st.enable())
+
+          if (stInstance && stInstance.vars) {
+            stInstance.vars.snap = originalSnapConfig
           }
-        },
-        onInterrupt: () => {
-          if (wasSnapEnabled && stInstance.vars) stInstance.vars.snap = wasSnapEnabled
-        },
-      })
+
+          updatePanelPositions(targetIndex)
+
+          ScrollTrigger.refresh()
+        }, 50)
+      } else {
+        gsap.to(window, {
+          scrollTo: { y: targetScrollY, autoKill: true },
+          duration: 0.75,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            const currentPanel = panels[targetIndex]
+            if (currentPanel) {
+              const idToSetActive = targetIndex === 0 ? resolvedSectionIds[0] : currentPanel.id
+              setActiveSectionIdDirectly(idToSetActive)
+            }
+
+            setTimeout(() => {
+              ScrollTrigger.getAll().forEach((st) => st.enable())
+              if (stInstance && stInstance.vars) {
+                stInstance.vars.snap = originalSnapConfig
+              }
+              ScrollTrigger.refresh()
+            }, 50)
+          },
+          onInterrupt: () => {
+            ScrollTrigger.getAll().forEach((st) => st.enable())
+            if (stInstance && stInstance.vars) {
+              stInstance.vars.snap = originalSnapConfig
+            }
+          },
+        })
+      }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [mainScrollTriggerRef, resolvedSectionIds, sectionRefs, setActiveSectionIdDirectly],
   )
+  useEffect(() => {
+    if (targetSectionNav !== null) {
+      scrollToSectionById(targetSectionNav, false)
+      setTargetSectionNav(null)
+    }
+  }, [targetSectionNav, scrollToSectionById, setTargetSectionNav])
+  const updatePanelPositions = useCallback((activeIndex: number) => {
+    const panels = sectionRefs.current.map((ref) => ref.current).filter(Boolean)
+    if (panels.length === 0) return
+
+    panels.forEach((panel, i) => {
+      if (i < activeIndex) {
+        gsap.set(panel, { xPercent: -100 })
+        gsap.set(panel.children, { autoAlpha: 0, x: -50 })
+      } else if (i === activeIndex) {
+        gsap.set(panel, { xPercent: 0 })
+        gsap.set(panel.children, { autoAlpha: 1, x: 0 })
+      } else {
+        gsap.set(panel, { xPercent: 100 })
+        gsap.set(panel.children, { autoAlpha: 0, x: 50 })
+      }
+    })
+  }, [])
 
   useEffect(() => {
     if (targetSectionNav !== null) {
@@ -220,7 +278,7 @@ const FullPageSections = ({
       ) {
         const targetIdx = resolvedSectionIds.indexOf(initialTargetFromContext)
         if (targetIdx < numActualPanels) {
-          scrollToSectionById(initialTargetFromContext, 0.01)
+          scrollToSectionById(initialTargetFromContext, false)
           setTargetSectionNav(null)
         } else {
           setActiveSectionIdDirectly(resolvedSectionIds[0])

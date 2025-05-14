@@ -1,8 +1,6 @@
 'use client'
 import React, { createContext, useState, useContext, useCallback, useEffect } from 'react'
-
-const DEFAULT_SECTION_IDS = ['hero', 'about', 'projects', 'work', 'contact']
-
+import { DEFAULT_SECTION_IDS } from '@/constants/index'
 interface FullPageContextState {
   activeSectionId: string
   setActiveSectionIdDirectly: (id: string) => void

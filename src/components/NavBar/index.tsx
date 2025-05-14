@@ -15,6 +15,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet'
 import LanguageSelector from '@/components/LanguageSelector'
 import { useFullPage } from '@/context/index'
+import { navItems, DEFAULT_SECTION_IDS } from '@/constants/index'
 
 function SpaSectionNavLinkCtx({
   targetSectionId,
@@ -25,12 +26,12 @@ function SpaSectionNavLinkCtx({
   children: React.ReactNode
   onClick?: () => void
 }) {
-  const { activeSectionId, navigateToSection, getSectionIds } = useFullPage()
-  const sectionIds = getSectionIds()
+  const { activeSectionId, navigateToSection } = useFullPage()
+
   const isActive =
     activeSectionId === targetSectionId ||
-    (targetSectionId === sectionIds[0] &&
-      (activeSectionId === '' || activeSectionId === sectionIds[0]))
+    (targetSectionId === DEFAULT_SECTION_IDS[0] &&
+      (activeSectionId === '' || activeSectionId === DEFAULT_SECTION_IDS[0]))
 
   const handleClick = (event: React.MouseEvent) => {
     event.preventDefault()
@@ -40,7 +41,7 @@ function SpaSectionNavLinkCtx({
 
   return (
     <a
-      href={`#${targetSectionId === sectionIds[0] ? '' : targetSectionId}`}
+      href={`#${targetSectionId === DEFAULT_SECTION_IDS[0] ? '' : targetSectionId}`}
       onClick={handleClick}
       className={cn(
         'text-sm hover:text-foreground hover:underline underline-offset-4 transition-colors ease-in-out px-3 py-2 rounded-md',
@@ -57,9 +58,7 @@ export default function NavBar({ scrollBehavior = false }) {
   const pathname = usePathname()
   const locale = useLocale()
   const t = useTranslations()
-  const { isFullPageActive, getSectionIds } = useFullPage()
-
-  const SECTION_IDS = getSectionIds()
+  const { isFullPageActive } = useFullPage()
 
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
@@ -91,15 +90,6 @@ export default function NavBar({ scrollBehavior = false }) {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [effectiveScrollBehavior])
-
-  const navItems = [
-    { id: SECTION_IDS[0], labelKey: 'navigation.home', isRootPageLink: true },
-    { id: SECTION_IDS[1], labelKey: 'navigation.about_me' },
-    { id: SECTION_IDS[2], labelKey: 'navigation.projects' },
-    { id: SECTION_IDS[3], labelKey: 'navigation.contact' },
-    { id: SECTION_IDS[4], labelKey: 'navigation.work' },
-    { id: SECTION_IDS[5], labelKey: 'navigation.footer' },
-  ].slice(0, SECTION_IDS.length)
 
   return (
     <>
