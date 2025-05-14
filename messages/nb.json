@@ -2,11 +2,12 @@
   "navigation": {
     "brand": "James Marriott",
     "home": "Hjem",
-    "about_me": "Om Meg",
+    "about_me": "Om",
     "projects": "Prosjekter",
     "experience": "Erfaring",
     "contact": "Kontakt",
     "cv": "CV",
+    "tech": "Teknologi",
     "work": "Arbeid",
     "blog": "Blogg",
     "footer": "Bunntekst"
@@ -20,9 +21,15 @@
   },
   "aboutMe": {
     "heading": "Om Meg",
-    "description": "Jeg er en lidenskapelig full-stack utvikler med ekspertise i React, Next.js og moderne nettteknologier. Med et godt øye for design og kjærlighet til ren kode, skaper jeg digitale opplevelser som er både vakre og funksjonelle.",
+    "description": "Jeg er en britisk full-stack utvikler, lærer og mentor. Jeg elsker å skape innovative nett-løsninger, hjelpe folk med å lære å kode og dele min kunnskap med andre. Basert i Kristiansand, Norge, kombinerer jeg teknisk ekspertise med en kreativ tilnærming til problemløsning. Jeg har omfattende erfaring innen både front-end og back-end utvikling, med spesialisering i å bygge responsive, brukervennlige nettapplikasjoner ved hjelp av moderne rammeverk og verktøy. Min tekniske bakgrunn gjør at jeg kan takle komplekse utfordringer på hele utviklingsstakken. Jeg er for tiden åpen for nye muligheter innen Norge, EU og Storbritannia. Jeg brenner for undervisning og veiledning, og jeg liker å dele min kunnskap med andre. Jeg har erfaring med å lede workshops, holde foredrag og veilede juniorutviklere.",
     "skillsHeading": "Mine Ferdigheter",
     "profileImageAlt": "Profilbilde"
+  },
+  "tech": {
+    "heading": "About Me",
+    "description": "I'm a passionate full-stack developer with expertise in React, Next.js, and modern web technologies. With a keen eye for design and a love for clean code, I create digital experiences that are both beautiful and functional.",
+    "skillsHeading": "My Skills",
+    "profileImageAlt": "Profile photo"
   },
   "projects": {
     "heading": "Mine Prosjekter",
@@ -79,7 +86,7 @@
       }
     }
   },
-  "contactMe": {
+  "contact": {
     "heading": "Ta Kontakt",
     "description": "Har du et prosjekt i tankene eller vil du bare slå av en prat? Ikke nøl med å ta kontakt!",
     "email": "E-post",

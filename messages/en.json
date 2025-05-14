@@ -2,11 +2,12 @@
   "navigation": {
     "brand": "James Marriott",
     "home": "Home",
-    "about_me": "About Me",
+    "about_me": "About",
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact",
     "cv": "CV",
+    "tech": "Tech",
     "work": "Work",
     "blog": "Blog",
     "footer": "Footer"
@@ -20,7 +21,17 @@
   },
   "aboutMe": {
     "heading": "About Me",
-    "description": "I'm a passionate full-stack developer with expertise in React, Next.js, and modern web technologies. With a keen eye for design and a love for clean code, I create digital experiences that are both beautiful and functional.",
+    "description": "I am a British full-stack developer, teacher and mentor. I love creating innovative web solutions, helping people learn to code and sharing my knowledge with others. Based in Kristiansand, Norway, I blend technical expertise with a creative approach to problem-solving. I have extensive experience in both front-end and back-end development, specializing in building responsive, user-friendly web applications using modern frameworks and tools. My technical background allows me to tackle complex challenges across the entire development stack. I'm currently open to new opportunities within Norway, the EU, and the UK. I am passionate about teaching and mentoring, and I enjoy sharing my knowledge with others. I have experience in leading workshops, giving talks, and mentoring junior developers.",
+    "skillsHeading": "My Skills",
+    "profileImageAlt": "Profile photo"
+  },
+  "expertise": {
+    "heading": "My Expertise",
+    "description": "Are you in need of a pragmatic enthusiast to drive your project forward? Fluent in the languages of engineering and aesthetics, I'm uniquely equipped to chart a couse for a practical product that prioritizes the customer's experience. My forte is full-stack development and devops engineering, and I'm committed to choosing the most fitting tools for each project, whether it's a robust framework or the latest web innovations. I understand that the key lies not only in impressive interfaces and blazing performance but also in striking a harmonious balance between sustainable implementation and user-centric functionality. Let's collaborate to bring your project to life."
+  },
+  "tech": {
+    "heading": "Tech",
+    "description": "These are just some of the technologies I am familiar with.",
     "skillsHeading": "My Skills",
     "profileImageAlt": "Profile photo"
   },
@@ -79,25 +90,34 @@
       }
     }
   },
-  "contactMe": {
-    "heading": "Get In Touch",
+  "contact": {
+    "availability": "I am currently available for freelance work and new opportunities.",
+    "cta": "Contact Me",
     "description": "Have a project in mind or want to chat? Feel free to reach out!",
-    "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
-    "formName": "Name",
-    "formNamePlaceholder": "Enter your name",
+    "email": "jamesrmariott@gmail.com",
+    "emailLabel": "Email",
+    "emailMe": "Email Me",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "errorMessage": "There was an error sending your message. Please try again.",
     "formEmail": "Email",
     "formEmailPlaceholder": "Enter your email",
-    "formSubject": "Subject",
-    "formSubjectPlaceholder": "What is this about?",
     "formMessage": "Message",
     "formMessagePlaceholder": "Tell me about your project or inquiry",
+    "formName": "Name",
+    "formNamePlaceholder": "Enter your name",
+    "formSubject": "Subject",
+    "formSubjectPlaceholder": "What is this about?",
     "formSubmit": "Send Message",
+    "heading": "Get In Touch",
+    "location": "Location",
+    "mailto": "mailto:jamesrmariott@gmail.com",
+    "phone": "Phone",
+    "phoneLink": "tel:+4794511284",
+    "phoneLabel": "Call Me",
+    "phoneNumber": "+47 945 11 284",
     "sending": "Sending...",
-    "successMessage": "Your message has been sent successfully!",
-    "errorMessage": "There was an error sending your message. Please try again.",
-    "errorGeneric": "Something went wrong. Please try again."
+    "socialsLabel": "Socials",
+    "successMessage": "Your message has been sent successfully!"
   },
   "footer": {
     "siteName": "James Marriott",
