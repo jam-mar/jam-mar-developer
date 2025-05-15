@@ -131,8 +131,8 @@
       },
       "company2": {
         "name": "Oslo Nye Fagskole",
-        "position": "Webutviklingsinstruktør",
-        "period": "2019 - 2021",
+        "position": "Webutviklingsinstruktør (Deltid)",
+        "period": "2024 - Nåværende",
         "shortDescription": "Underviser i grunnleggende webutvikling for studenter",
         "description": "Utviklet og leverte læreplan for moderne webutviklingspraksis, med fokus på praktiske ferdigheter og bransje-relevante teknologier.",
         "location": "Oslo, Norge",
@@ -144,9 +144,9 @@
         }
       },
       "company3": {
-        "name": "Digital Frilansmedarbeider",
+        "name": "Frilans Webutvikler",
         "position": "Webutvikler",
-        "period": "2016 - 2019",
+        "period": "2019 - 2021",
         "shortDescription": "Bygging av nettsider og webapplikasjoner for kunder",
         "description": "Jobbet direkte med kunder for å designe og utvikle skreddersydde nettsider og webapplikasjoner tilpasset deres spesifikke behov og forretningsmål.",
         "location": "Fjernjobb",
@@ -262,7 +262,7 @@
             "content": "Bygget med Next.js, React og GSAP for animasjoner. Fokusert på ytelse, tilgjengelighet og responsivt design."
           }
         ],
-        "screenshots": ["/images/projects/portfolio/screenshot001.webp"],
+        "screenshots": ["/images/projects/portfolio/screenshot1.png"],
         "liveUrl": "https://www.yourportfolio.com/",
         "techStack": [
           {

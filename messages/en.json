@@ -131,8 +131,8 @@
       },
       "company2": {
         "name": "Oslo Nye Fagskole",
-        "position": "Web Development Instructor",
-        "period": "2019 - 2021",
+        "position": "Web Development Instructor (Part-time)",
+        "period": "2024 - Present",
         "shortDescription": "Teaching web development fundamentals to students",
         "description": "Developed and delivered curriculum on modern web development practices, with a focus on practical skills and industry-relevant technologies.",
         "location": "Oslo, Norway",
@@ -144,9 +144,9 @@
         }
       },
       "company3": {
-        "name": "Digital Freelancer",
+        "name": "Freelance",
         "position": "Web Developer",
-        "period": "2016 - 2019",
+        "period": "2019 - 2021",
         "shortDescription": "Building websites and web applications for clients",
         "description": "Worked directly with clients to design and develop custom websites and web applications tailored to their specific needs and business goals.",
         "location": "Remote",
@@ -197,10 +197,7 @@
             "content": "The current development roadmap focuses on three core areas for scaling: 1) Expanding the project library through an optimized content creation pipeline, 2) Implementing a partner API to allow third-party designers to contribute projects and receive revenue share, and 3) Developing logistics optimization for the physical product distribution to support international expansion. The system architecture has been designed to support 10x growth with minimal refactoring."
           }
         ],
-        "screenshots": [
-          "/images/projects/woodforgood/screenshot001.webp",
-          "/images/projects/woodforgood/screenshot002.webp"
-        ],
+        "screenshots": ["/images/projects/woodforgood/logo.png"],
         "liveUrl": "https://www.woodforgood.com/",
         "techStack": [
           {
@@ -262,7 +259,7 @@
             "content": "Built with Next.js, React, and GSAP for animations. Focused on performance, accessibility, and responsive design."
           }
         ],
-        "screenshots": ["/images/projects/portfolio/screenshot001.webp"],
+        "screenshots": ["/images/projects/portfolio/screenshot1.png"],
         "liveUrl": "https://www.yourportfolio.com/",
         "techStack": [
           {
