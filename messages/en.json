@@ -55,44 +55,74 @@
   },
   "work": {
     "heading": "Work Experience",
-    "description": "My professional journey in the world of web development.",
-    "companyOne": {
-      "name": "Tech Innovations Inc.",
-      "position": "Senior Front-end Developer",
-      "period": "2022 - Present",
-      "description": "Leading the front-end development team in creating innovative web applications.",
-      "achievements": {
-        "one": "Implemented a new component library that reduced development time by 30%",
-        "two": "Optimized site performance, improving load times by 40%",
-        "three": "Mentored junior developers and conducted code reviews"
-      }
-    },
-    "companyTwo": {
-      "name": "Digital Solutions Ltd.",
-      "position": "Full-Stack Developer",
-      "period": "2019 - 2022",
-      "description": "Worked on various web projects using React, Node.js, and MongoDB.",
-      "achievements": {
-        "one": "Developed a customer portal that improved client satisfaction by 25%",
-        "two": "Implemented CI/CD pipelines that streamlined deployment processes",
-        "three": "Contributed to open-source projects and shared knowledge through tech talks"
-      }
-    },
-    "companyThree": {
-      "name": "Creative Web Agency",
-      "position": "Junior Developer",
-      "period": "2017 - 2019",
-      "description": "Started my career working on websites for small businesses and startups.",
-      "achievements": {
-        "one": "Built responsive websites for over 15 clients",
-        "two": "Learned and implemented modern JavaScript frameworks",
-        "three": "Collaborated with designers to create cohesive user experiences"
+    "companies": {
+      "company1": {
+        "name": "Tech Innovations Ltd",
+        "position": "Senior Frontend Developer",
+        "period": "Mar 2021 - Present",
+        "shortDescription": "Leading the frontend team in developing and maintaining web applications",
+        "description": "As a Senior Frontend Developer at Tech Innovations, I lead a team of developers in building and maintaining responsive, high-performance web applications that serve thousands of users daily.",
+        "sections": {
+          "responsibilities": {
+            "title": "Key Responsibilities",
+            "content": "I lead the frontend architecture decisions, mentor junior developers, collaborate with design teams, and ensure code quality through code reviews and automated testing."
+          },
+          "achievements": {
+            "title": "Major Achievements",
+            "content": "Reduced page load times by 40% through optimization techniques, implemented a component library that improved developer productivity by 25%, and led the migration from a legacy system to a modern React-based architecture."
+          },
+          "modernization": {
+            "title": "Tech Stack Modernization",
+            "content": "Introduced TypeScript, React Testing Library, and Storybook to improve code quality and developer experience. Implemented CI/CD pipelines that reduced deployment time from hours to minutes."
+          }
+        }
+      },
+      "company2": {
+        "name": "Digital Solutions Inc.",
+        "position": "Full Stack Developer",
+        "period": "Jun 2018 - Feb 2021",
+        "shortDescription": "Developed full-stack applications for enterprise clients",
+        "description": "At Digital Solutions Inc., I worked on a variety of projects for enterprise clients, developing full-stack applications with a focus on user experience and performance.",
+        "sections": {
+          "highlights": {
+            "title": "Project Highlights",
+            "content": "Developed a customer portal for a major healthcare provider that streamlined patient appointment scheduling. Created an internal dashboard for a financial institution that provided real-time analytics."
+          },
+          "collaboration": {
+            "title": "Cross-Functional Collaboration",
+            "content": "Worked closely with UX designers, product managers, and backend engineers to deliver cohesive solutions that met client needs while adhering to technical constraints."
+          },
+          "integration": {
+            "title": "Backend Integration",
+            "content": "Integrated multiple third-party APIs and services, implementing robust error handling and data validation to ensure system reliability."
+          }
+        }
+      },
+      "company3": {
+        "name": "Startup Ventures",
+        "position": "Frontend Developer",
+        "period": "Sep 2016 - May 2018",
+        "shortDescription": "Developed responsive web applications for various startup projects",
+        "description": "I joined Startup Ventures as an early employee and played a key role in developing the frontend architecture for multiple startup projects.",
+        "sections": {
+          "environment": {
+            "title": "Startup Environment",
+            "content": "Worked in a fast-paced environment where I gained experience across the entire development lifecycle, from initial concept to deployment and maintenance."
+          },
+          "design": {
+            "title": "Responsive Design",
+            "content": "Created responsive designs that worked seamlessly across desktop, tablet, and mobile devices, improving user engagement and satisfaction."
+          },
+          "optimization": {
+            "title": "Performance Optimization",
+            "content": "Implemented performance optimizations that improved page load times and overall application responsiveness, resulting in higher user retention."
+          }
+        }
       }
     }
   },
   "contact": {
     "availability": "I am currently available for freelance work and new opportunities.",
-    "cta": "Contact Me",
     "description": "Have a project in mind or want to chat? Feel free to reach out!",
     "email": "jamesrmariott@gmail.com",
     "emailLabel": "Email",

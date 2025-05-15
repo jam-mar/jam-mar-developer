@@ -22,15 +22,6 @@ const SocialsComponent = () => {
       >
         <Linkedin size={20} />
       </a>
-      <a
-        href="https://twitter.com/yourusername"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-white transition-colors"
-        aria-label="Twitter"
-      >
-        <Twitter size={20} />
-      </a>
     </>
   )
 }
