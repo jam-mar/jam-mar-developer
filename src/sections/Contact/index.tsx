@@ -4,7 +4,6 @@ import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useTranslations } from 'next-intl'
-import { ArrowUpRight } from 'lucide-react'
 import SocialsComponent from '@/components/Socials'
 import { useFullPage } from '@/context/index'
 

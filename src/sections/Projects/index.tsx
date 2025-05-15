@@ -39,57 +39,45 @@ export default function Projects() {
   const t = useTranslations('projects')
   const { activeSectionId } = useFullPage()
 
-  // State for modal
   const [activeProject, setActiveProject] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [hoverTarget, setHoverTarget] = useState('')
+  const [, setHoverTarget] = useState('')
 
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const projectRefs = useRef([])
-  const timelineRef = useRef(null)
+  const timelineRef = useRef<GSAPTimeline | null>(null)
 
-  // Get projects from translations
   const projects = t.raw('projects') || []
 
   useEffect(() => {
-    // Initialize refs arrays with the correct length
     projectRefs.current = projectRefs.current.slice(0, projects.length)
   }, [projects.length])
 
-  // Modal opening function - sets the active project and opens the modal
-  const openProjectModal = (projectId) => {
-    const project = projects.find((p) => p.id === projectId)
+  const openProjectModal = (projectId: unknown) => {
+    const project = projects.find((p: { id: unknown }) => p.id === projectId)
     if (project) {
       setActiveProject(project)
       setIsModalOpen(true)
-      // Prevent scrolling on body when modal is open
       document.body.classList.add('modal-open')
     }
   }
 
-  // Modal closing function
   const closeProjectModal = () => {
     setIsModalOpen(false)
-    // Re-enable scrolling on body
     document.body.classList.remove('modal-open')
-    // Clear the active project after animation completes
     setTimeout(() => setActiveProject(null), 300)
   }
 
-  // Create GSAP animations using useGSAP but keep them paused
   useGSAP(
     () => {
       if (!sectionRef.current) return
 
-      // Create a master timeline that will be controlled via the activeSectionId
       const masterTimeline = gsap.timeline({ paused: true })
       timelineRef.current = masterTimeline
 
-      // Reset any existing animations
       gsap.killTweensOf([headingRef.current, ...projectRefs.current.filter(Boolean)])
 
-      // Set initial states
       gsap.set(headingRef.current, {
         autoAlpha: 0,
         y: 30,
@@ -100,10 +88,8 @@ export default function Projects() {
         y: 50,
       })
 
-      // Determine if we're in mobile view
       const isMobile = window.innerWidth < 768
 
-      // Add animations to the master timeline
       masterTimeline
         .to(headingRef.current, {
           autoAlpha: 1,
@@ -111,7 +97,7 @@ export default function Projects() {
           duration: 0.6,
           ease: 'power2.out',
         })
-        // Animate project cards with stagger
+
         .to(
           projectRefs.current.filter(Boolean),
           {
@@ -136,18 +122,14 @@ export default function Projects() {
     { scope: sectionRef, dependencies: [projects.length] },
   )
 
-  // Watch for section ID changes to play animation
   useEffect(() => {
     const isActive = activeSectionId === 'projects'
 
     if (isActive && timelineRef.current) {
-      // Play animation when section becomes active
       timelineRef.current.restart()
     } else if (!isActive && timelineRef.current) {
-      // Reset animation when section becomes inactive
       timelineRef.current.pause(0)
 
-      // Reset elements to initial state
       gsap.set(headingRef.current, {
         autoAlpha: 0,
         y: 30,
@@ -176,59 +158,81 @@ export default function Projects() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {projects.map((project, index) => (
-                <div
-                  key={project.id}
-                  id={project.id}
-                  className="transition-all duration-300 hover:translate-y-[-4px]"
-                  ref={(el) => {
-                    projectRefs.current[index] = el
-                  }}
-                >
-                  <ExperienceCard
-                    workInProgress={project.isWip}
-                    onClick={() => openProjectModal(project.id)}
-                    onMouseOver={() => setHoverTarget(project.id)}
-                    onMouseLeave={() => setHoverTarget('')}
-                    logoSlot={
-                      <div className="relative w-full h-full flex items-center justify-center">
-                        <Image
-                          src={project.logoSrc}
-                          alt={`${project.title} Logo`}
-                          width={50}
-                          height={50}
-                          className="object-contain"
-                        />
-                        {project.isWip && (
-                          <Badge className="absolute -top-2 -right-2 px-1.5 py-0.5 h-auto bg-emerald-500 text-xs">
-                            Current
-                          </Badge>
-                        )}
-                      </div>
-                    }
-                    techSlot={
-                      <>
-                        {project.techStack &&
-                          project.techStack
-                            .slice(0, 5)
-                            .map((tech, techIndex) => (
-                              <TechIcon
-                                key={techIndex}
-                                iconName={tech.iconName as IconName}
-                                name={tech.name}
-                                href={tech.href}
-                              />
-                            ))}
-                        {project.techStack && project.techStack.length > 5 && (
-                          <Badge variant="outline">+{project.techStack.length - 5}</Badge>
-                        )}
-                      </>
-                    }
+              {projects.map(
+                (
+                  project: {
+                    id?: string
+                    isWip?: boolean
+                    logoSrc?: string
+                    title: string
+                    techStack?: string
+                    subtitle?: string
+                    period?: string
+                    role?: string
+                    shortDescription?: string | undefined
+                  },
+                  index: string | number,
+                ) => (
+                  <div
+                    key={project.id}
+                    id={project.id}
+                    className="transition-all duration-300 hover:translate-y-[-4px]"
+                    ref={(el) => {
+                      projectRefs.current[index] = el
+                    }}
                   >
-                    <ProjectCardContent project={project} />
-                  </ExperienceCard>
-                </div>
-              ))}
+                    <ExperienceCard
+                      workInProgress={project.isWip}
+                      onClick={() => openProjectModal(project.id)}
+                      onMouseOver={() => setHoverTarget(project.id)}
+                      onMouseLeave={() => setHoverTarget('')}
+                      logoSlot={
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <Image
+                            src={project.logoSrc}
+                            alt={`${project.title} Logo`}
+                            width={50}
+                            height={50}
+                            className="object-contain"
+                          />
+                          {project.isWip && (
+                            <Badge className="absolute -top-2 -right-2 px-1.5 py-0.5 h-auto bg-emerald-500 text-xs">
+                              Current
+                            </Badge>
+                          )}
+                        </div>
+                      }
+                      techSlot={
+                        <>
+                          {project.techStack &&
+                            project.techStack.slice(0, 5).map(
+                              (
+                                tech: {
+                                  iconName: IconName
+                                  name: string | undefined
+                                  href: string | undefined
+                                },
+                                techIndex: React.Key | null | undefined,
+                              ) => (
+                                <TechIcon
+                                  key={techIndex}
+                                  iconName={tech.iconName as IconName}
+                                  name={tech.name}
+                                  href={tech.href}
+                                />
+                              ),
+                            )}
+                          {project.techStack && project.techStack.length > 5 && (
+                            <Badge variant="outline">+{project.techStack.length - 5}</Badge>
+                          )}
+                        </>
+                      }
+                    >
+                      <ProjectCardContent project={project} />
+                    </ExperienceCard>
+                  </div>
+                ),
+              )}
             </div>
           </div>
         </div>

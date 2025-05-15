@@ -11,10 +11,9 @@ interface WorkData {
 
 interface WorkCardContentProps {
   work: WorkData
-  t: any
 }
 
-const WorkCardContent = ({ work, t }: WorkCardContentProps) => {
+const WorkCardContent = ({ work }: WorkCardContentProps) => {
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">

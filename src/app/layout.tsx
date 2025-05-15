@@ -8,13 +8,10 @@ export const metadata = {
 
 export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode
   params: unknown
 }) {
-  // TODO: Locale Undefined - FIX
-
   return (
     <html lang="en">
       <head>

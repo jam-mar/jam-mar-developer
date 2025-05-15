@@ -103,12 +103,11 @@ const iconMap: Record<IconName, React.FC> = {
 
 interface DynamicIconProps {
   name: IconName | keyof typeof IconName
-  size?: number | string
   className?: string
   [key: string]: unknown
 }
 
-export const DynamicIcon: React.FC<DynamicIconProps> = ({ name, size, className, ...props }) => {
+export const DynamicIcon: React.FC<DynamicIconProps> = ({ name, ...props }) => {
   let iconKey: IconName
 
   if (typeof name === 'string') {

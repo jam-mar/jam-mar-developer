@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { ExternalLink, X } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import TechIconDetailed from '@/components/TechIconDetailed'
 import {
   Dialog,

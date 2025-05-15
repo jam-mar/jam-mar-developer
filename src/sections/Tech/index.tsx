@@ -6,7 +6,6 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useFullPage } from '@/context/index'
 import TechIcon from '@/components/TechIcon'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import type { Tech } from '@/types'
 import { techCategories, allTechs } from '@/constants'
@@ -91,6 +90,7 @@ export default function Tech(): JSX.Element {
   useEffect(() => {
     techItemRefs.current = techItemRefs.current.slice(0, allTechs.length)
     categoryRefs.current = categoryRefs.current.slice(0, techCategories.length)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allTechs.length, techCategories.length])
 
   useGSAP(

@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, Code, Sparkles, Database, Palette, Clock } from 'lucide-react'
+import { ChevronDown, Code, Sparkles, Database, Clock } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import './hero-animations.css'
 

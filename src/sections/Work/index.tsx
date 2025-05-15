@@ -19,7 +19,7 @@ export default function Work() {
 
   const [activeWork, setActiveWork] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [hoverTarget, setHoverTarget] = useState('')
+  const [, setHoverTarget] = useState('')
 
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
