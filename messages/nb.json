@@ -10,7 +10,9 @@
     "tech": "Teknologi",
     "work": "Arbeid",
     "blog": "Blogg",
-    "footer": "Bunntekst"
+    "footer": "Bunntekst",
+    "previousSection": "Forrige seksjon",
+    "nextSection": "Neste seksjon"
   },
   "hero": {
     "name": "James Marriott",

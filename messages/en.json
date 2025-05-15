@@ -10,7 +10,9 @@
     "tech": "Tech",
     "work": "Work",
     "blog": "Blog",
-    "footer": "Footer"
+    "footer": "Footer",
+    "previousSection": "Previous section",
+    "nextSection": "Next section"
   },
   "hero": {
     "name": "James Marriott",

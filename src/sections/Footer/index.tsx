@@ -109,34 +109,6 @@ const Footer = () => {
                 GSAP
               </Link>
             </li>
-            <li>
-              Hosted on{' '}
-              <Link
-                className="hover:text-zinc-300 underline"
-                href="https://vercel.com/"
-                target="_blank"
-              >
-                Vercel
-              </Link>
-            </li>
-            <li>
-              Inspired by, among others,{' '}
-              <Link
-                className="hover:text-zinc-300 underline"
-                href="https://guillaumegouessan.com/"
-                target="_blank"
-              >
-                Guillaume Gouessan
-              </Link>{' '}
-              and{' '}
-              <Link
-                className="hover:text-zinc-300 underline"
-                href="https://brittanychiang.com/"
-                target="_blank"
-              >
-                Brittany Chiang
-              </Link>
-            </li>
           </ul>
         </div>
       </footer>

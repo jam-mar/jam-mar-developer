@@ -5,16 +5,18 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: 'bg-blue-600 text-white hover:bg-blue-700',
-        destructive: 'bg-red-600 text-white hover:bg-red-800',
-        outline: 'border border-gray-300 bg-transparent text-gray-800 hover:bg-gray-100',
-        secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
-        ghost: 'text-gray-800 hover:bg-gray-100',
-        link: 'text-blue-600 underline-offset-4 hover:underline',
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground',
+        link: 'text-primary underline-offset-4 hover:underline',
+        floating:
+          'rounded-full bg-black/50 backdrop-blur-lg border border-white/10 text-white hover:border-primary/50 hover:bg-black/60 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300',
       },
       size: {
         default: 'h-10 px-4 py-2',

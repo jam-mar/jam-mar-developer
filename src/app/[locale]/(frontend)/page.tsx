@@ -11,6 +11,7 @@ import Contact from '@/sections/Contact'
 import { useLocale } from 'next-intl'
 import '@/styles/globals.css'
 import { DEFAULT_SECTION_IDS } from '@/constants/index'
+import NavigationButtons from '@/components/NavigationButtons'
 
 export default function HomePage() {
   const locale = useLocale()
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <FullPageProvider sectionIds={DEFAULT_SECTION_IDS}>
       <NavBar scrollBehavior={true} />
+      <NavigationButtons />
       <FullPageSections sectionIdsProp={DEFAULT_SECTION_IDS} locale={locale}>
         <Hero />
         <AboutMe />

@@ -1,199 +1,100 @@
 'use client'
 
-import React, { useRef, useEffect, JSX } from 'react'
-import { useTranslations } from 'next-intl'
+import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { useTranslations } from 'next-intl'
+import SocialsComponent from '@/components/Socials'
 import { useFullPage } from '@/context/index'
-import TechIcon from '@/components/TechIcon'
-import { Card, CardContent } from '@/components/ui/card'
-import type { Tech } from '@/types'
-import { techCategories, allTechs } from '@/constants'
-import { cn } from '@/lib/utils'
 
-const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: string }>(
-  ({ tech, className = '' }, ref) => {
-    const itemRef = useRef<HTMLDivElement | null>(null)
-
-    useEffect(() => {
-      if (!itemRef.current) return
-
-      const element = itemRef.current
-
-      const handleMouseEnter = (): void => {
-        gsap.to(element, {
-          scale: 1.1,
-          y: -3,
-          duration: 0.2,
-          ease: 'back.out(1.7)',
-          overwrite: true,
-        })
-      }
-
-      const handleMouseLeave = (): void => {
-        gsap.to(element, {
-          scale: 1,
-          y: 0,
-          duration: 0.15,
-          ease: 'power1.out',
-          overwrite: true,
-        })
-      }
-
-      element.addEventListener('mouseenter', handleMouseEnter)
-      element.addEventListener('mouseleave', handleMouseLeave)
-
-      return () => {
-        element.removeEventListener('mouseenter', handleMouseEnter)
-        element.removeEventListener('mouseleave', handleMouseLeave)
-        gsap.killTweensOf(element)
-      }
-    }, [])
-
-    return (
-      <div
-        ref={(el) => {
-          if (ref) {
-            if (typeof ref === 'function') {
-              ref(el)
-            } else {
-              ref.current = el
-            }
-          }
-          itemRef.current = el
-        }}
-        className={cn(
-          'inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted text-xs font-medium whitespace-nowrap',
-          className,
-        )}
-      >
-        <TechIcon iconName={tech.iconName} className="size-4" />
-        <span>{tech.name}</span>
-      </div>
-    )
-  },
-)
-
-TechItem.displayName = 'TechItem'
-
-export default function Tech(): JSX.Element {
-  const t = useTranslations('tech')
+export default function Contact() {
+  const t = useTranslations('contact')
   const { activeSectionId } = useFullPage()
 
-  const sectionRef = useRef<HTMLDivElement | null>(null)
-  const headingRef = useRef<HTMLHeadingElement | null>(null)
-  const descriptionRef = useRef<HTMLParagraphElement | null>(null)
-  const categoryRefs = useRef<Array<HTMLDivElement | null>>([])
-  const techItemRefs = useRef<Array<HTMLDivElement | null>>([])
-  const timelineRef = useRef<gsap.core.Timeline | null>(null)
+  const sectionRef = useRef(null)
+  const headingRef = useRef(null)
+  const colorBarsRef = useRef(null)
+  const titleRef = useRef(null)
+  const descriptionRef = useRef(null)
+  const phoneRef = useRef(null)
+  const emailRef = useRef(null)
+  const socialsRef = useRef(null)
 
-  useEffect(() => {
-    techItemRefs.current = techItemRefs.current.slice(0, allTechs.length)
-    categoryRefs.current = categoryRefs.current.slice(0, techCategories.length)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allTechs.length, techCategories.length])
+  const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
   useGSAP(
     () => {
       if (!sectionRef.current) return
 
-      const masterTimeline = gsap.timeline({ paused: true })
-      timelineRef.current = masterTimeline
+      const tl = gsap.timeline({ paused: true })
 
-      // Reset all elements
+      // Set initial states with more dramatic offsets
       gsap.set(
         [
           headingRef.current,
+          colorBarsRef.current,
+          titleRef.current,
           descriptionRef.current,
-          ...categoryRefs.current.filter(Boolean),
-          ...techItemRefs.current.filter(Boolean),
+          phoneRef.current,
+          emailRef.current,
+          socialsRef.current,
         ],
-        { clearProps: 'all' },
+        {
+          autoAlpha: 0,
+          y: 40, // Slightly larger offset for more dynamic movement
+          scale: 0.95, // Start slightly smaller for a pop effect
+        },
       )
 
-      // Set initial states
-      gsap.set([headingRef.current, descriptionRef.current], {
-        autoAlpha: 0,
-        y: 20,
+      // Create a much faster, snappier animation sequence
+      tl.to(headingRef.current, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.3, // Faster
+        ease: 'back.out(1.2)', // Add a slight bounce
       })
-
-      gsap.set(categoryRefs.current.filter(Boolean), {
-        autoAlpha: 0,
-        y: 15,
-      })
-
-      gsap.set(techItemRefs.current.filter(Boolean), {
-        autoAlpha: 0,
-        scale: 0.95,
-        y: 10,
-      })
-
-      // Build animation timeline
-      masterTimeline
-        .to(headingRef.current, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-        })
         .to(
-          descriptionRef.current,
+          colorBarsRef.current,
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.5,
+            scale: 1,
+            duration: 0.25,
+            ease: 'power1.out',
+            stagger: {
+              amount: 0.1, // Animate the bars with a quick stagger
+              from: 'start',
+            },
+          },
+          '-=0.2', // More overlap
+        )
+        .to(
+          [titleRef.current, descriptionRef.current],
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.25,
+            stagger: 0.05,
             ease: 'power2.out',
           },
-          '-=0.3',
+          '-=0.2', // More overlap
+        )
+        .to(
+          [phoneRef.current, emailRef.current, socialsRef.current],
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            stagger: 0.05, // Quick stagger between contact elements
+            ease: 'back.out(1.1)', // Slight bounce for emphasis
+          },
+          '-=0.1', // More overlap
         )
 
-      // Animate each category and its tech items
-      techCategories.forEach((_, categoryIndex) => {
-        const categoryRef = categoryRefs.current[categoryIndex]
-
-        const startIndex = techCategories
-          .slice(0, categoryIndex)
-          .reduce((acc, cat) => acc + cat.techs.length, 0)
-
-        const categoryTechCount = techCategories[categoryIndex].techs.length
-        const categoryTechItems = techItemRefs.current
-          .slice(startIndex, startIndex + categoryTechCount)
-          .filter(Boolean)
-
-        // Add category animation
-        if (categoryRef) {
-          masterTimeline.to(
-            categoryRef,
-            {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.4,
-              ease: 'power2.out',
-            },
-            '>-0.2',
-          )
-
-          // Add tech items animation
-          if (categoryTechItems.length > 0) {
-            masterTimeline.to(
-              categoryTechItems,
-              {
-                autoAlpha: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.4,
-                ease: 'back.out(1.2)',
-                stagger: {
-                  amount: 0.3,
-                  from: 'start',
-                  ease: 'power1.in',
-                },
-              },
-              '>-0.1',
-            )
-          }
-        }
-      })
+      timelineRef.current = tl
 
       return () => {
         if (timelineRef.current) {
@@ -201,82 +102,78 @@ export default function Tech(): JSX.Element {
         }
       }
     },
-    { scope: sectionRef, dependencies: [allTechs.length, techCategories.length] },
+    { scope: sectionRef },
   )
 
   useEffect(() => {
-    const isActive = activeSectionId === 'tech'
+    const isActive = activeSectionId === 'contact'
 
     if (isActive && timelineRef.current) {
       timelineRef.current.restart()
     } else if (!isActive && timelineRef.current) {
       timelineRef.current.pause(0)
 
-      // Reset all elements when section is not active
-      gsap.set([headingRef.current, descriptionRef.current], {
-        autoAlpha: 0,
-        y: 20,
-      })
-
-      gsap.set(categoryRefs.current.filter(Boolean), {
-        autoAlpha: 0,
-        y: 15,
-      })
-
-      gsap.set(techItemRefs.current.filter(Boolean), {
-        autoAlpha: 0,
-        scale: 0.95,
-        y: 10,
-      })
+      gsap.set(
+        [
+          headingRef.current,
+          colorBarsRef.current,
+          titleRef.current,
+          descriptionRef.current,
+          phoneRef.current,
+          emailRef.current,
+          socialsRef.current,
+        ],
+        {
+          autoAlpha: 0,
+          y: 40,
+          scale: 0.95,
+        },
+      )
     }
   }, [activeSectionId])
 
   return (
-    <div ref={sectionRef} className="max-w-screen-xl w-full mx-auto px-4 md:px-6 lg:px-8">
-      <div className="space-y-6">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight" ref={headingRef}>
-            {t('heading')}
-          </h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl" ref={descriptionRef}>
-            {t('description')}
-          </p>
+    <div ref={sectionRef} className="flex items-center justify-center h-full w-full">
+      <div className="container flex flex-col p-4 max-w-xl gap-2">
+        <h2 ref={headingRef} className="text-4xl font-extrabold mb-4">
+          {t('heading')}
+        </h2>
+
+        <div ref={colorBarsRef} className="gap-3 flex">
+          <div className="h-3 w-16 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-sm" />
+          <div className="h-3 w-8 bg-gradient-to-r from-purple-300 to-purple-400 rounded-sm" />
+          <div className="h-3 w-10 bg-gradient-to-r from-green-300 to-green-400 rounded-sm" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {techCategories.map((category, categoryIndex) => (
-            <Card
-              key={category.title}
-              className="overflow-hidden"
-              ref={(el) => {
-                categoryRefs.current[categoryIndex] = el
-              }}
-            >
-              <div className="p-1 bg-muted">
-                <h3 className="text-sm font-medium py-1.5 text-center">{category.title}</h3>
-              </div>
-              <CardContent className="p-3">
-                <div className="flex flex-wrap gap-1.5">
-                  {category.techs.map((tech, techIndex) => {
-                    const globalIndex =
-                      techCategories
-                        .slice(0, categoryIndex)
-                        .reduce((acc, cat) => acc + cat.techs.length, 0) + techIndex
+        <p ref={descriptionRef} className="text-lg mt-2">
+          {t('availability')}
+        </p>
 
-                    return (
-                      <TechItem
-                        key={tech.name}
-                        tech={tech}
-                        ref={(el) => {
-                          techItemRefs.current[globalIndex] = el
-                        }}
-                      />
-                    )
-                  })}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div ref={phoneRef} className="mt-4 hover:translate-x-1 transition-transform">
+          <p className="text-sm text-muted-foreground">{t('phoneLabel')}</p>
+          <a
+            className="hover:underline font-mono hover:text-primary transition-colors"
+            href={t('phoneLink')}
+          >
+            {t('phoneNumber') || '+44 123 456 7890'}
+          </a>
+        </div>
+
+        <div ref={emailRef} className="mt-2 hover:translate-x-1 transition-transform">
+          <p className="text-sm text-muted-foreground">{t('emailLabel')}</p>
+          <a
+            className="hover:underline font-mono hover:text-primary transition-colors"
+            href={t('mailto')}
+          >
+            {t('email')}
+          </a>
+        </div>
+
+        <div ref={socialsRef} className="block mt-4">
+          <p className="text-sm text-muted-foreground">{t('socialsLabel')}</p>
+          <div className="flex space-x-6 font-light text-zinc-400 mt-2">
+            <SocialsComponent />
+          </div>
         </div>
       </div>
     </div>
