@@ -4,27 +4,12 @@ import React, { useRef, useEffect, JSX } from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { IconName } from '@/components/Icons'
 import { useFullPage } from '@/context/index'
-import './styles.css'
 import TechIcon from '@/components/TechIcon'
+import type { Tech } from '@/types'
+import { techCategories, allTechs } from '@/constants'
 
-type Tech = {
-  name: string
-  iconName: IconName
-}
-
-type TechCategory = {
-  title: string
-  techs: Tech[]
-}
-
-type TechItemProps = {
-  tech: Tech
-  className?: string
-}
-
-const TechItem = React.forwardRef<HTMLDivElement, TechItemProps>(
+const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: string }>(
   ({ tech, className = '' }, ref) => {
     const itemRef = useRef<HTMLDivElement | null>(null)
 
@@ -101,7 +86,7 @@ const TechItem = React.forwardRef<HTMLDivElement, TechItemProps>(
         }}
         className={`tech-item flex items-center bg-secondary text-secondary-foreground px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-sm cursor-pointer transition-shadow hover:shadow-md text-xs md:text-sm ${className}`}
       >
-        <TechIcon iconName={tech.iconName} className="tech-icon w-4 h-4 md:w-5 md:h-5" />
+        <TechIcon iconName={tech.iconName} />
         <span className="tech-name font-medium">{tech.name}</span>
       </div>
     )
@@ -120,62 +105,6 @@ export default function Tech(): JSX.Element {
   const categoryRefs = useRef<Array<HTMLDivElement | null>>([])
   const techItemRefs = useRef<Array<HTMLDivElement | null>>([])
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
-
-  const techCategories: TechCategory[] = [
-    {
-      title: 'Frontend Essentials',
-      techs: [
-        { name: 'JavaScript (ES6+)', iconName: IconName.JAVASCRIPT },
-        { name: 'TypeScript', iconName: IconName.TYPESCRIPT },
-        { name: 'HTML', iconName: IconName.HTML5 },
-        { name: 'CSS', iconName: IconName.CSS },
-      ],
-    },
-    {
-      title: 'UI Frameworks & Libraries',
-      techs: [
-        { name: 'React', iconName: IconName.REACT },
-        { name: 'Next.js', iconName: IconName.NEXTJS },
-        { name: 'GSAP', iconName: IconName.GSAP },
-      ],
-    },
-    {
-      title: 'Backend & APIs',
-      techs: [
-        { name: 'Node.js', iconName: IconName.NODEJS },
-        { name: 'Python', iconName: IconName.PYTHON },
-        { name: 'Flask', iconName: IconName.FLASK },
-        { name: 'GraphQL', iconName: IconName.GRAPHQL },
-      ],
-    },
-    {
-      title: 'Databases',
-      techs: [
-        { name: 'SQL', iconName: IconName.SQL },
-        { name: 'MongoDB', iconName: IconName.MONGODB },
-        { name: 'PostgreSQL', iconName: IconName.POSTGRESQL },
-        { name: 'Prisma', iconName: IconName.PRISMA },
-        { name: 'Firebase', iconName: IconName.FIREBASE },
-      ],
-    },
-    {
-      title: 'DevOps & Tools',
-      techs: [
-        { name: 'Docker', iconName: IconName.DOCKER },
-        { name: 'GitHub Actions', iconName: IconName.GITHUBACTIONS },
-        { name: 'Google Cloud', iconName: IconName.GOOGLECLOUD },
-      ],
-    },
-    {
-      title: 'Design & Auth',
-      techs: [
-        { name: 'Figma', iconName: IconName.FIGMA },
-        { name: 'Auth0/OAuth', iconName: IconName.AUTH0 },
-      ],
-    },
-  ]
-
-  const allTechs: Tech[] = techCategories.flatMap((category) => category.techs)
 
   useEffect(() => {
     techItemRefs.current = techItemRefs.current.slice(0, allTechs.length)
