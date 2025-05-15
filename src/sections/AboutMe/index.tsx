@@ -92,35 +92,26 @@ export default function AboutMe() {
   }, [activeSectionId])
 
   return (
-    <div ref={sectionRef} className="flex items-center justify-center h-full w-full bg-[#141414]">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start md:items-center">
+    <div ref={sectionRef} className="container py-12 md:py-16">
+      <div className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div className="md:order-last flex justify-center" ref={imageRef}>
-            <div className="relative overflow-hidden rounded-full shadow-lg w-[300px] h-[300px] group">
-              <ProfileImage
-                src="/images/james.jpg"
-                alt={t('profileImageAlt')}
-                width={300}
-                height={300}
-                className="relative rounded-full shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:filter group-hover:blur-sm"
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 ease-out z-10 rounded-full group-hover:opacity-100"></div>
-              <div className="absolute w-10 h-10 z-[15] opacity-0 pointer-events-none rounded-full bg-gradient-radial from-white/80 to-transparent to-70%"></div>
-            </div>
+            <ProfileImage
+              src="/images/james.jpg"
+              alt={t('profileImageAlt')}
+              width={280}
+              height={280}
+              className="w-[250px] h-[250px] md:w-[280px] md:h-[280px]"
+            />
           </div>
+
           <div className="md:col-span-2">
-            <h2
-              ref={headingRef}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6"
-            >
+            <h2 ref={headingRef} className="text-3xl font-bold tracking-tight mb-4">
               {t('heading')}
             </h2>
-            <p
-              ref={descriptionRef}
-              className="text-base md:text-lg text-muted-foreground mb-6 md:mb-10 leading-relaxed"
-            >
-              {t('description')}
-            </p>
+            <div ref={descriptionRef} className="text-muted-foreground leading-relaxed space-y-4">
+              <p>{t('description')}</p>
+            </div>
           </div>
         </div>
       </div>

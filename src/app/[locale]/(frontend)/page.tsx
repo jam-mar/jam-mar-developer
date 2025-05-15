@@ -9,7 +9,6 @@ import Work from '@/sections/Work'
 import Projects from '@/sections/Projects'
 import Contact from '@/sections/Contact'
 import { useLocale } from 'next-intl'
-import './styles.css'
 import '@/styles/globals.css'
 import { DEFAULT_SECTION_IDS } from '@/constants/index'
 
