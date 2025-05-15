@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -165,10 +165,6 @@ export default function Hero() {
       </div>
 
       <div className="max-w-2xl space-y-6 relative">
-        <p ref={titleRef} className="text-muted-foreground">
-          {t('preTitle')}
-        </p>
-
         <h1
           ref={nameRef}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight relative font-display"
