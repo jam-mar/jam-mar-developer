@@ -1,16 +1,15 @@
 import React from 'react'
 import { Badge } from '@/components/ui/badge'
 
-interface WorkData {
-  company: string
-  position: string
-  period: string
-  shortDescription: string
-  isCurrent?: boolean
-}
-
 interface WorkCardContentProps {
-  work: WorkData
+  work: {
+    isCurrent: boolean
+    company: string
+    position: string
+    period: string
+    shortDescription: string
+  }
+  t: (key: string) => string
 }
 
 const WorkCardContent = ({ work }: WorkCardContentProps) => {
