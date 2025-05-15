@@ -51,7 +51,7 @@ export default function Work() {
           content: t('companies.company1.sections.technologies.content'),
         },
       ],
-      screenshots: ['/images/work/ducky-project1.webp', '/images/work/ducky-project2.webp'],
+
       companyUrl: 'https://ducky.eco/',
       techStack: [
         {
@@ -102,7 +102,7 @@ export default function Work() {
       position: t('companies.company2.position'),
       period: t('companies.company2.period'),
       shortDescription: t('companies.company2.shortDescription'),
-      logoSrc: '/images/work/oslo-nye-fagskole-logo.png',
+      logoSrc: '/images/onf-logo.webp',
       isCurrent: false,
       description: t('companies.company2.description'),
       location: t('companies.company2.location'),
@@ -223,7 +223,7 @@ export default function Work() {
       masterTimeline.to(headingRef.current, {
         autoAlpha: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.3, // Reduced from 0.6 to 0.3
         ease: 'power2.out',
       })
 
@@ -232,10 +232,10 @@ export default function Work() {
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.3, // Reduced from 0.6 to 0.3
           ease: 'back.out(1.2)',
           stagger: {
-            amount: isMobile ? 0.4 : 0.6,
+            amount: isMobile ? 0.2 : 0.3, // Reduced from 0.4/0.6 to 0.2/0.3
             from: 'start',
           },
         },

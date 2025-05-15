@@ -12,104 +12,38 @@ export default function Contact() {
   const { activeSectionId } = useFullPage()
 
   const sectionRef = useRef(null)
-  const headingRef = useRef(null)
-  const colorBarsRef = useRef(null)
-  const titleRef = useRef(null)
-  const descriptionRef = useRef(null)
-  const phoneRef = useRef(null)
-  const emailRef = useRef(null)
-  const socialsRef = useRef(null)
+  const elementsRef = useRef([])
 
-  const timelineRef = useRef<gsap.core.Timeline | null>(null)
+  // Create refs for all animated elements
+  const addToRefs = (el) => {
+    if (el && !elementsRef.current.includes(el)) {
+      elementsRef.current.push(el)
+    }
+  }
+
+  const timelineRef = useRef(null)
 
   useGSAP(
     () => {
       if (!sectionRef.current) return
 
+      // Create a faster timeline
       const tl = gsap.timeline({ paused: true })
 
-      gsap.set(
-        [
-          headingRef.current,
-          colorBarsRef.current,
-          titleRef.current,
-          descriptionRef.current,
-          phoneRef.current,
-          emailRef.current,
-          socialsRef.current,
-        ],
-        {
-          autoAlpha: 0,
-          y: 30,
-        },
-      )
+      // Set initial state for all elements at once
+      gsap.set(elementsRef.current, {
+        autoAlpha: 0,
+        y: 20, // Reduced from 30 to 20 for faster animation
+      })
 
-      tl.to(headingRef.current, {
+      // Animate all elements with staggered timing
+      tl.to(elementsRef.current, {
         autoAlpha: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.35, // Reduced from 0.5/0.6 to 0.35
+        stagger: 0.07, // Staggered timing with shorter delay between elements
         ease: 'power2.out',
       })
-        .to(
-          colorBarsRef.current,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.3',
-        )
-        .to(
-          titleRef.current,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.3',
-        )
-        .to(
-          descriptionRef.current,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.2',
-        )
-        .to(
-          phoneRef.current,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.2',
-        )
-        .to(
-          emailRef.current,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.2',
-        )
-        .to(
-          socialsRef.current,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          },
-          '-=0.2',
-        )
 
       timelineRef.current = tl
 
@@ -130,56 +64,46 @@ export default function Contact() {
     } else if (!isActive && timelineRef.current) {
       timelineRef.current.pause(0)
 
-      gsap.set(
-        [
-          headingRef.current,
-          colorBarsRef.current,
-          titleRef.current,
-          descriptionRef.current,
-          phoneRef.current,
-          emailRef.current,
-          socialsRef.current,
-        ],
-        {
-          autoAlpha: 0,
-          y: 30,
-        },
-      )
+      // Reset all elements at once
+      gsap.set(elementsRef.current, {
+        autoAlpha: 0,
+        y: 20,
+      })
     }
   }, [activeSectionId])
 
   return (
     <div ref={sectionRef} className="flex items-center justify-center h-full w-full">
       <div className="container flex flex-col p-4 max-w-xl gap-2">
-        <h2 ref={headingRef} className="text-4xl font-extrabold mb-4">
+        <h2 ref={addToRefs} className="text-4xl font-extrabold mb-4">
           {t('heading')}
         </h2>
 
-        <div ref={colorBarsRef} className="gap-3 flex">
+        <div ref={addToRefs} className="gap-3 flex">
           <div className="h-3 w-16 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-sm" />
           <div className="h-3 w-8 bg-gradient-to-r from-purple-300 to-purple-400 rounded-sm" />
           <div className="h-3 w-10 bg-gradient-to-r from-green-300 to-green-400 rounded-sm" />
         </div>
 
-        <p ref={descriptionRef} className="text-lg mt-2">
+        <p ref={addToRefs} className="text-lg mt-2">
           {t('availability')}
         </p>
 
-        <div ref={phoneRef} className="mt-4">
+        <div ref={addToRefs} className="mt-4">
           <p>{t('phoneLabel')}</p>
           <a className="hover:underline font-mono" href={t('phoneLink')}>
             {t('phoneNumber') || '+44 123 456 7890'}
           </a>
         </div>
 
-        <div ref={emailRef} className="mt-2">
+        <div ref={addToRefs} className="mt-2">
           <p>{t('emailLabel')}</p>
           <a className="hover:underline font-mono" href={t('mailto')}>
             {t('email')}
           </a>
         </div>
 
-        <div ref={socialsRef} className="block mt-4">
+        <div ref={addToRefs} className="block mt-4">
           <p>{t('socialsLabel')}</p>
           <div className="flex space-x-6 font-light text-zinc-400 mt-2">
             <SocialsComponent />

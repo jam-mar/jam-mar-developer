@@ -94,7 +94,7 @@ export default function Projects() {
         .to(headingRef.current, {
           autoAlpha: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.3,
           ease: 'power2.out',
         })
 
@@ -103,10 +103,10 @@ export default function Projects() {
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.3,
             ease: 'back.out(1.2)',
             stagger: {
-              amount: isMobile ? 0.4 : 0.6,
+              amount: isMobile ? 0.2 : 0.3,
               from: 'start',
             },
           },

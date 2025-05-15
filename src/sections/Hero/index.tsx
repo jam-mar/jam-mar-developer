@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { Code, Sparkles, Database, Clock } from 'lucide-react'
+import { Code, Sparkles, Database, Clock, Cloud } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import './styles.css'
 
@@ -40,13 +40,18 @@ export default function Hero() {
   const badges = [
     {
       icon: <Code className="h-3 w-3 mr-1" />,
-      text: 'Frontend Developer',
+      text: 'Frontend Specialist',
       color: 'bg-gradient-to-r from-blue-500 to-indigo-600',
     },
     {
       icon: <Database className="h-3 w-3 mr-1" />,
-      text: 'Backend Expert',
+      text: 'Backend Developer',
       color: 'bg-gradient-to-r from-emerald-500 to-teal-600',
+    },
+    {
+      icon: <Cloud className="h-3 w-3 mr-1" />,
+      text: 'System Architect',
+      color: 'bg-gradient-to-r from-red-500 to-orange-600',
     },
     {
       icon: <Sparkles className="h-3 w-3 mr-1" />,
@@ -55,7 +60,7 @@ export default function Hero() {
     },
     {
       icon: <Clock className="h-3 w-3 mr-1" />,
-      text: 'Fast Delivery',
+      text: 'Team Player',
       color: 'bg-gradient-to-r from-violet-500 to-purple-600',
     },
   ]

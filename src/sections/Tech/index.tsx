@@ -128,7 +128,6 @@ export default function Tech(): JSX.Element {
         y: 10,
       })
 
-      // Build animation timeline
       masterTimeline
         .to(headingRef.current, {
           autoAlpha: 1,
@@ -145,6 +144,34 @@ export default function Tech(): JSX.Element {
             ease: 'power2.out',
           },
           '-=0.3',
+        )
+        // Animate all categories at once
+        .to(
+          categoryRefs.current.filter(Boolean),
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power2.out',
+          },
+          '>-0.2',
+        )
+        // Animate all tech items at once
+        .to(
+          techItemRefs.current.filter(Boolean),
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'back.out(1.2)',
+            stagger: {
+              amount: 0.3,
+              from: 'start',
+              ease: 'power1.in',
+            },
+          },
+          '>-0.1',
         )
 
       // Animate each category and its tech items

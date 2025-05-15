@@ -75,37 +75,59 @@ export default function NavigationButtons() {
   }
 
   return (
-    // Positioned at bottom-16 (higher up) and spread across the viewport
-    <div className="fixed bottom-16 left-12 right-12 flex justify-between z-50">
-      <Button
-        variant="floating"
-        size="icon"
-        onClick={goToPrevSection}
-        disabled={!hasPrevSection}
-        className={cn(
-          'transition-all duration-300 ease-in-out',
-          'opacity-30 hover:opacity-100',
-          'disabled:opacity-10 disabled:cursor-not-allowed disabled:hover:border-white/10 disabled:hover:bg-black/50 disabled:hover:shadow-none',
-        )}
-        aria-label={t('navigation.previousSection') || 'Previous section'}
-      >
-        <ArrowLeft className="h-5 w-5" />
-      </Button>
+    // Centered navigation container
+    <div className="fixed bottom-10 left-0 right-0 flex justify-center items-center z-50 pointer-events-none">
+      <div className="flex items-center gap-6 pointer-events-auto">
+        <Button
+          variant="floating"
+          size="navIcon"
+          onClick={goToPrevSection}
+          disabled={!hasPrevSection}
+          className={cn(
+            'transition-all duration-300 ease-in-out',
+            'opacity-70 hover:opacity-100',
+            'disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:border-white/10 disabled:hover:bg-black/50 disabled:hover:shadow-none',
+            !hasPrevSection ? 'invisible' : '',
+          )}
+          aria-label={t('navigation.previousSection') || 'Previous section'}
+        >
+          <ArrowLeft className="h-6 w-6" />
+        </Button>
 
-      <Button
-        variant="floating"
-        size="icon"
-        onClick={goToNextSection}
-        disabled={!hasNextSection}
-        className={cn(
-          'transition-all duration-300 ease-in-out',
-          'opacity-30 hover:opacity-100',
-          'disabled:opacity-10 disabled:cursor-not-allowed disabled:hover:border-white/10 disabled:hover:bg-black/50 disabled:hover:shadow-none',
-        )}
-        aria-label={t('navigation.nextSection') || 'Next section'}
-      >
-        <ArrowRight className="h-5 w-5" />
-      </Button>
+        {/* Section indicator dots */}
+        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+          {sectionIds.map((sectionId, index) => (
+            <button
+              key={sectionId}
+              onClick={() => navigateToSection(sectionId)}
+              className={cn(
+                'w-2.5 h-2.5 rounded-full transition-all duration-300',
+                index === currentSectionIndex
+                  ? 'bg-white scale-110'
+                  : 'bg-white/30 hover:bg-white/70',
+              )}
+              aria-label={`Go to section ${index + 1}`}
+              aria-current={index === currentSectionIndex ? 'true' : 'false'}
+            />
+          ))}
+        </div>
+
+        <Button
+          variant="floating"
+          size="navIcon"
+          onClick={goToNextSection}
+          disabled={!hasNextSection}
+          className={cn(
+            'transition-all duration-300 ease-in-out',
+            'opacity-70 hover:opacity-100',
+            'disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:border-white/10 disabled:hover:bg-black/50 disabled:hover:shadow-none',
+            !hasNextSection ? 'invisible' : '',
+          )}
+          aria-label={t('navigation.nextSection') || 'Next section'}
+        >
+          <ArrowRight className="h-6 w-6" />
+        </Button>
+      </div>
     </div>
   )
 }

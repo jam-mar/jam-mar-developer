@@ -16,13 +16,14 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         floating:
-          'rounded-full bg-black/50 backdrop-blur-lg border border-white/10 text-white hover:border-primary/50 hover:bg-black/60 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300',
+          'rounded-full bg-black/60 backdrop-blur-lg border border-white/20 text-white hover:border-white/40 hover:bg-black/70 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] transition-all duration-300',
       },
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',
         lg: 'h-11 rounded-md px-8',
         icon: 'h-10 w-10',
+        navIcon: 'h-12 w-12', // New larger size for navigation buttons
       },
     },
     defaultVariants: {

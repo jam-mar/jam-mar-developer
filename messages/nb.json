@@ -50,7 +50,7 @@
   },
   "aboutMe": {
     "heading": "Om meg",
-    "description": "Jeg er en britisk full-stack utvikler med over 5 års erfaring i å bygge webapplikasjoner på bedriftsnivå. Jeg er basert i Kristiansand, Norge, og spesialiserer meg innen React, TypeScript og Node.js økosystemene med særlig ekspertise innen Next.js og GraphQL-implementeringer. Jeg har dokumentert erfaring i å utvikle skalerbare frontend- og backend-løsninger og erfaring med å jobbe i smidige miljøer med tverrfaglig samarbeid på tvers av flere land. Mine sterke problemløsningsevner har blitt demonstrert gjennom optimalisering av databasestrukturer og implementering av effektive server-side integrasjoner. Jeg er opptatt av å skrive ren, vedlikeholdbar kode som balanserer teknisk eksellense med forretningskrav. For tiden åpen for nye muligheter i Norge, EU og Storbritannia.",
+    "description": "Jeg er en full-stack utvikler med over 5 års erfaring i å bygge webapplikasjoner på bedriftsnivå. Jeg er basert i Kristiansand, Norge, og spesialiserer meg innen React, TypeScript og Node.js økosystemene med særlig ekspertise innen Next.js og GraphQL-implementeringer. Jeg har dokumentert erfaring i å utvikle skalerbare frontend- og backend-løsninger og erfaring med å jobbe i smidige miljøer med tverrfaglig samarbeid på tvers av flere land. Mine sterke problemløsningsevner har blitt demonstrert gjennom optimalisering av databasestrukturer og implementering av effektive server-side integrasjoner. Jeg er opptatt av å skrive ren, vedlikeholdbar kode som balanserer teknisk eksellense med forretningskrav. For tiden åpen for nye muligheter i Norge, EU og Storbritannia.",
     "skillsHeading": "Mine ferdigheter",
     "profileImageAlt": "Profilbilde"
   },
@@ -164,40 +164,44 @@
     "subheading": "Noen av mine nylige arbeid og personlige prosjekter.",
     "projects": [
       {
-        "id": "fotballfeber",
-        "title": "FotballFeber",
-        "subtitle": "Online Samfunn",
-        "tagline": "Der norske fotballfans forenes",
-        "period": "Jan 2023 - Nåværende",
-        "role": "Grunnlegger, Systemarkitekt og Full-Stack Utvikler",
-        "shortDescription": "Et levende online samfunn dedikert til norske fotballentusiaster",
-        "logoSrc": "/images/projects/fotballfeber/logo.png",
+        "id": "woodforgood",
+        "title": "Wood For Good",
+        "subtitle": "Plattform for Bærekraftige Møbler",
+        "tagline": "Interaktiv 3D-teknologi møter sirkulær økonomi",
+        "period": "Feb 2025 - Nåværende",
+        "role": "Hovedutvikler og Systemarkitekt",
+        "shortDescription": "En plattform med dobbel inntektsstrøm som kombinerer interaktiv 3D-visualiseringsteknologi med et e-handelssystem for bærekraftige møbler",
+        "logoSrc": "/images/projects/woodforgood/logo.png",
         "isWip": true,
-        "description": "FotballFeber er et kommende levende online samfunn dedikert til norske fotballentusiaster. Her kan fans delta i diskusjoner om de siste nyhetene, kamper, overganger og rykter, fordype seg i taktiske strategier, utforske spillerutvikling, analysere statistikk, dykke ned i fankultur, og utforske den rike historien til norsk fotball.",
-        "location": "Oslo, Norge",
+        "description": "Wood For Good er en skalerbar plattform som kombinerer interaktiv 3D-visualiseringsteknologi med et e-handelssystem for å utnytte muligheter i markedet for bærekraftige møbler. Virksomheten implementerer en freemium-modell med doble inntektsstrømmer: gratis tilgang til 3D-snekkerverkstedveiledninger som driver brukeranskaffelse, og premium-inntekt fra ferdig tilskårne møbelsett laget av gjenvunnet og bærekraftige trekilder. Systemet utnytter moderne webteknologier for å skape en teknisk og forretningsmessig løsning som samsvarer med markedets etterspørsel etter møbler av høy kvalitet til lave priser med mål for miljømessig bærekraft.",
+        "location": "Kristiansand, Norge",
         "sections": [
           {
-            "title": "Visjonen",
-            "content": "Inspirert av fraværet av en samlet plattform for norske fotballentusiaster, begynte jeg på en misjon for å bringe dette samfunnet til live. Målet mitt var å skape et rom der supportere fra alle norske fotballklubber kunne komme sammen og dele sin lidenskap for sporten."
+            "title": "Teknisk Arkitektur",
+            "content": "Plattformen er bygget på et Next.js/TypeScript-rammeverk med Three.js-integrasjon for sanntids 3D-rendering. Arkitekturen har en headless e-handelsimplementering med tilpasset lagerstyring for både digitale eiendeler (3D-modeller) og fysiske produkter (ferdig tilskårne sett). Systemet er distribuert på Vercel med CI/CD-rørledninger for rask iterasjon og inkluderer omfattende analysessporing for brukerengasjement og konverteringsoptimalisering."
           },
           {
-            "title": "Den tekniske reisen",
-            "content": "Å bygge FotballFeber fra bunnen av var en fascinerende reise. Jeg valgte Next.js, React og TailwindCSS som kjerneteknologier. Alt ble nøye organisert i et monorepo ved hjelp av Turborepo, og nettstedet er sømløst hostet på Vercel. For tilstandshåndtering og datahenting, adopterte jeg Jotai og Tanstack Query. Brukergrensesnittet er prydet med shadcn/ui, Radix UI og Lucide-ikoner, noe som sikrer en elegant og brukervennlig opplevelse."
+            "title": "Markedsmulighet og Forretningsmodell",
+            "content": "Wood For Good retter seg mot to voksende markedssegmenter: DIY-møbelentusiaster og bærekraftbevisste forbrukere. Freemium-modellen bruker gratis 3D-veiledninger som en brukeranskaffelseskanal, som driver konverteringer til de premiumtilskårne settilbudene. Denne tilnærmingen gir høy fortjenestemargin fra de fysiske produktene samtidig som den skaper skalerbar vekst gjennom det digitale innholdet. Innledende testing viser en konverteringsrate på 12% fra veiledningsbrukere til settpurchasers."
           },
           {
-            "title": "Nyhetsaggregering-magi",
-            "content": "For å holde plattformen oppdatert med de siste norske fotballnyhetene, utviklet jeg en metode for å hente artikler fra forskjellige norske fotballnyhetsnettsteder, ved å utnytte deres offentlige API-er. Dette involverer et Python-skript for å overvåke oppdateringer på nyhetsstedene. Artiklene går gjennom en nøyaktig behandlingsprosess med hjelp av Upstash Redis, en NodeJS-server og en ekstra Redis-database."
+            "title": "Forsyningskjedeinnovasjon",
+            "content": "Foretaket implementerer en sirkulær økonomitilnærming til materialanskaffelse, etablerer partnerskap med byggeselskaper og møbelprodusenter for å gjenvinne treverk av høy kvalitet som ellers ville bli kastet. Dette gir virksomheten et konkurransefortrinn både på kostnader og bærekraftmålinger. Forsyningskjedestyringssystemet integreres med e-handelsbackenden, og oppdaterer automatisk inventar og utløser ny materialanskaffelse basert på salgshastighet."
           },
           {
-            "title": "Veien videre",
-            "content": "FotballFeber er et stadig utviklende prosjekt med en omfattende veiplan. Nåværende fokus er på å ferdigstille onboarding-prosessen og introdusere et viktig diskusjonsforum. Neste milepæl er å implementere en abonnements- og betalingstjeneste, som markerer den offisielle lanseringen for offentlig bruk."
+            "title": "Teknologisk Differensiering",
+            "content": "Plattformens viktigste tekniske differensiator er dens proprietære 3D-visualiseringsmotor som lar ikke-tekniske brukere samhandle med komplekse snekkerdesign. Systemet implementerer optimalisert WebGL-rendering for kompatibilitet på tvers av enheter og bruker tilpassede geometrialgoritmer for å sikre nøyaktig visualisering av skjøtdetaljer og monteringssekvenser. Denne teknologien skaper betydelige inngangsbarrierer for potensielle konkurrenter."
+          },
+          {
+            "title": "Skaleringsstrategi",
+            "content": "Det nåværende utviklingsveikart fokuserer på tre kjernområder for skalering: 1) Utvidelse av prosjektbiblioteket gjennom en optimalisert innholdsproduksjonspipeline, 2) Implementering av en partner-API for å tillate tredjepartsdesignere å bidra med prosjekter og motta inntektsdeling, og 3) Utvikling av logistikkoptimalisering for fysisk produktdistribusjon for å støtte internasjonal ekspansjon. Systemarkitekturen er designet for å støtte 10x vekst med minimal refaktorering."
           }
         ],
         "screenshots": [
-          "/images/projects/fotballfeber/screenshot001.webp",
-          "/images/projects/fotballfeber/screenshot002.webp"
+          "/images/projects/woodforgood/screenshot001.webp",
+          "/images/projects/woodforgood/screenshot002.webp"
         ],
-        "liveUrl": "https://www.fotballfeber.com/",
+        "liveUrl": "https://www.woodforgood.com/",
         "techStack": [
           {
             "name": "TypeScript",
@@ -220,19 +224,19 @@
             "iconName": "TAILWIND"
           },
           {
-            "name": "SQL",
-            "href": "https://www.mysql.com/",
-            "iconName": "SQL"
+            "name": "Three.js",
+            "href": "https://threejs.org/",
+            "iconName": "THREEJS"
           },
           {
-            "name": "Node.js",
-            "href": "https://nodejs.org/",
-            "iconName": "NODEJS"
+            "name": "shadcn/ui",
+            "href": "https://ui.shadcn.com/",
+            "iconName": "SHADCN"
           },
           {
-            "name": "Vercel",
-            "href": "https://vercel.com/",
-            "iconName": "VERCEL"
+            "name": "Vitest",
+            "href": "https://vitest.dev/",
+            "iconName": "VITEST"
           }
         ]
       },

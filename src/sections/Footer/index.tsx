@@ -108,6 +108,14 @@ const Footer = () => {
               >
                 GSAP
               </Link>
+              and{' '}
+              <Link
+                className="hover:text-zinc-300 underline"
+                href="https://payloadcms.com/"
+                target="_blank"
+              >
+                Payload CMS
+              </Link>
             </li>
           </ul>
         </div>
