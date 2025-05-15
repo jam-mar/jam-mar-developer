@@ -1,36 +1,46 @@
 @import 'tailwindcss';
 
-@layer theme {
+@layer base {
   :root {
     /* Fonts */
-    --font-display: 'Satoshi', 'sans-serif';
-    --font-sans: 'Inter', 'sans-serif';
+    --font-display: 'Manrope', sans-serif;
+    --font-sans: 'Inter', sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 
     /* Breakpoints */
     --breakpoint-3xl: 1920px;
 
-    /* Wood Theme Colors */
-    --color-wood-100: oklch(0.97 0.03 83.4);
-    --color-wood-200: oklch(0.93 0.06 79.2);
-    --color-wood-300: oklch(0.88 0.09 76.5);
-    --color-wood-400: oklch(0.82 0.12 72.1);
-    --color-wood-500: oklch(0.76 0.15 68.3);
-    --color-wood-600: oklch(0.65 0.13 66.7);
-    --color-wood-700: oklch(0.55 0.11 65.9);
-    --color-wood-800: oklch(0.45 0.09 65.3);
-    --color-wood-900: oklch(0.35 0.07 64.8);
+    /* Theme Colors */
+    --background: #000000;
+    --foreground: #ffffff;
 
-    /* Accent Colors */
-    --color-forest-500: oklch(0.65 0.15 142.5);
-    --color-forest-600: oklch(0.55 0.12 143.2);
+    /* Primary colors */
+    --primary: #3b82f6; /* blue-500 */
+    --primary-foreground: #ffffff;
 
-    /* Neutral Colors */
-    --color-bark-100: oklch(0.98 0.01 90);
-    --color-bark-200: oklch(0.92 0.02 89.5);
-    --color-bark-300: oklch(0.85 0.03 89);
-    --color-bark-400: oklch(0.75 0.04 88.5);
-    --color-bark-500: oklch(0.6 0.05 88);
+    /* Secondary colors */
+    --secondary: #6d28d9; /* purple-700 */
+    --secondary-foreground: #ffffff;
+
+    /* Accent colors */
+    --accent: #10b981; /* emerald-500 */
+    --accent-foreground: #ffffff;
+
+    /* UI Colors */
+    --muted: #374151; /* gray-700 */
+    --muted-foreground: #9ca3af; /* gray-400 */
+
+    --card: #111827; /* gray-900 */
+    --card-foreground: #ffffff;
+
+    --destructive: #ef4444; /* red-500 */
+    --destructive-foreground: #ffffff;
+
+    --border: #374151; /* gray-700 */
+    --input: #374151; /* gray-700 */
+
+    --ring: #2563eb; /* blue-600 */
+    --ring-foreground: #ffffff;
 
     /* Animation Easings */
     --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
@@ -43,15 +53,14 @@
     --radius-xl: 0.75rem;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.25);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.2);
 
     /* Transitions */
     --transition-fast: 150ms;
     --transition-normal: 250ms;
     --transition-slow: 350ms;
-
     /* Button Theme Variables */
     /* These are the variables required by shadcn/ui Button component */
     --background: white;
@@ -91,7 +100,7 @@
 html {
   font-size: 18px;
   line-height: 32px;
-  background: rgb(0, 0, 0);
+  background: var(--background);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -102,17 +111,48 @@ body,
 }
 
 body {
-  font-family: system-ui;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 32px;
   margin: 0;
-  color: rgb(255, 255, 255);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (max-width: 1024px) {
   body {
     font-size: 15px;
     line-height: 24px;
+  }
+}
+* Section styling */ section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+section > .section-content {
+  width: 100%;
+  max-width: 1280px; /* max-w-screen-xl */
+  margin: 0 auto;
+  padding: 0 1rem; /* px-4 */
+}
+
+@media (min-width: 768px) {
+  section > .section-content {
+    padding: 0 1.5rem; /* md:px-6 */
+  }
+}
+
+@media (min-width: 1024px) {
+  section > .section-content {
+    padding: 0 2rem; /* lg:px-8 */
   }
 }
 
@@ -336,5 +376,238 @@ p {
   100% {
     transform: scale(2);
     opacity: 0;
+  }
+}
+
+.animate-blob {
+  animation: blob 15s infinite alternate;
+}
+
+.animate-ping {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animation-delay-6000 {
+  animation-delay: 6s;
+}
+
+.animate-in {
+  animation: enter 0.2s ease-out;
+}
+
+.animate-out {
+  animation: exit 0.2s ease-in;
+}
+
+.fade-in {
+  animation: enter 0.2s ease-out;
+}
+
+.fade-out {
+  animation: exit 0.2s ease-in;
+}
+
+.zoom-in-90 {
+  animation: enter 0.2s ease-out;
+}
+
+.zoom-out-95 {
+  animation: exit 0.2s ease-in;
+}
+
+.slide-in-from-right {
+  animation: slide-in-from-right 0.3s ease-out;
+}
+
+.slide-out-to-right {
+  animation: slide-out-to-right 0.3s ease-in;
+}
+
+.slide-in-from-left {
+  animation: slide-in-from-left 0.3s ease-out;
+}
+
+.slide-out-to-left {
+  animation: slide-out-to-left 0.3s ease-in;
+}
+
+/* Data state animation classes */
+.data-\[state\=open\]\:animate-in[data-state='open'] {
+  animation: enter 0.2s ease-out;
+}
+
+.data-\[state\=closed\]\:animate-out[data-state='closed'] {
+  animation: exit 0.2s ease-in;
+}
+
+.data-\[state\=open\]\:fade-in[data-state='open'] {
+  animation: enter 0.2s ease-out;
+}
+
+.data-\[state\=closed\]\:fade-out[data-state='closed'] {
+  animation: exit 0.2s ease-in;
+}
+
+.data-\[state\=open\]\:zoom-in-90[data-state='open'] {
+  animation: enter 0.2s ease-out;
+}
+
+.data-\[state\=closed\]\:zoom-out-95[data-state='closed'] {
+  animation: exit 0.2s ease-in;
+}
+
+/* Background decorations */
+.background-decoration {
+  position: fixed; /* Changed from absolute to fixed */
+  inset: 0;
+  z-index: 0; /* Changed from -10 to 0 */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background-decoration .blob {
+  position: absolute;
+  border-radius: 100%;
+  filter: blur(40px);
+  opacity: 0.3; /* Increased opacity */
+}
+
+.background-decoration .blob-1 {
+  top: 5%;
+  left: 5%;
+  width: 35vw;
+  height: 35vw;
+  background: linear-gradient(to bottom right, #3b82f6, #10b981); /* Blue to emerald */
+  animation: blob 20s infinite alternate;
+}
+
+.background-decoration .blob-2 {
+  bottom: 5%;
+  right: 5%;
+  width: 30vw;
+  height: 30vw;
+  background: linear-gradient(to bottom left, #7c3aed, #ec4899); /* Purple to pink */
+  animation: blob 25s infinite alternate-reverse;
+  animation-delay: 2s;
+}
+
+.background-decoration .blob-3 {
+  top: 40%;
+  right: 25%;
+  width: 25vw;
+  height: 25vw;
+  background: linear-gradient(to top right, #10b981, #3b82f6); /* Emerald to blue */
+  animation: blob 30s infinite alternate;
+  animation-delay: 4s;
+}
+
+.background-decoration .grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+}
+
+.background-decoration .dot {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.background-decoration .dot-1 {
+  top: 25%;
+  right: 25%;
+  width: 8px;
+  height: 8px;
+  background: #3b82f6; /* blue-500 */
+  animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.background-decoration .dot-2 {
+  bottom: 33%;
+  left: 25%;
+  width: 6px;
+  height: 6px;
+  background: #10b981; /* emerald-500 */
+  animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 1.5s;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .text-primary-foreground {
+    color: var(--primary-foreground);
+  }
+
+  .bg-primary {
+    background-color: var(--primary);
+  }
+
+  .hover\:bg-primary\/90:hover {
+    @media (hover: hover) {
+      background-color: rgba(59, 130, 246, 0.9); /* blue-500 with 90% opacity */
+    }
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+
+  .text-secondary-foreground {
+    color: var(--secondary-foreground);
+  }
+
+  .hover\:bg-secondary\/80:hover {
+    @media (hover: hover) {
+      background-color: rgba(109, 40, 217, 0.8); /* purple-700 with 80% opacity */
+    }
+  }
+
+  .bg-destructive {
+    background-color: var(--destructive);
+  }
+
+  .text-destructive-foreground {
+    color: var(--destructive-foreground);
+  }
+
+  .hover\:bg-destructive\/90:hover {
+    @media (hover: hover) {
+      background-color: rgba(239, 68, 68, 0.9); /* red-500 with 90% opacity */
+    }
+  }
+
+  .border-secondary-foreground {
+    border-color: var(--secondary-foreground);
+  }
+
+  .ring-ring {
+    --tw-ring-color: var(--ring);
+  }
+
+  .ring-offset-background {
+    --tw-ring-offset-color: var(--background);
+  }
+
+  .bg-popover {
+    background-color: var(--card);
+  }
+
+  .text-popover-foreground {
+    color: var(--card-foreground);
   }
 }
