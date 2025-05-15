@@ -104,94 +104,178 @@
   },
   "work": {
     "heading": "Work Experience",
+    "subheading": "My professional journey and the companies I've worked with.",
     "companies": {
       "company1": {
         "name": "Ducky",
-        "position": "Senior Software Developer",
-        "period": "Mar 2022 - Present",
-        "location": "Trondheim, Norway",
-        "shortDescription": "Developing enterprise-level sustainability solutions for leading Norwegian firms",
-        "description": "At Ducky, I work on developing enterprise-level sustainability solutions for leading Norwegian firms, focusing on both backend microservices and frontend applications.",
+        "position": "Senior Frontend Developer",
+        "period": "2021 - Present",
+        "shortDescription": "Leading frontend development for a climate tech platform",
+        "description": "As a Senior Frontend Developer at Ducky, I'm responsible for architecting and implementing features for our climate action platform, focusing on performance optimization and user experience.",
+        "location": "Oslo, Norway",
         "sections": {
           "responsibilities": {
             "title": "Key Responsibilities",
-            "content": "Designed and implemented Python/Flask-based microservice architecture for natural language processing on Google Cloud, developed RESTful backend API services, implemented comprehensive test coverage, and optimized PostgreSQL database structures."
+            "content": "Leading frontend architecture, implementing new features, mentoring junior developers, and collaborating with design team on UX improvements."
           },
           "achievements": {
-            "title": "Major Achievements",
-            "content": "Improved system integration and data flow across platforms, created cleaner and more efficient query performance, and delivered high-performance Single Page Applications leveraging server-side rendering."
+            "title": "Achievements",
+            "content": "Reduced page load times by 40%, implemented component library, increased test coverage to 85%, and led migration from legacy codebase to Next.js."
           },
           "technologies": {
             "title": "Technologies Used",
-            "content": "TypeScript, Python, Flask, Node.js, Docker, PostgreSQL, LLM fine-tuning, React, Next.js, GraphQL, Apollo, Firebase, Prisma ORM, Auth0, HubSpot CMS"
+            "content": "React, TypeScript, Next.js, GraphQL, PostgreSQL, Docker, and AWS."
           }
         }
       },
       "company2": {
-        "name": "Oslo Nye Fagskole AS",
-        "position": "Subject Teacher (Faglærer)",
-        "period": "May 2024 - Sep 2024",
-        "location": "Oslo, Norway (Part-time)",
-        "shortDescription": "Developed and delivered Front End & Web Essentials curriculum",
-        "description": "As a part-time Subject Teacher at Oslo Nye Fagskole AS, I developed and delivered comprehensive Front End & Web Essentials curriculum for vocational students.",
+        "name": "Oslo Nye Fagskole",
+        "position": "Web Development Instructor",
+        "period": "2019 - 2021",
+        "shortDescription": "Teaching web development fundamentals to students",
+        "description": "Developed and delivered curriculum on modern web development practices, with a focus on practical skills and industry-relevant technologies.",
+        "location": "Oslo, Norway",
         "sections": {
           "achievements": {
-            "title": "Achievements",
-            "content": "Achieved 95% positive feedback from students on course content and teaching methodology."
+            "title": "Key Achievements",
+            "content": "Designed curriculum from ground up, mentored over 50 students, and contributed to 90% job placement rate for program graduates."
           }
         }
       },
       "company3": {
         "name": "Digital Freelancer",
-        "position": "Web Developer & Educator",
-        "period": "Aug 2017 - Apr 2022",
+        "position": "Web Developer",
+        "period": "2016 - 2019",
+        "shortDescription": "Building websites and web applications for clients",
+        "description": "Worked directly with clients to design and develop custom websites and web applications tailored to their specific needs and business goals.",
         "location": "Remote",
-        "shortDescription": "Designed, developed, and delivered websites for diverse clients",
-        "description": "As a Digital Freelancer, I successfully designed, developed, and delivered websites for over 15 clients across diverse industries.",
         "sections": {
           "highlights": {
             "title": "Highlights",
-            "content": "Created engaging educational content and interactive web-based games using HTML, CSS, JS, and WordPress. Maintained long-term client relationships with high satisfaction rates."
+            "content": "Completed over 30 projects for clients in various industries, maintained long-term relationships with key clients, and consistently delivered projects on time and within budget."
           }
         }
       }
     }
   },
-  "education": {
-    "heading": "Education",
-    "items": [
+  "projects": {
+    "heading": "Projects",
+    "subheading": "Some of my recent work and personal projects.",
+    "projects": [
       {
-        "period": "2020-2021",
-        "degree": "Front-End Developer Certificate",
-        "institution": "Scrimba"
+        "id": "fotballfeber",
+        "title": "FotballFeber",
+        "subtitle": "Online Community",
+        "tagline": "Where Norwegian Football Fans Unite",
+        "period": "Jan 2023 - Current",
+        "role": "Founder, System Architect and Full-Stack Developer",
+        "shortDescription": "A vibrant online community dedicated to Norwegian football enthusiasts",
+        "logoSrc": "/images/projects/fotballfeber/logo.png",
+        "isWip": true,
+        "description": "FotballFeber is an upcoming vibrant online community dedicated to Norwegian football enthusiasts. Here, fans can engage in discussions on the latest news, matches, transfers, and rumors, delve into tactical strategies, explore player development, analyze statistics, delve into fan culture, and dive into the rich history of Norwegian football.",
+        "location": "Oslo, Norway",
+        "sections": [
+          {
+            "title": "The Vision",
+            "content": "Inspired by the absence of a unified platform for Norwegian football aficionados, I embarked on a mission to bring this community to life. My goal was to create a space where supporters from all Norwegian football clubs could come together and share their passion for the sport."
+          },
+          {
+            "title": "The Technical Journey",
+            "content": "Building FotballFeber from the ground up was a fascinating journey. I chose Next.js, React, and TailwindCSS as the core technologies. Everything was meticulously organized in a monorepo using Turborepo, and the website is seamlessly hosted on Vercel. For state management and data fetching, I adopted Jotai and Tanstack Query. The UI is adorned with shadcn/ui, Radix UI, and Lucide icons, ensuring a sleek and user-friendly experience."
+          },
+          {
+            "title": "News Aggregation Magic",
+            "content": "To keep the platform abuzz with the latest Norwegian football updates, I developed a method to source articles from various Norwegian football news sites, leveraging their public APIs. This involves a Python script for monitoring updates on the news sites. The articles go through a meticulous processing pipeline with the aid of Upstash Redis, a NodeJS server, and an additional Redis database."
+          },
+          {
+            "title": "The Road Ahead",
+            "content": "FotballFeber is an ever-evolving project with a comprehensive roadmap. The current focus is on finalizing the onboarding process and introducing a crucial discussion forum. The next milestone is implementing a subscription and payment service, marking the official launch for public use."
+          }
+        ],
+        "screenshots": [
+          "/images/projects/fotballfeber/screenshot001.webp",
+          "/images/projects/fotballfeber/screenshot002.webp"
+        ],
+        "liveUrl": "https://www.fotballfeber.com/",
+        "techStack": [
+          {
+            "name": "TypeScript",
+            "href": "https://www.typescriptlang.org/",
+            "iconName": "TYPESCRIPT"
+          },
+          {
+            "name": "Next.js",
+            "href": "https://nextjs.org/",
+            "iconName": "NEXTJS"
+          },
+          {
+            "name": "React",
+            "href": "https://react.dev/",
+            "iconName": "REACT"
+          },
+          {
+            "name": "Tailwind CSS",
+            "href": "https://tailwindcss.com/",
+            "iconName": "TAILWIND"
+          },
+          {
+            "name": "SQL",
+            "href": "https://www.mysql.com/",
+            "iconName": "SQL"
+          },
+          {
+            "name": "Node.js",
+            "href": "https://nodejs.org/",
+            "iconName": "NODEJS"
+          },
+          {
+            "name": "Vercel",
+            "href": "https://vercel.com/",
+            "iconName": "VERCEL"
+          }
+        ]
       },
       {
-        "period": "2019-2020",
-        "degree": "Front-End Development Nano-degree",
-        "institution": "Udacity"
-      },
-      {
-        "period": "2003-2005",
-        "degree": "Post Graduate Diploma in Law",
-        "institution": "Westminster University"
-      },
-      {
-        "period": "1997-2000",
-        "degree": "BA Hons English",
-        "institution": "Leeds University"
-      }
-    ]
-  },
-  "languages": {
-    "heading": "Human Languages",
-    "items": [
-      {
-        "language": "English",
-        "proficiency": "Native"
-      },
-      {
-        "language": "Norwegian",
-        "proficiency": "Intermediate"
+        "id": "portfolio",
+        "title": "Portfolio Website",
+        "subtitle": "Personal Portfolio",
+        "tagline": "A Showcase of My Work",
+        "period": "May 2023 - Current",
+        "role": "Designer and Developer",
+        "shortDescription": "A showcase of my work and skills as a developer",
+        "logoSrc": "/images/projects/portfolio/logo.png",
+        "isWip": false,
+        "description": "A showcase of my work and skills as a developer, featuring interactive elements and smooth animations.",
+        "location": "Oslo, Norway",
+        "sections": [
+          {
+            "title": "The Vision",
+            "content": "To create a portfolio that not only showcases my projects but also demonstrates my skills in animation and interactive UI development."
+          },
+          {
+            "title": "The Technical Journey",
+            "content": "Built with Next.js, React, and GSAP for animations. Focused on performance, accessibility, and responsive design."
+          }
+        ],
+        "screenshots": ["/images/projects/portfolio/screenshot001.webp"],
+        "liveUrl": "https://www.yourportfolio.com/",
+        "techStack": [
+          {
+            "name": "React",
+            "href": "https://reactjs.org/",
+            "iconName": "REACT"
+          },
+          {
+            "name": "Next.js",
+            "href": "https://nextjs.org/",
+            "iconName": "NEXTJS"
+          },
+          {
+            "name": "GSAP",
+            "href": "https://greensock.com/gsap/",
+            "iconName": "GSAP"
+          }
+        ]
       }
     ]
   },
@@ -228,7 +312,9 @@
     "tagline": "Full Stack Developer with expertise in React, TypeScript, and Node.js",
     "navigation": "Navigation",
     "home": "Home",
-    "aboutMe": "About Me",
+    "about": "About",
+    "tech": "Tech",
+    "work": "Work",
     "projects": "Projects",
     "experience": "Experience",
     "contact": "Contact",
