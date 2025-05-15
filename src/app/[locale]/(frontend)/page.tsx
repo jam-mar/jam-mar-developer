@@ -19,16 +19,14 @@ export default function HomePage() {
   return (
     <FullPageProvider sectionIds={DEFAULT_SECTION_IDS}>
       <NavBar scrollBehavior={true} />
-      <main>
-        <FullPageSections sectionIdsProp={DEFAULT_SECTION_IDS} locale={locale}>
-          <Hero />
-          <AboutMe />
-          <Tech />
-          <Work />
-          <Projects />
-          <Contact />
-        </FullPageSections>
-      </main>
+      <FullPageSections sectionIdsProp={DEFAULT_SECTION_IDS} locale={locale}>
+        <Hero />
+        <AboutMe />
+        <Tech />
+        <Work />
+        <Projects />
+        <Contact />
+      </FullPageSections>
     </FullPageProvider>
   )
 }
