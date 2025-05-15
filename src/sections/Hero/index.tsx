@@ -165,9 +165,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-2xl space-y-6 relative">
-        <p ref={titleRef} className="text-muted-foreground">
-          {t('preTitle')}
-        </p>
+        <p ref={titleRef} className="text-muted-foreground"></p>
 
         <h1
           ref={nameRef}

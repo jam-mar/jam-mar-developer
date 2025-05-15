@@ -29,10 +29,7 @@ function DialogOverlay({
   return (
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
-      className={cn(
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50',
-        className,
-      )}
+      className={cn('fixed inset-0 z-50 bg-black/50', className)}
       {...props}
     />
   )
@@ -40,19 +37,28 @@ function DialogOverlay({
 
 interface DialogContentProps extends React.ComponentProps<typeof DialogPrimitive.Content> {
   fullScreen?: boolean
+  fullWidth?: boolean
 }
 
-function DialogContent({ className, children, fullScreen = false, ...props }: DialogContentProps) {
+function DialogContent({
+  className,
+  children,
+  fullScreen = false,
+  fullWidth = false,
+  ...props
+}: DialogContentProps) {
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          'bg-background fixed z-50 grid border shadow-lg duration-200',
+          'bg-background fixed z-50 grid border shadow-lg',
           fullScreen
-            ? 'inset-0 w-screen h-screen max-w-none max-h-none rounded-none border-0 p-0 m-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0'
-            : 'top-[50%] left-[50%] w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] rounded-lg p-6 sm:max-w-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
+            ? 'inset-0 w-screen h-screen max-w-none max-h-none rounded-none border-0 p-0 m-0'
+            : fullWidth
+              ? 'top-[50%] left-[50%] w-[90%] max-w-[90%] translate-x-[-50%] translate-y-[-50%] rounded-lg p-6'
+              : 'top-[50%] left-[50%] w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] rounded-lg p-6 sm:max-w-lg',
           className,
         )}
         {...props}
