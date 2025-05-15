@@ -4,7 +4,6 @@ import Image from 'next/image'
 const ProjectCard = React.forwardRef(({ project, onClick }, ref) => {
   const cardRef = React.useRef(null)
 
-  // Return the JSX for the card
   return (
     <div
       ref={(el) => {

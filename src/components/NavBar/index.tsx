@@ -96,13 +96,13 @@ export default function NavBar({ scrollBehavior = false }) {
       <div
         ref={navBarRef}
         className={cn(
-          'border-b z-50 transition-transform duration-300 w-full',
+          'border-b z-50 transition-transform duration-300 w-full bg-background text-white',
           (effectiveScrollBehavior || isFullPageActive) && 'fixed top-0 left-0 right-0',
           effectiveScrollBehavior && !isVisible && '-translate-y-full',
         )}
       >
         <div className="flex h-16 items-center px-4 container mx-auto">
-          <Link href={`/${locale}`} className="mr-6 flex items-center space-x-2">
+          <Link href={`/${locale}`} className="mr-6 flex items-center space-x-2 text-white">
             <span className="font-bold sm:inline-block">{t('navigation.brand')}</span>
           </Link>
 
@@ -123,8 +123,8 @@ export default function NavBar({ scrollBehavior = false }) {
                         navigationMenuTriggerStyle(),
                         (item.isRootPageLink && (pathname === `/${locale}` || pathname === '/')) ||
                           (typeof window !== 'undefined' && window.location.hash === `#${item.id}`)
-                          ? 'font-medium text-foreground underline'
-                          : 'text-muted-foreground',
+                          ? 'font-medium text-white underline'
+                          : 'text-white/70 hover:text-white',
                       )}
                     >
                       {t(item.labelKey)}
@@ -136,32 +136,39 @@ export default function NavBar({ scrollBehavior = false }) {
           </NavigationMenu>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden ml-auto flex items-center">
-            <div className="mr-2">
+          <div className="md:hidden ml-auto flex items-center text-white">
+            <div className="mr-2 text-white">
               <LanguageSelector />
             </div>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <button className="p-2 text-foreground focus:outline-none" aria-label="Open menu">
+                <button className="p-2 text-white focus:outline-none" aria-label="Open menu">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[270px] sm:w-[300px] px-0 z-[60]">
-                <div className="px-6 py-4 flex items-center justify-between">
-                  <Link href={`/${locale}`} className="font-bold" onClick={() => setIsOpen(false)}>
+              <SheetContent
+                side="right"
+                className="w-[270px] sm:w-[300px] px-0 z-[60] bg-background/80 backdrop-blur-md text-white border-l border-white/20"
+              >
+                <div className="px-6 py-4 flex items-center justify-between border-b border-white/20">
+                  <Link
+                    href={`/${locale}`}
+                    className="font-bold text-white"
+                    onClick={() => setIsOpen(false)}
+                  >
                     {t('hero.name')}
                   </Link>
                   <SheetClose asChild>
-                    <button className="p-2 rounded-sm opacity-70 focus:outline-none">
+                    <button className="p-2 rounded-sm opacity-70 focus:outline-none text-white hover:opacity-100">
                       <X className="h-4 w-4" />
                       <span className="sr-only">Close</span>
                     </button>
                   </SheetClose>
                 </div>
                 <div className="px-6">
-                  <nav className="flex flex-col">
+                  <nav className="flex flex-col text-white">
                     {navItems.map((item) => (
-                      <div key={item.id} className="py-3 border-b">
+                      <div key={item.id} className="py-3 border-b border-white/20">
                         {isFullPageActive ? (
                           <SpaSectionNavLinkCtx
                             targetSectionId={item.id}
@@ -177,13 +184,13 @@ export default function NavBar({ scrollBehavior = false }) {
                                 : localizedHref(`/#${item.id}`)
                             }
                             className={cn(
-                              'block w-full text-left py-2 hover:text-foreground transition-colors',
+                              'block w-full text-left py-2 hover:text-white transition-colors',
                               (item.isRootPageLink &&
                                 (pathname === `/${locale}` || pathname === '/')) ||
                                 (typeof window !== 'undefined' &&
                                   window.location.hash === `#${item.id}`)
-                                ? 'text-foreground font-medium'
-                                : '',
+                                ? 'font-medium text-white'
+                                : 'text-white/70',
                             )}
                             onClick={() => setIsOpen(false)}
                           >
@@ -209,13 +216,13 @@ export default function NavBar({ scrollBehavior = false }) {
             </Sheet>
           </div>
 
-          <div className="ml-auto hidden md:flex items-center space-x-4">
+          <div className="ml-auto hidden md:flex items-center space-x-4 text-white">
             <LanguageSelector />
             <a
-              href="assets/James Marriott - cv@latest v0.0.1.pdf"
+              href="/assets/developer-cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 py-1.5 px-3 border border-input hover:bg-accent hover:text-accent-foreground rounded-md text-sm transition-colors"
+              className="flex items-center space-x-2 py-1.5 px-3 border border-white/20 hover:bg-white/10 rounded-md text-sm transition-colors text-white"
             >
               <span>{t('navigation.cv')}</span>
               <Download className="h-4 w-4" />
@@ -227,13 +234,13 @@ export default function NavBar({ scrollBehavior = false }) {
       <div className="fixed top-0 right-0 h-screen hidden lg:flex flex-col justify-end z-40 pointer-events-none">
         <div className="flex flex-col space-y-6 px-5 items-center pb-8 pointer-events-auto">
           <a
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-muted-foreground hover:text-white transition-colors"
             style={{ writingMode: 'vertical-rl' }}
             href={`mailto:${t('hero.email')}`}
           >
             {t('hero.email')}
           </a>
-          <div className="mx-3 h-24 sm:h-40 w-px bg-border"></div>
+          <div className="mx-3 h-24 sm:h-40 w-px bg-white/20"></div>
         </div>
       </div>
     </>

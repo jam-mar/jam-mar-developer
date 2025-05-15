@@ -289,7 +289,7 @@ export default function Work() {
 
   return (
     <>
-      <div ref={sectionRef} className="container py-12 md:py-16">
+      <div ref={sectionRef} className="max-w-screen-xl w-full mx-auto px-4 md:px-6 lg:px-8">
         <div className="space-y-8">
           <div>
             <h2 ref={headingRef} className="text-3xl font-bold tracking-tight">

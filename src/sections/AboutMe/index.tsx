@@ -92,7 +92,7 @@ export default function AboutMe() {
   }, [activeSectionId])
 
   return (
-    <div ref={sectionRef} className="container py-12 md:py-16">
+    <div ref={sectionRef} className="max-w-screen-xl w-full mx-auto px-4 md:px-6 lg:px-8">
       <div className="space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div className="md:order-last flex justify-center" ref={imageRef}>

@@ -18,7 +18,7 @@ export default function Hero() {
   const subheadingRef = useRef(null)
   const buttonRef = useRef(null)
   const decorationRef = useRef(null)
-  const badgeRefs = useRef([])
+  const badgeRefs = useRef<(HTMLSpanElement | null)[]>([])
 
   const badges = [
     {
@@ -98,15 +98,15 @@ export default function Hero() {
         )
         .to(buttonRef.current, { y: 0, opacity: 1, duration: 0.8 }, '-=0.4')
 
-      // Floating animation for decoration elements
-      gsap.to(decorationRef.current.querySelectorAll('.decoration-item'), {
-        y: -15,
-        duration: 2,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.2,
-      })
+      // // Floating animation for decoration elements
+      // gsap.to(decorationRef.current.querySelectorAll('.decoration-item'), {
+      //   y: -15,
+      //   duration: 2,
+      //   ease: 'sine.inOut',
+      //   yoyo: true,
+      //   repeat: -1,
+      //   stagger: 0.2,
+      // })
 
       return () => {
         timeline.kill()
@@ -123,10 +123,7 @@ export default function Hero() {
   }
 
   return (
-    <div
-      ref={sectionRef}
-      className="min-h-screen container flex flex-col justify-center relative overflow-hidden"
-    >
+    <div ref={sectionRef} className="max-w-screen-xl w-full mx-auto px-4 md:px-6 lg:px-8">
       {/* Background decoration removed - now handled by the layout */}
 
       {/* Decorative elements */}
