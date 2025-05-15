@@ -119,22 +119,15 @@ export default function NavBar({ scrollBehavior = false }) {
                       href={
                         item.isRootPageLink ? localizedHref('/') : localizedHref(`/#${item.id}`)
                       }
-                      passHref
-                      legacyBehavior
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        (item.isRootPageLink && (pathname === `/${locale}` || pathname === '/')) ||
+                          (typeof window !== 'undefined' && window.location.hash === `#${item.id}`)
+                          ? 'font-medium text-foreground underline'
+                          : 'text-muted-foreground',
+                      )}
                     >
-                      <NavigationMenuLink
-                        className={cn(
-                          navigationMenuTriggerStyle(),
-                          (item.isRootPageLink &&
-                            (pathname === `/${locale}` || pathname === '/')) ||
-                            (typeof window !== 'undefined' &&
-                              window.location.hash === `#${item.id}`)
-                            ? 'font-medium text-foreground underline'
-                            : 'text-muted-foreground',
-                        )}
-                      >
-                        {t(item.labelKey)}
-                      </NavigationMenuLink>
+                      {t(item.labelKey)}
                     </Link>
                   )}
                 </NavigationMenuItem>
