@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ProfileImage from '@/components/ProfileImage'
-import './styles.css'
 import { useFullPage } from '@/context'
 
 export default function AboutMe() {
@@ -16,7 +15,7 @@ export default function AboutMe() {
   const descriptionRef = useRef(null)
   const imageRef = useRef(null)
 
-  const timelineRef = useRef<gsap.core.Timeline | null>(null)
+  const timelineRef = useRef<GSAPTimeline | null>(null)
 
   useGSAP(
     () => {
@@ -61,7 +60,6 @@ export default function AboutMe() {
           '-=0.4',
         )
 
-      // Save the timeline to our ref
       timelineRef.current = tl
 
       return () => {
@@ -73,19 +71,14 @@ export default function AboutMe() {
     { scope: sectionRef },
   )
 
-  // Play or reset animations based on active section
   useEffect(() => {
-    // FIXED: Match the exact section ID 'aboutMe' instead of 'about'
     const isActive = activeSectionId === 'aboutMe'
 
     if (isActive && timelineRef.current) {
-      // Play animation when section becomes active
       timelineRef.current.restart()
     } else if (!isActive && timelineRef.current) {
-      // Reset animation when section becomes inactive
       timelineRef.current.pause(0)
 
-      // Reset elements to initial state
       gsap.set([headingRef.current, descriptionRef.current], {
         autoAlpha: 0,
         y: 30,
@@ -99,19 +92,23 @@ export default function AboutMe() {
   }, [activeSectionId])
 
   return (
-    <div ref={sectionRef} className="flex items-center justify-center h-full w-full">
+    <div ref={sectionRef} className="flex items-center justify-center h-full w-full bg-[#141414]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start md:items-center">
-          <div className="about-image md:order-last" ref={imageRef}>
-            <ProfileImage
-              src="/images/james.jpg"
-              alt={t('profileImageAlt')}
-              width={300}
-              height={300}
-              className="mx-auto md:mx-0"
-            />
+          <div className="md:order-last flex justify-center" ref={imageRef}>
+            <div className="relative overflow-hidden rounded-full shadow-lg w-[300px] h-[300px] group">
+              <ProfileImage
+                src="/images/james.jpg"
+                alt={t('profileImageAlt')}
+                width={300}
+                height={300}
+                className="relative rounded-full shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:filter group-hover:blur-sm"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-500 ease-out z-10 rounded-full group-hover:opacity-100"></div>
+              <div className="absolute w-10 h-10 z-[15] opacity-0 pointer-events-none rounded-full bg-gradient-radial from-white/80 to-transparent to-70%"></div>
+            </div>
           </div>
-          <div className="about-content md:col-span-2">
+          <div className="md:col-span-2">
             <h2
               ref={headingRef}
               className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6"
