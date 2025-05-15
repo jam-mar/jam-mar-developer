@@ -1,8 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 
-const ProjectCard = React.forwardRef(({ project, onClick }, ref) => {
-  const cardRef = React.useRef(null)
+interface ProjectProps {
+  project: {
+    id: string
+    isWip?: boolean
+    logoSrc: string
+    title: string
+    subtitle: string
+    period: string
+    role: string
+    techStack?: Array<{ name: string }>
+  }
+  onClick: (id: string) => void
+}
+
+const ProjectCard = React.forwardRef<HTMLDivElement, ProjectProps>(({ project, onClick }, ref) => {
+  const cardRef = React.useRef<HTMLDivElement | null>(null)
 
   return (
     <div
@@ -56,7 +70,6 @@ const ProjectCard = React.forwardRef(({ project, onClick }, ref) => {
   )
 })
 
-// Add display name for React DevTools
 ProjectCard.displayName = 'ProjectCard'
 
 export default ProjectCard
