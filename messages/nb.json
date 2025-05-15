@@ -1,8 +1,11 @@
+I'll translate the entire file into Norwegian while keeping the exact format for keys. Here's the complete translation:
+
+```json
 {
   "navigation": {
     "brand": "James Marriott",
     "home": "Hjem",
-    "about_me": "Om",
+    "about_me": "Om meg",
     "projects": "Prosjekter",
     "experience": "Erfaring",
     "contact": "Kontakt",
@@ -13,32 +16,84 @@
     "footer": "Bunntekst"
   },
   "hero": {
-    "preTitle": "Hei, jeg er",
     "name": "James Marriott",
     "heading": "Full-Stack Utvikler",
-    "subheading": "Skaper engasjerende, ytelsessterke nettapplikasjoner",
-    "email": "jamesrmarriott@gmail.com"
+    "subheading": "Skaper skalerbare webapplikasjoner med React, TypeScript og Node.js",
+    "scrollCta": "Utforsk arbeidet mitt",
+    "email": "jamesrmarriott@gmail.com",
+    "badges": [
+      {
+        "text": "Frontend Ekspert",
+        "icon": "Code",
+        "color": "from-blue-500 to-indigo-600"
+      },
+      {
+        "text": "Backend Utvikler",
+        "icon": "Database",
+        "color": "from-emerald-500 to-teal-600"
+      },
+      {
+        "text": "UI/UX Designer",
+        "icon": "Palette",
+        "color": "from-rose-500 to-pink-600"
+      },
+      {
+        "text": "Kreativ Koder",
+        "icon": "Sparkles",
+        "color": "from-amber-500 to-orange-600"
+      },
+      {
+        "text": "Rask Levering",
+        "icon": "Clock",
+        "color": "from-violet-500 to-purple-600"
+      }
+    ]
   },
   "aboutMe": {
-    "heading": "Om Meg",
-    "description": "Jeg er en britisk full-stack utvikler, lærer og mentor. Jeg elsker å skape innovative nett-løsninger, hjelpe folk med å lære å kode og dele min kunnskap med andre. Basert i Kristiansand, Norge, kombinerer jeg teknisk ekspertise med en kreativ tilnærming til problemløsning. Jeg har omfattende erfaring innen både front-end og back-end utvikling, med spesialisering i å bygge responsive, brukervennlige nettapplikasjoner ved hjelp av moderne rammeverk og verktøy. Min tekniske bakgrunn gjør at jeg kan takle komplekse utfordringer på hele utviklingsstakken. Jeg er for tiden åpen for nye muligheter innen Norge, EU og Storbritannia. Jeg brenner for undervisning og veiledning, og jeg liker å dele min kunnskap med andre. Jeg har erfaring med å lede workshops, holde foredrag og veilede juniorutviklere.",
-    "skillsHeading": "Mine Ferdigheter",
+    "heading": "Om meg",
+    "description": "Jeg er en britisk full-stack utvikler med over 5 års erfaring i å bygge webapplikasjoner på bedriftsnivå. Jeg er basert i Kristiansand, Norge, og spesialiserer meg innen React, TypeScript og Node.js økosystemene med særlig ekspertise innen Next.js og GraphQL-implementeringer. Jeg har dokumentert erfaring i å utvikle skalerbare frontend- og backend-løsninger og erfaring med å jobbe i smidige miljøer med tverrfaglig samarbeid på tvers av flere land. Mine sterke problemløsningsevner har blitt demonstrert gjennom optimalisering av databasestrukturer og implementering av effektive server-side integrasjoner. Jeg er opptatt av å skrive ren, vedlikeholdbar kode som balanserer teknisk eksellense med forretningskrav. For tiden åpen for nye muligheter i Norge, EU og Storbritannia.",
+    "skillsHeading": "Mine ferdigheter",
     "profileImageAlt": "Profilbilde"
   },
+  "expertise": {
+    "heading": "Min ekspertise",
+    "description": "Med over 5 års erfaring innen full-stack utvikling, utmerker jeg meg i å bygge applikasjoner på bedriftsnivå som prioriterer brukeropplevelse og ytelse. Min tekniske ekspertise spenner over både frontend- og backend-utvikling, med fokus på å skape skalerbare, vedlikeholdbare løsninger ved hjelp av moderne rammeverk og verktøy. Jeg er spesielt dyktig på Next.js-implementeringer, GraphQL, og mikrotjeneste-arkitekturer. Jeg forstår viktigheten av å balansere teknisk eksellense med forretningskrav, og jeg er opptatt av å levere løsninger som oppfyller både brukerbehov og organisatoriske mål. Enten det er optimalisering av databasestrukturer, implementering av effektive server-side integrasjoner, eller utvikling av responsive brukergrensesnitt, tilnærmer jeg meg hvert prosjekt med en pragmatisk tankegang og fokus på å levere verdi."
+  },
   "tech": {
-    "heading": "Tech",
-    "description": "These are just some of the technologies I am familiar with.",
-    "skillsHeading": "My Skills",
-    "profileImageAlt": "Profile photo"
+    "heading": "Teknologi-stack",
+    "description": "Jeg jobber med et bredt spekter av teknologier på tvers av hele utviklingsstack.",
+    "skills": {
+      "languages": {
+        "title": "Språk",
+        "items": ["TypeScript", "JavaScript (ES6+)", "HTML", "CSS", "SQL", "GraphQL", "Python"]
+      },
+      "frameworks": {
+        "title": "Rammeverk og biblioteker",
+        "items": ["React", "Next.js", "Node.js", "Flask", "Apollo", "LLM finjustering"]
+      },
+      "databases": {
+        "title": "Databaser",
+        "items": ["PostgreSQL", "MongoDB", "Firebase", "SQLite"]
+      },
+      "devops": {
+        "title": "Skytjenester og DevOps",
+        "items": ["AWS Lambda", "Docker", "GitHub Actions", "Cloud Build", "Google Cloud"]
+      },
+      "other": {
+        "title": "Andre verktøy",
+        "items": ["HubSpot CMS", "Prisma ORM", "Auth0/OAuth 2.0", "Figma"]
+      }
+    },
+    "profileImageAlt": "Profilbilde"
   },
   "projects": {
-    "heading": "Mine Prosjekter",
+    "heading": "Mine prosjekter",
     "description": "Her er noen av prosjektene jeg har jobbet med. Hvert representerer en unik utfordring og læringsopplevelse.",
     "liveDemo": "Live Demo",
     "sourceCode": "Kildekode",
     "projectOne": {
-      "title": "Porteføljenettsted",
-      "description": "Et responsivt porteføljenettsted bygget med Next.js, med GSAP-animasjoner og støtte for flere språk."
+      "title": "Portefølje nettside",
+      "description": "En responsiv portefølje nettside bygget med Next.js, med GSAP-animasjoner og støtte for flere språk."
     },
     "projectTwo": {
       "title": "E-handelsplattform",
@@ -46,78 +101,228 @@
     },
     "projectThree": {
       "title": "Mobilapplikasjon",
-      "description": "En kryssplattform mobilapplikasjon bygget med React Native for både iOS- og Android-enheter."
+      "description": "En kryssplattform mobilapplikasjon bygget med React Native for både iOS og Android enheter."
     }
   },
   "work": {
     "heading": "Arbeidserfaring",
-    "description": "Min profesjonelle reise i verden av nettutvkling.",
-    "companyOne": {
-      "name": "Tech Innovations Inc.",
-      "position": "Senior Front-end Utvikler",
-      "period": "2022 - Nåværende",
-      "description": "Leder front-end utviklingsteamet i å skape innovative nettapplikasjoner.",
-      "achievements": {
-        "one": "Implementerte et nytt komponentbibliotek som reduserte utviklingstiden med 30%",
-        "two": "Optimaliserte nettstedets ytelse, forbedret lastetiden med 40%",
-        "three": "Veiledet juniorutviklere og gjennomførte kodegjennomganger"
-      }
-    },
-    "companyTwo": {
-      "name": "Digital Solutions Ltd.",
-      "position": "Full-Stack Utvikler",
-      "period": "2019 - 2022",
-      "description": "Jobbet med ulike nettprosjekter ved hjelp av React, Node.js og MongoDB.",
-      "achievements": {
-        "one": "Utviklet en kundeportal som forbedret kundetilfredsheten med 25%",
-        "two": "Implementerte CI/CD-pipelines som effektiviserte utrullingsprosesser",
-        "three": "Bidro til open-source prosjekter og delte kunnskap gjennom tekniske foredrag"
-      }
-    },
-    "companyThree": {
-      "name": "Creative Web Agency",
-      "position": "Juniorutvikler",
-      "period": "2017 - 2019",
-      "description": "Startet karrieren min med å jobbe på nettsteder for små bedrifter og startups.",
-      "achievements": {
-        "one": "Bygget responsive nettsteder for over 15 kunder",
-        "two": "Lærte og implementerte moderne JavaScript-rammeverk",
-        "three": "Samarbeidet med designere for å skape sammenhengende brukeropplevelser"
+    "subheading": "Min profesjonelle reise og selskapene jeg har jobbet med.",
+    "companies": {
+      "company1": {
+        "name": "Ducky",
+        "position": "Senior Frontend Utvikler",
+        "period": "2021 - Nåværende",
+        "shortDescription": "Leder frontend-utvikling for en klimateknologiplattform",
+        "description": "Som Senior Frontend Utvikler hos Ducky er jeg ansvarlig for å utforme og implementere funksjoner for vår klimaaksjonsplattform, med fokus på ytelsesoptimalisering og brukeropplevelse.",
+        "location": "Oslo, Norge",
+        "sections": {
+          "responsibilities": {
+            "title": "Hovedansvar",
+            "content": "Lede frontend-arkitektur, implementere nye funksjoner, veilede juniorutviklere, og samarbeide med designteamet om UX-forbedringer."
+          },
+          "achievements": {
+            "title": "Oppnåelser",
+            "content": "Reduserte sidens lastetider med 40%, implementerte komponentbibliotek, økte testdekningen til 85%, og ledet migreringen fra eldre kodebase til Next.js."
+          },
+          "technologies": {
+            "title": "Teknologier brukt",
+            "content": "React, TypeScript, Next.js, GraphQL, PostgreSQL, Docker, og AWS."
+          }
+        }
+      },
+      "company2": {
+        "name": "Oslo Nye Fagskole",
+        "position": "Webutviklingsinstruktør",
+        "period": "2019 - 2021",
+        "shortDescription": "Underviser i grunnleggende webutvikling for studenter",
+        "description": "Utviklet og leverte læreplan for moderne webutviklingspraksis, med fokus på praktiske ferdigheter og bransje-relevante teknologier.",
+        "location": "Oslo, Norge",
+        "sections": {
+          "achievements": {
+            "title": "Viktige oppnåelser",
+            "content": "Designet læreplan fra bunnen av, veiledet over 50 studenter, og bidro til 90% jobbplasseringsrate for programdeltakere."
+          }
+        }
+      },
+      "company3": {
+        "name": "Digital Frilansmedarbeider",
+        "position": "Webutvikler",
+        "period": "2016 - 2019",
+        "shortDescription": "Bygging av nettsider og webapplikasjoner for kunder",
+        "description": "Jobbet direkte med kunder for å designe og utvikle skreddersydde nettsider og webapplikasjoner tilpasset deres spesifikke behov og forretningsmål.",
+        "location": "Fjernjobb",
+        "sections": {
+          "highlights": {
+            "title": "Høydepunkter",
+            "content": "Fullførte over 30 prosjekter for kunder i ulike bransjer, opprettholdt langvarige relasjoner med viktige kunder, og leverte konsekvent prosjekter i tide og innenfor budsjett."
+          }
+        }
       }
     }
   },
+  "projects": {
+    "heading": "Prosjekter",
+    "subheading": "Noen av mine nylige arbeid og personlige prosjekter.",
+    "projects": [
+      {
+        "id": "fotballfeber",
+        "title": "FotballFeber",
+        "subtitle": "Online Samfunn",
+        "tagline": "Der norske fotballfans forenes",
+        "period": "Jan 2023 - Nåværende",
+        "role": "Grunnlegger, Systemarkitekt og Full-Stack Utvikler",
+        "shortDescription": "Et levende online samfunn dedikert til norske fotballentusiaster",
+        "logoSrc": "/images/projects/fotballfeber/logo.png",
+        "isWip": true,
+        "description": "FotballFeber er et kommende levende online samfunn dedikert til norske fotballentusiaster. Her kan fans delta i diskusjoner om de siste nyhetene, kamper, overganger og rykter, fordype seg i taktiske strategier, utforske spillerutvikling, analysere statistikk, dykke ned i fankultur, og utforske den rike historien til norsk fotball.",
+        "location": "Oslo, Norge",
+        "sections": [
+          {
+            "title": "Visjonen",
+            "content": "Inspirert av fraværet av en samlet plattform for norske fotballentusiaster, begynte jeg på en misjon for å bringe dette samfunnet til live. Målet mitt var å skape et rom der supportere fra alle norske fotballklubber kunne komme sammen og dele sin lidenskap for sporten."
+          },
+          {
+            "title": "Den tekniske reisen",
+            "content": "Å bygge FotballFeber fra bunnen av var en fascinerende reise. Jeg valgte Next.js, React og TailwindCSS som kjerneteknologier. Alt ble nøye organisert i et monorepo ved hjelp av Turborepo, og nettstedet er sømløst hostet på Vercel. For tilstandshåndtering og datahenting, adopterte jeg Jotai og Tanstack Query. Brukergrensesnittet er prydet med shadcn/ui, Radix UI og Lucide-ikoner, noe som sikrer en elegant og brukervennlig opplevelse."
+          },
+          {
+            "title": "Nyhetsaggregering-magi",
+            "content": "For å holde plattformen oppdatert med de siste norske fotballnyhetene, utviklet jeg en metode for å hente artikler fra forskjellige norske fotballnyhetsnettsteder, ved å utnytte deres offentlige API-er. Dette involverer et Python-skript for å overvåke oppdateringer på nyhetsstedene. Artiklene går gjennom en nøyaktig behandlingsprosess med hjelp av Upstash Redis, en NodeJS-server og en ekstra Redis-database."
+          },
+          {
+            "title": "Veien videre",
+            "content": "FotballFeber er et stadig utviklende prosjekt med en omfattende veiplan. Nåværende fokus er på å ferdigstille onboarding-prosessen og introdusere et viktig diskusjonsforum. Neste milepæl er å implementere en abonnements- og betalingstjeneste, som markerer den offisielle lanseringen for offentlig bruk."
+          }
+        ],
+        "screenshots": [
+          "/images/projects/fotballfeber/screenshot001.webp",
+          "/images/projects/fotballfeber/screenshot002.webp"
+        ],
+        "liveUrl": "https://www.fotballfeber.com/",
+        "techStack": [
+          {
+            "name": "TypeScript",
+            "href": "https://www.typescriptlang.org/",
+            "iconName": "TYPESCRIPT"
+          },
+          {
+            "name": "Next.js",
+            "href": "https://nextjs.org/",
+            "iconName": "NEXTJS"
+          },
+          {
+            "name": "React",
+            "href": "https://react.dev/",
+            "iconName": "REACT"
+          },
+          {
+            "name": "Tailwind CSS",
+            "href": "https://tailwindcss.com/",
+            "iconName": "TAILWIND"
+          },
+          {
+            "name": "SQL",
+            "href": "https://www.mysql.com/",
+            "iconName": "SQL"
+          },
+          {
+            "name": "Node.js",
+            "href": "https://nodejs.org/",
+            "iconName": "NODEJS"
+          },
+          {
+            "name": "Vercel",
+            "href": "https://vercel.com/",
+            "iconName": "VERCEL"
+          }
+        ]
+      },
+      {
+        "id": "portfolio",
+        "title": "Portefølje nettside",
+        "subtitle": "Personlig portefølje",
+        "tagline": "En fremvisning av mitt arbeid",
+        "period": "Mai 2023 - Nåværende",
+        "role": "Designer og Utvikler",
+        "shortDescription": "En fremvisning av mitt arbeid og ferdigheter som utvikler",
+        "logoSrc": "/images/projects/portfolio/logo.png",
+        "isWip": false,
+        "description": "En fremvisning av mitt arbeid og ferdigheter som utvikler, med interaktive elementer og jevne animasjoner.",
+        "location": "Oslo, Norge",
+        "sections": [
+          {
+            "title": "Visjonen",
+            "content": "Å skape en portefølje som ikke bare viser frem prosjektene mine, men også demonstrerer mine ferdigheter innen animasjon og interaktiv UI-utvikling."
+          },
+          {
+            "title": "Den tekniske reisen",
+            "content": "Bygget med Next.js, React og GSAP for animasjoner. Fokusert på ytelse, tilgjengelighet og responsivt design."
+          }
+        ],
+        "screenshots": ["/images/projects/portfolio/screenshot001.webp"],
+        "liveUrl": "https://www.yourportfolio.com/",
+        "techStack": [
+          {
+            "name": "React",
+            "href": "https://reactjs.org/",
+            "iconName": "REACT"
+          },
+          {
+            "name": "Next.js",
+            "href": "https://nextjs.org/",
+            "iconName": "NEXTJS"
+          },
+          {
+            "name": "GSAP",
+            "href": "https://greensock.com/gsap/",
+            "iconName": "GSAP"
+          }
+        ]
+      }
+    ]
+  },
   "contact": {
-    "heading": "Ta Kontakt",
-    "description": "Har du et prosjekt i tankene eller vil du bare slå av en prat? Ikke nøl med å ta kontakt!",
-    "email": "E-post",
-    "phone": "Telefon",
-    "location": "Sted",
-    "formName": "Navn",
-    "formNamePlaceholder": "Skriv inn navnet ditt",
+    "availability": "Jeg er for tiden tilgjengelig for nye muligheter i Norge, EU, og Storbritannia.",
+    "description": "Har du et prosjekt i tankene eller ønsker å diskutere en potensiell rolle? Ta gjerne kontakt!",
+    "email": "jamesrmarriott@gmail.com",
+    "emailLabel": "E-post",
+    "emailMe": "Send meg e-post",
+    "errorGeneric": "Noe gikk galt. Vennligst prøv igjen.",
+    "errorMessage": "Det oppstod en feil ved sending av meldingen din. Vennligst prøv igjen.",
     "formEmail": "E-post",
     "formEmailPlaceholder": "Skriv inn e-postadressen din",
-    "formSubject": "Emne",
-    "formSubjectPlaceholder": "Hva gjelder dette?",
     "formMessage": "Melding",
-    "formMessagePlaceholder": "Fortell meg om prosjektet ditt eller forespørselen",
-    "formSubmit": "Send Melding",
+    "formMessagePlaceholder": "Fortell meg om prosjektet ditt eller muligheten",
+    "formName": "Navn",
+    "formNamePlaceholder": "Skriv inn navnet ditt",
+    "formSubject": "Emne",
+    "formSubjectPlaceholder": "Hva handler dette om?",
+    "formSubmit": "Send melding",
+    "heading": "Ta kontakt",
+    "location": "Kristiansand, Norge",
+    "mailto": "mailto:jamesrmarriott@gmail.com",
+    "phone": "Telefon",
+    "phoneLink": "tel:+4794511284",
+    "phoneLabel": "Ring meg",
+    "phoneNumber": "+47 945 11 284",
     "sending": "Sender...",
-    "successMessage": "Meldingen din er sendt!",
-    "errorMessage": "Det oppstod en feil ved sending av meldingen din. Vennligst prøv igjen.",
-    "errorGeneric": "Noe gikk galt. Vennligst prøv igjen."
+    "socialsLabel": "Sosiale medier",
+    "successMessage": "Meldingen din har blitt sendt!"
   },
   "footer": {
     "siteName": "James Marriott",
-    "tagline": "Bygger nettet, én piksel om gangen",
+    "tagline": "Full Stack Utvikler med ekspertise i React, TypeScript og Node.js",
     "navigation": "Navigasjon",
     "home": "Hjem",
-    "aboutMe": "Om Meg",
+    "about": "Om meg",
+    "tech": "Teknologi",
+    "work": "Arbeid",
     "projects": "Prosjekter",
     "experience": "Erfaring",
     "contact": "Kontakt",
     "connect": "Koble til",
     "languages": "Språk",
-    "copyright": "Alle Rettigheter Reservert",
+    "copyright": "Alle rettigheter forbeholdt",
     "poweredBy": "Drevet av"
   }
 }

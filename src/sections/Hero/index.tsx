@@ -32,11 +32,6 @@ export default function Hero() {
       color: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     },
     {
-      icon: <Palette className="h-3 w-3 mr-1" />,
-      text: 'UI/UX Designer',
-      color: 'bg-gradient-to-r from-rose-500 to-pink-600',
-    },
-    {
       icon: <Sparkles className="h-3 w-3 mr-1" />,
       text: 'Creative Coder',
       color: 'bg-gradient-to-r from-amber-500 to-orange-600',
