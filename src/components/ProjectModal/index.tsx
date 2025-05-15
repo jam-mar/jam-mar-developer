@@ -25,9 +25,9 @@ interface Section {
 }
 
 interface Project {
-  title: string
-  subtitle: string
-  period: string
+  title?: string
+  subtitle?: string
+  period?: string
   tagline?: string
   description: string
   location: string

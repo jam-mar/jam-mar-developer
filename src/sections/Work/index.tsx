@@ -17,16 +17,15 @@ export default function Work() {
   const t = useTranslations('work')
   const { activeSectionId } = useFullPage()
 
-  const [activeWork, setActiveWork] = useState(null)
+  const [activeWork, setActiveWork] = useState<(typeof workExperiences)[0] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [, setHoverTarget] = useState('')
 
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
-  const workRefs = useRef([])
-  const timelineRef = useRef(null)
+  const workRefs = useRef<(HTMLDivElement | null)[]>([])
+  const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
-  // Work experience data with translations
   const workExperiences = [
     {
       id: 'ducky',
@@ -179,43 +178,36 @@ export default function Work() {
   ]
 
   useEffect(() => {
-    // Initialize refs arrays with the correct length
     workRefs.current = workRefs.current.slice(0, workExperiences.length)
   }, [workExperiences.length])
 
-  // Modal opening function
-  const openWorkModal = (workId) => {
+  const openWorkModal = (workId: string) => {
     const work = workExperiences.find((w) => w.id === workId)
     if (work) {
       setActiveWork(work)
       setIsModalOpen(true)
-      // Prevent scrolling on body when modal is open
+
       document.body.classList.add('modal-open')
     }
   }
 
-  // Modal closing function
   const closeWorkModal = () => {
     setIsModalOpen(false)
-    // Re-enable scrolling on body
+
     document.body.classList.remove('modal-open')
-    // Clear the active work item after animation completes
+
     setTimeout(() => setActiveWork(null), 300)
   }
 
-  // Create animations using useGSAP but keep them paused
   useGSAP(
     () => {
       if (!sectionRef.current) return
 
-      // Create a master timeline that will be controlled via the activeSectionId
       const masterTimeline = gsap.timeline({ paused: true })
       timelineRef.current = masterTimeline
 
-      // Reset any existing animations
       gsap.killTweensOf([headingRef.current, ...workRefs.current.filter(Boolean)])
 
-      // Set initial states
       gsap.set(headingRef.current, {
         autoAlpha: 0,
         y: 30,
@@ -226,10 +218,8 @@ export default function Work() {
         y: 50,
       })
 
-      // Determine if we're in mobile view
       const isMobile = window.innerWidth < 768
 
-      // Animate heading elements
       masterTimeline.to(headingRef.current, {
         autoAlpha: 1,
         y: 0,
@@ -237,7 +227,6 @@ export default function Work() {
         ease: 'power2.out',
       })
 
-      // Animate work cards with stagger
       masterTimeline.to(
         workRefs.current.filter(Boolean),
         {
@@ -262,19 +251,14 @@ export default function Work() {
     { scope: sectionRef, dependencies: [workExperiences.length] },
   )
 
-  // Watch for section ID changes to play animation
   useEffect(() => {
-    // Match the exact section ID 'work' from your app
     const isActive = activeSectionId === 'work'
 
     if (isActive && timelineRef.current) {
-      // Play animation when section becomes active
       timelineRef.current.restart()
     } else if (!isActive && timelineRef.current) {
-      // Reset animation when section becomes inactive
       timelineRef.current.pause(0)
 
-      // Reset elements to initial state
       gsap.set(headingRef.current, {
         autoAlpha: 0,
         y: 30,
@@ -350,18 +334,23 @@ export default function Work() {
         </div>
       </div>
 
-      {/* Work detail modal */}
       <ProjectModal
         isOpen={isModalOpen}
         onClose={closeWorkModal}
-        project={{
-          ...activeWork,
-          title: activeWork?.company,
-          subtitle: activeWork?.position,
-          isWip: activeWork?.isCurrent,
-          liveUrl: activeWork?.companyUrl,
-          tagline: activeWork?.shortDescription,
-        }}
+        project={
+          activeWork
+            ? {
+                ...activeWork,
+                title: activeWork.company,
+                subtitle: activeWork.position,
+                isWip: activeWork.isCurrent,
+                liveUrl: activeWork.companyUrl,
+                tagline: activeWork.shortDescription,
+                description: activeWork.description,
+                location: activeWork.location,
+              }
+            : null
+        }
       />
     </>
   )
