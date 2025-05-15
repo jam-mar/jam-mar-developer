@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { cn } from '@/lib/utils'
 import './styles.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -79,6 +80,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
 }) => {
   const [isRevealed, setIsRevealed] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const matrixRef = useRef<HTMLDivElement>(null)
@@ -334,25 +336,33 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
   }, [])
 
   return (
-    <>
-      <div
-        className="profile-image-container"
-        ref={containerRef}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
+    <div
+      className={cn('relative overflow-hidden rounded-md shadow-md', className)}
+      ref={containerRef}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className="relative">
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
-          className={`profile-image profile-image-blur object-cover aspect-square ${className}`}
+          className={cn(
+            'profile-image profile-image-blur object-cover aspect-square transition-all duration-500',
+            isLoaded ? 'opacity-100' : 'opacity-0',
+          )}
+          onLoadingComplete={() => setIsLoaded(true)}
           priority
         />
-        <div className="profile-image-overlay" ref={overlayRef}></div>
-        <div className="matrix-code" ref={matrixRef}></div>
+        {!isLoaded && <div className="absolute inset-0 bg-muted animate-pulse rounded-md" />}
       </div>
-    </>
+      <div
+        className="absolute inset-0 bg-background/40 transition-opacity duration-300"
+        ref={overlayRef}
+      ></div>
+      <div className="matrix-code absolute inset-0 pointer-events-none" ref={matrixRef}></div>
+    </div>
   )
 }
 

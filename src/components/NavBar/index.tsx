@@ -96,7 +96,7 @@ export default function NavBar({ scrollBehavior = false }) {
       <div
         ref={navBarRef}
         className={cn(
-          'border-b z-50 bg-background/80 backdrop-blur-sm transition-transform duration-300 w-full',
+          'border-b z-50 transition-transform duration-300 w-full',
           (effectiveScrollBehavior || isFullPageActive) && 'fixed top-0 left-0 right-0',
           effectiveScrollBehavior && !isVisible && '-translate-y-full',
         )}

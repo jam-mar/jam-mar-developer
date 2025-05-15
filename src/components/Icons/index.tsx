@@ -5,12 +5,14 @@ export enum IconName {
   AUTH0 = 'auth0',
   CSS = 'css',
   DOCKER = 'docker',
+  DRIZZLE = 'drizzle',
   FIGMA = 'figma',
   FIREBASE = 'firebase',
   FLASK = 'flask',
   GITHUBACTIONS = 'githubactions',
   GOOGLECLOUD = 'googlecloud',
   GRAPHQL = 'graphql',
+  GSAP = 'gsap',
   HTML5 = 'html5',
   JAVASCRIPT = 'javascript',
   MONGODB = 'mongodb',
@@ -21,12 +23,11 @@ export enum IconName {
   PYTHON = 'python',
   REACT = 'react',
   SQL = 'sql',
-  TYPESCRIPT = 'typescript',
-  THREE = 'three',
-  DRIZZLE = 'drizzle',
-  GSAP = 'gsap',
   TAILWIND = 'tailwind',
+  THREE = 'three',
+  TYPESCRIPT = 'typescript',
   VERCEL = 'vercel',
+  WORDPRESS = 'wordpress',
 }
 
 interface SvgIconProps extends React.ComponentPropsWithoutRef<typeof Image> {
@@ -66,7 +67,10 @@ export const SqlIcon = () => <SvgIcon src="/icons/sql.svg" alt="SQL" />
 export const TypeScriptIcon = () => <SvgIcon src="/icons/typescript.svg" alt="TypeScript" />
 export const ThreeJSIcon = () => <SvgIcon src="/icons/threejs.svg" alt="Three.js" />
 export const TailwindIcon = () => <SvgIcon src="/icons/tailwind.svg" alt="Tailwind CSS" />
+export const TypescriptIcon = () => <SvgIcon src="/icons/typescript.svg" alt="TypeScript" />
+export const ViteIcon = () => <SvgIcon src="/icons/vite.svg" alt="Vite" />
 export const VercelIcon = () => <SvgIcon src="/icons/vercel.svg" alt="Vercel" />
+export const WordpressIcon = () => <SvgIcon src="/icons/wordpress.svg" alt="WordPress" />
 
 const iconMap: Record<IconName, React.FC> = {
   [IconName.AUTH0]: Auth0Icon,
@@ -94,6 +98,7 @@ const iconMap: Record<IconName, React.FC> = {
   [IconName.THREE]: ThreeJSIcon,
   [IconName.TAILWIND]: TailwindIcon,
   [IconName.VERCEL]: VercelIcon,
+  [IconName.WORDPRESS]: WordpressIcon,
 }
 
 interface DynamicIconProps {
