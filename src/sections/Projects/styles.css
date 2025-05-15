@@ -1,0 +1,120 @@
+/* Projects.css */
+
+/* Animation helper classes */
+.project-section {
+  overflow-x: hidden;
+}
+
+/* Card styling */
+.ring-gray-900\/5 {
+  --tw-ring-color: rgba(17, 24, 39, 0.05);
+}
+
+.bg-gray-600\/5 {
+  background-color: rgba(75, 85, 99, 0.05);
+}
+
+.bg-gray-400\/10 {
+  background-color: rgba(156, 163, 175, 0.1);
+}
+
+.bg-gray-900\/40 {
+  background-color: rgba(17, 24, 39, 0.4);
+}
+
+/* WIP badge styling */
+.rotate-45 {
+  transform: rotate(45deg);
+}
+
+/* Logo circle positioning */
+.size-20 {
+  width: 5rem;
+  height: 5rem;
+}
+
+.size-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.size-16 {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* Color bars animations */
+.color-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.color-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.3s ease;
+}
+
+.gap-3.flex:hover .color-bar::after {
+  animation: shimmer 1.2s forwards;
+  animation-delay: calc(var(--delay) / 4);
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* For GSAP animations, ensure elements are initially invisible */
+[data-gsap='fade-in'] {
+  opacity: 0;
+}
+
+[data-gsap='slide-left'] {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+[data-gsap='slide-up'] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Custom scrollbar for project grid */
+.md\:border-l {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--primary-rgb), 0.2) transparent;
+}
+
+.md\:border-l::-webkit-scrollbar {
+  width: 6px;
+}
+
+.md\:border-l::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md\:border-l::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--primary-rgb), 0.2);
+  border-radius: 6px;
+}
+
+/* Define a default primary color RGB if not already set */
+:root {
+  --primary-rgb: 34, 211, 238; /* Adjust to match your theme */
+}

@@ -165,6 +165,10 @@ export default function Hero() {
       </div>
 
       <div className="max-w-2xl space-y-6 relative">
+        <p ref={titleRef} className="text-muted-foreground">
+          {t('preTitle')}
+        </p>
+
         <h1
           ref={nameRef}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight relative font-display"

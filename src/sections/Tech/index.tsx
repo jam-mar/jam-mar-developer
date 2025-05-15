@@ -6,8 +6,11 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useFullPage } from '@/context/index'
 import TechIcon from '@/components/TechIcon'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
 import type { Tech } from '@/types'
 import { techCategories, allTechs } from '@/constants'
+import { cn } from '@/lib/utils'
 
 const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: string }>(
   ({ tech, className = '' }, ref) => {
@@ -60,10 +63,13 @@ const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: stri
           }
           itemRef.current = el
         }}
-        className="whitespace-nowrap px-2 py-2 md:px-4 md:py-4 md:gap-4 font-semibold bg-gray-800 text-sky-200 rounded text-sm flex items-center gap-2"
+        className={cn(
+          'inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted text-xs font-medium whitespace-nowrap',
+          className,
+        )}
       >
-        <TechIcon iconName={tech.iconName} />
-        <span className="text-xs">{tech.name}</span>
+        <TechIcon iconName={tech.iconName} className="size-4" />
+        <span>{tech.name}</span>
       </div>
     )
   },
@@ -226,51 +232,50 @@ export default function Tech(): JSX.Element {
   }, [activeSectionId])
 
   return (
-    <div ref={sectionRef} className="flex items-center justify-center h-full w-full">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <div className="mb-6 md:mb-10">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3" ref={headingRef}>
+    <div ref={sectionRef} className="container py-12 md:py-16">
+      <div className="space-y-6">
+        <div>
+          <h2 className="text-3xl font-bold tracking-tight" ref={headingRef}>
             {t('heading')}
           </h2>
-          <p
-            className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto"
-            ref={descriptionRef}
-          >
+          <p className="text-muted-foreground mt-2 max-w-2xl" ref={descriptionRef}>
             {t('description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {techCategories.map((category, categoryIndex) => (
-            <div
+            <Card
               key={category.title}
-              className="tech-category"
+              className="overflow-hidden"
               ref={(el) => {
                 categoryRefs.current[categoryIndex] = el
               }}
             >
-              <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3 border-b pb-1 w-full text-center">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-1.5">
-                {category.techs.map((tech, techIndex) => {
-                  const globalIndex =
-                    techCategories
-                      .slice(0, categoryIndex)
-                      .reduce((acc, cat) => acc + cat.techs.length, 0) + techIndex
-
-                  return (
-                    <TechItem
-                      key={tech.name}
-                      tech={tech}
-                      ref={(el) => {
-                        techItemRefs.current[globalIndex] = el
-                      }}
-                    />
-                  )
-                })}
+              <div className="p-1 bg-muted">
+                <h3 className="text-sm font-medium py-1.5 text-center">{category.title}</h3>
               </div>
-            </div>
+              <CardContent className="p-3">
+                <div className="flex flex-wrap gap-1.5">
+                  {category.techs.map((tech, techIndex) => {
+                    const globalIndex =
+                      techCategories
+                        .slice(0, categoryIndex)
+                        .reduce((acc, cat) => acc + cat.techs.length, 0) + techIndex
+
+                    return (
+                      <TechItem
+                        key={tech.name}
+                        tech={tech}
+                        ref={(el) => {
+                          techItemRefs.current[globalIndex] = el
+                        }}
+                      />
+                    )
+                  })}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
