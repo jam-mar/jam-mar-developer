@@ -5,6 +5,7 @@
     /* Fonts */
     --font-display: 'Satoshi', 'sans-serif';
     --font-sans: 'Inter', 'sans-serif';
+    --font-mono: 'Roboto Mono', monospace;
 
     /* Breakpoints */
     --breakpoint-3xl: 1920px;
@@ -82,209 +83,258 @@
   }
 }
 
-/* Add this additional utility classes section if your Tailwind doesn't generate these */
-@layer utilities {
-  /* Only add these if you confirm they're not already in your compiled Tailwind CSS */
-  .text-primary {
-    color: var(--primary);
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  line-height: 32px;
+  background: rgb(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui;
+  font-size: 18px;
+  line-height: 32px;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+    line-height: 24px;
   }
+}
 
-  .text-primary-foreground {
-    color: var(--primary-foreground);
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* for iOS momentum scrolling */
+}
+
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+a {
+  color: currentColor;
+}
+
+a:focus {
+  opacity: 0.8;
+  outline: none;
+}
+
+a:active {
+  opacity: 0.7;
+  outline: none;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+/* Typography defaults */
+h1 {
+  margin: 40px 0;
+  font-size: 64px;
+  line-height: 70px;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    margin: 24px 0;
+    font-size: 42px;
+    line-height: 42px;
   }
+}
 
-  .bg-primary {
-    background-color: var(--primary);
+@media (max-width: 768px) {
+  h1 {
+    font-size: 38px;
+    line-height: 38px;
   }
+}
 
-  .hover\:bg-primary\/90:hover {
-    @media (hover: hover) {
-      background-color: color-mix(in srgb, var(--primary) 90%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--primary) 90%, transparent);
-      }
-    }
+@media (max-width: 400px) {
+  h1 {
+    font-size: 32px;
+    line-height: 32px;
   }
+}
 
-  .bg-secondary {
-    background-color: var(--secondary);
+h2 {
+  margin: 24px 0;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    margin: 16px 0;
+    font-size: 24px;
+    line-height: 32px;
   }
+}
 
-  .text-secondary-foreground {
-    color: var(--secondary-foreground);
+@media (max-width: 768px) {
+  h2 {
+    font-size: 20px;
+    line-height: 28px;
   }
+}
 
-  .hover\:bg-secondary\/80:hover {
-    @media (hover: hover) {
-      background-color: color-mix(in srgb, var(--secondary) 80%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--secondary) 80%, transparent);
-      }
-    }
+@media (max-width: 400px) {
+  h2 {
+    font-size: 18px;
+    line-height: 24px;
   }
+}
 
-  .bg-destructive {
-    background-color: var(--destructive);
+h3 {
+  margin: 16px 0;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@media (max-width: 1024px) {
+  h3 {
+    margin: 12px 0;
+    font-size: 20px;
+    line-height: 28px;
   }
+}
 
-  .text-destructive-foreground {
-    color: var(--destructive-foreground);
+@media (max-width: 768px) {
+  h3 {
+    font-size: 18px;
+    line-height: 24px;
   }
+}
 
-  .hover\:bg-destructive\/90:hover {
-    @media (hover: hover) {
-      background-color: color-mix(in srgb, var(--destructive) 90%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--destructive) 90%, transparent);
-      }
-    }
+@media (max-width: 400px) {
+  h3 {
+    font-size: 16px;
+    line-height: 22px;
   }
+}
 
-  .border-secondary-foreground {
-    border-color: var(--secondary-foreground);
+p {
+  margin: 24px 0;
+}
+
+@media (max-width: 1024px) {
+  p {
+    margin: 18px 0;
   }
+}
 
-  .ring-ring {
-    --tw-ring-color: var(--ring);
+/* Animation utilities */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-
-  .ring-offset-background {
-    --tw-ring-offset-color: var(--ring-offset-background);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  /* Add these animation utilities to your global CSS */
-  @layer utilities {
-    /* Animation utilities for keyframes */
-    @keyframes enter {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+}
 
-    @keyframes exit {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-      to {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-    }
+@keyframes exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
 
-    @keyframes slide-in-from-right {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
-    @keyframes slide-out-to-right {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(100%);
-      }
-    }
+@keyframes slide-out-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
 
-    @keyframes slide-in-from-left {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
-    @keyframes slide-out-to-left {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
+@keyframes slide-out-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 
-    /* Animation utility classes */
-    .animate-in {
-      animation: enter 0.2s ease-out;
-    }
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
 
-    .animate-out {
-      animation: exit 0.2s ease-in;
-    }
-
-    .fade-in {
-      animation: enter 0.2s ease-out;
-    }
-
-    .fade-out {
-      animation: exit 0.2s ease-in;
-    }
-
-    .zoom-in-90 {
-      animation: enter 0.2s ease-out;
-    }
-
-    .zoom-out-95 {
-      animation: exit 0.2s ease-in;
-    }
-
-    .slide-in-from-right {
-      animation: slide-in-from-right 0.3s ease-out;
-    }
-
-    .slide-out-to-right {
-      animation: slide-out-to-right 0.3s ease-in;
-    }
-
-    .slide-in-from-left {
-      animation: slide-in-from-left 0.3s ease-out;
-    }
-
-    .slide-out-to-left {
-      animation: slide-out-to-left 0.3s ease-in;
-    }
-
-    /* Data state animation classes */
-    .data-\[state\=open\]\:animate-in[data-state='open'] {
-      animation: enter 0.2s ease-out;
-    }
-
-    .data-\[state\=closed\]\:animate-out[data-state='closed'] {
-      animation: exit 0.2s ease-in;
-    }
-
-    .data-\[state\=open\]\:fade-in[data-state='open'] {
-      animation: enter 0.2s ease-out;
-    }
-
-    .data-\[state\=closed\]\:fade-out[data-state='closed'] {
-      animation: exit 0.2s ease-in;
-    }
-
-    .data-\[state\=open\]\:zoom-in-90[data-state='open'] {
-      animation: enter 0.2s ease-out;
-    }
-
-    .data-\[state\=closed\]\:zoom-out-95[data-state='closed'] {
-      animation: exit 0.2s ease-in;
-    }
-
-    /* Background and z-index utilities */
-    .bg-popover {
-      background-color: white;
-    }
-
-    .text-popover-foreground {
-      color: var(--color-wood-900, #333);
-    }
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }
