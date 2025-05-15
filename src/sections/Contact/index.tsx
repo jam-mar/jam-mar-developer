@@ -162,11 +162,6 @@ export default function Contact() {
           <div className="h-3 w-10 bg-gradient-to-r from-green-300 to-green-400 rounded-sm" />
         </div>
 
-        <div ref={titleRef} className="flex items-center gap-2 mt-4">
-          <h3 className="text-4xl font-bold">{t('cta')}</h3>
-          <ArrowUpRight size={48} strokeWidth={2} className="text-gray-200" />
-        </div>
-
         <p ref={descriptionRef} className="text-lg mt-2">
           {t('availability')}
         </p>
@@ -185,8 +180,8 @@ export default function Contact() {
           </a>
         </div>
 
-        <div ref={socialsRef} className="md:hidden block mt-4">
-          <p>{t('socialsLabel') || 'Follow me:'}</p>
+        <div ref={socialsRef} className="block mt-4">
+          <p>{t('socialsLabel')}</p>
           <div className="flex space-x-6 font-light text-zinc-400 mt-2">
             <SocialsComponent />
           </div>
