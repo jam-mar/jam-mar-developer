@@ -13,7 +13,6 @@
     "footer": "Footer"
   },
   "hero": {
-    "preTitle": "Hello, I'm",
     "name": "James Marriott",
     "heading": "Full-Stack Developer",
     "subheading": "Creating scalable web applications with React, TypeScript, and Node.js",
