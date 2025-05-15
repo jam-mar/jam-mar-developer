@@ -16,23 +16,72 @@
     "preTitle": "Hello, I'm",
     "name": "James Marriott",
     "heading": "Full-Stack Developer",
-    "subheading": "Creating engaging, performant web applications",
-    "email": "jamesrmarriott@gmail.com"
+    "subheading": "Creating scalable web applications with React, TypeScript, and Node.js",
+    "scrollCta": "Explore My Work",
+    "email": "jamesrmarriott@gmail.com",
+    "badges": [
+      {
+        "text": "Frontend Expert",
+        "icon": "Code",
+        "color": "from-blue-500 to-indigo-600"
+      },
+      {
+        "text": "Backend Developer",
+        "icon": "Database",
+        "color": "from-emerald-500 to-teal-600"
+      },
+      {
+        "text": "UI/UX Designer",
+        "icon": "Palette",
+        "color": "from-rose-500 to-pink-600"
+      },
+      {
+        "text": "Creative Coder",
+        "icon": "Sparkles",
+        "color": "from-amber-500 to-orange-600"
+      },
+      {
+        "text": "Fast Delivery",
+        "icon": "Clock",
+        "color": "from-violet-500 to-purple-600"
+      }
+    ]
   },
   "aboutMe": {
     "heading": "About Me",
-    "description": "I am a British full-stack developer, teacher and mentor. I love creating innovative web solutions, helping people learn to code and sharing my knowledge with others. Based in Kristiansand, Norway, I blend technical expertise with a creative approach to problem-solving. I have extensive experience in both front-end and back-end development, specializing in building responsive, user-friendly web applications using modern frameworks and tools. My technical background allows me to tackle complex challenges across the entire development stack. I'm currently open to new opportunities within Norway, the EU, and the UK. I am passionate about teaching and mentoring, and I enjoy sharing my knowledge with others. I have experience in leading workshops, giving talks, and mentoring junior developers.",
+    "description": "I am a British full-stack developer with 5+ years of experience in building enterprise-level web applications. Based in Kristiansand, Norway, I specialize in React, TypeScript, and Node.js ecosystems with particular expertise in Next.js and GraphQL implementations. I have a proven track record in developing scalable frontend and backend solutions and experience working in agile environments with cross-functional collaboration across multiple countries. My strong problem-solving skills have been demonstrated through optimizing database structures and implementing efficient server-side integrations. I'm committed to writing clean, maintainable code that balances technical excellence with business requirements. Currently open to new opportunities within Norway, the EU, and the UK.",
     "skillsHeading": "My Skills",
     "profileImageAlt": "Profile photo"
   },
   "expertise": {
     "heading": "My Expertise",
-    "description": "Are you in need of a pragmatic enthusiast to drive your project forward? Fluent in the languages of engineering and aesthetics, I'm uniquely equipped to chart a couse for a practical product that prioritizes the customer's experience. My forte is full-stack development and devops engineering, and I'm committed to choosing the most fitting tools for each project, whether it's a robust framework or the latest web innovations. I understand that the key lies not only in impressive interfaces and blazing performance but also in striking a harmonious balance between sustainable implementation and user-centric functionality. Let's collaborate to bring your project to life."
+    "description": "With over 5 years of experience in full-stack development, I excel in building enterprise-level applications that prioritize user experience and performance. My technical expertise spans both frontend and backend development, with a focus on creating scalable, maintainable solutions using modern frameworks and tools. I'm particularly skilled in Next.js implementations, GraphQL, and microservice architectures. I understand the importance of balancing technical excellence with business requirements, and I'm committed to delivering solutions that meet both user needs and organizational goals. Whether it's optimizing database structures, implementing efficient server-side integrations, or creating responsive user interfaces, I approach each project with a pragmatic mindset and a focus on delivering value."
   },
   "tech": {
-    "heading": "Tech",
-    "description": "These are just some of the technologies I am familiar with.",
-    "skillsHeading": "My Skills",
+    "heading": "Tech Stack",
+    "description": "I work with a wide range of technologies across the full development stack.",
+    "skills": {
+      "languages": {
+        "title": "Languages",
+        "items": ["TypeScript", "JavaScript (ES6+)", "HTML", "CSS", "SQL", "GraphQL", "Python"]
+      },
+      "frameworks": {
+        "title": "Frameworks & Libraries",
+        "items": ["React", "Next.js", "Node.js", "Flask", "Apollo", "LLM fine-tuning"]
+      },
+      "databases": {
+        "title": "Databases",
+        "items": ["PostgreSQL", "MongoDB", "Firebase", "SQLite"]
+      },
+      "devops": {
+        "title": "Cloud & DevOps",
+        "items": ["AWS Lambda", "Docker", "GitHub Actions", "Cloud Build", "Google Cloud"]
+      },
+      "other": {
+        "title": "Other Tools",
+        "items": ["HubSpot CMS", "Prisma ORM", "Auth0/OAuth 2.0", "Figma"]
+      }
+    },
     "profileImageAlt": "Profile photo"
   },
   "projects": {
@@ -57,74 +106,99 @@
     "heading": "Work Experience",
     "companies": {
       "company1": {
-        "name": "Tech Innovations Ltd",
-        "position": "Senior Frontend Developer",
-        "period": "Mar 2021 - Present",
-        "shortDescription": "Leading the frontend team in developing and maintaining web applications",
-        "description": "As a Senior Frontend Developer at Tech Innovations, I lead a team of developers in building and maintaining responsive, high-performance web applications that serve thousands of users daily.",
+        "name": "Ducky",
+        "position": "Senior Software Developer",
+        "period": "Mar 2022 - Present",
+        "location": "Trondheim, Norway",
+        "shortDescription": "Developing enterprise-level sustainability solutions for leading Norwegian firms",
+        "description": "At Ducky, I work on developing enterprise-level sustainability solutions for leading Norwegian firms, focusing on both backend microservices and frontend applications.",
         "sections": {
           "responsibilities": {
             "title": "Key Responsibilities",
-            "content": "I lead the frontend architecture decisions, mentor junior developers, collaborate with design teams, and ensure code quality through code reviews and automated testing."
+            "content": "Designed and implemented Python/Flask-based microservice architecture for natural language processing on Google Cloud, developed RESTful backend API services, implemented comprehensive test coverage, and optimized PostgreSQL database structures."
           },
           "achievements": {
             "title": "Major Achievements",
-            "content": "Reduced page load times by 40% through optimization techniques, implemented a component library that improved developer productivity by 25%, and led the migration from a legacy system to a modern React-based architecture."
+            "content": "Improved system integration and data flow across platforms, created cleaner and more efficient query performance, and delivered high-performance Single Page Applications leveraging server-side rendering."
           },
-          "modernization": {
-            "title": "Tech Stack Modernization",
-            "content": "Introduced TypeScript, React Testing Library, and Storybook to improve code quality and developer experience. Implemented CI/CD pipelines that reduced deployment time from hours to minutes."
+          "technologies": {
+            "title": "Technologies Used",
+            "content": "TypeScript, Python, Flask, Node.js, Docker, PostgreSQL, LLM fine-tuning, React, Next.js, GraphQL, Apollo, Firebase, Prisma ORM, Auth0, HubSpot CMS"
           }
         }
       },
       "company2": {
-        "name": "Digital Solutions Inc.",
-        "position": "Full Stack Developer",
-        "period": "Jun 2018 - Feb 2021",
-        "shortDescription": "Developed full-stack applications for enterprise clients",
-        "description": "At Digital Solutions Inc., I worked on a variety of projects for enterprise clients, developing full-stack applications with a focus on user experience and performance.",
+        "name": "Oslo Nye Fagskole AS",
+        "position": "Subject Teacher (Faglærer)",
+        "period": "May 2024 - Sep 2024",
+        "location": "Oslo, Norway (Part-time)",
+        "shortDescription": "Developed and delivered Front End & Web Essentials curriculum",
+        "description": "As a part-time Subject Teacher at Oslo Nye Fagskole AS, I developed and delivered comprehensive Front End & Web Essentials curriculum for vocational students.",
         "sections": {
-          "highlights": {
-            "title": "Project Highlights",
-            "content": "Developed a customer portal for a major healthcare provider that streamlined patient appointment scheduling. Created an internal dashboard for a financial institution that provided real-time analytics."
-          },
-          "collaboration": {
-            "title": "Cross-Functional Collaboration",
-            "content": "Worked closely with UX designers, product managers, and backend engineers to deliver cohesive solutions that met client needs while adhering to technical constraints."
-          },
-          "integration": {
-            "title": "Backend Integration",
-            "content": "Integrated multiple third-party APIs and services, implementing robust error handling and data validation to ensure system reliability."
+          "achievements": {
+            "title": "Achievements",
+            "content": "Achieved 95% positive feedback from students on course content and teaching methodology."
           }
         }
       },
       "company3": {
-        "name": "Startup Ventures",
-        "position": "Frontend Developer",
-        "period": "Sep 2016 - May 2018",
-        "shortDescription": "Developed responsive web applications for various startup projects",
-        "description": "I joined Startup Ventures as an early employee and played a key role in developing the frontend architecture for multiple startup projects.",
+        "name": "Digital Freelancer",
+        "position": "Web Developer & Educator",
+        "period": "Aug 2017 - Apr 2022",
+        "location": "Remote",
+        "shortDescription": "Designed, developed, and delivered websites for diverse clients",
+        "description": "As a Digital Freelancer, I successfully designed, developed, and delivered websites for over 15 clients across diverse industries.",
         "sections": {
-          "environment": {
-            "title": "Startup Environment",
-            "content": "Worked in a fast-paced environment where I gained experience across the entire development lifecycle, from initial concept to deployment and maintenance."
-          },
-          "design": {
-            "title": "Responsive Design",
-            "content": "Created responsive designs that worked seamlessly across desktop, tablet, and mobile devices, improving user engagement and satisfaction."
-          },
-          "optimization": {
-            "title": "Performance Optimization",
-            "content": "Implemented performance optimizations that improved page load times and overall application responsiveness, resulting in higher user retention."
+          "highlights": {
+            "title": "Highlights",
+            "content": "Created engaging educational content and interactive web-based games using HTML, CSS, JS, and WordPress. Maintained long-term client relationships with high satisfaction rates."
           }
         }
       }
     }
   },
+  "education": {
+    "heading": "Education",
+    "items": [
+      {
+        "period": "2020-2021",
+        "degree": "Front-End Developer Certificate",
+        "institution": "Scrimba"
+      },
+      {
+        "period": "2019-2020",
+        "degree": "Front-End Development Nano-degree",
+        "institution": "Udacity"
+      },
+      {
+        "period": "2003-2005",
+        "degree": "Post Graduate Diploma in Law",
+        "institution": "Westminster University"
+      },
+      {
+        "period": "1997-2000",
+        "degree": "BA Hons English",
+        "institution": "Leeds University"
+      }
+    ]
+  },
+  "languages": {
+    "heading": "Human Languages",
+    "items": [
+      {
+        "language": "English",
+        "proficiency": "Native"
+      },
+      {
+        "language": "Norwegian",
+        "proficiency": "Intermediate"
+      }
+    ]
+  },
   "contact": {
-    "availability": "I am currently available for freelance work and new opportunities.",
-    "description": "Have a project in mind or want to chat? Feel free to reach out!",
-    "email": "jamesrmariott@gmail.com",
+    "availability": "I am currently available for new opportunities within Norway, the EU, and the UK.",
+    "description": "Have a project in mind or want to discuss a potential role? Feel free to reach out!",
+    "email": "jamesrmarriott@gmail.com",
     "emailLabel": "Email",
     "emailMe": "Email Me",
     "errorGeneric": "Something went wrong. Please try again.",
@@ -132,15 +206,15 @@
     "formEmail": "Email",
     "formEmailPlaceholder": "Enter your email",
     "formMessage": "Message",
-    "formMessagePlaceholder": "Tell me about your project or inquiry",
+    "formMessagePlaceholder": "Tell me about your project or opportunity",
     "formName": "Name",
     "formNamePlaceholder": "Enter your name",
     "formSubject": "Subject",
     "formSubjectPlaceholder": "What is this about?",
     "formSubmit": "Send Message",
     "heading": "Get In Touch",
-    "location": "Location",
-    "mailto": "mailto:jamesrmariott@gmail.com",
+    "location": "Kristiansand, Norway",
+    "mailto": "mailto:jamesrmarriott@gmail.com",
     "phone": "Phone",
     "phoneLink": "tel:+4794511284",
     "phoneLabel": "Call Me",
@@ -151,7 +225,7 @@
   },
   "footer": {
     "siteName": "James Marriott",
-    "tagline": "Building the web, one pixel at a time",
+    "tagline": "Full Stack Developer with expertise in React, TypeScript, and Node.js",
     "navigation": "Navigation",
     "home": "Home",
     "aboutMe": "About Me",
