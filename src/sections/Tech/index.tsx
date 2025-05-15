@@ -17,40 +17,18 @@ const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: stri
       if (!itemRef.current) return
 
       const element = itemRef.current
-      let tl: gsap.core.Timeline | null = null
-
-      const createAnimation = (): gsap.core.Timeline => {
-        if (tl) tl.kill()
-
-        const newTl = gsap.timeline({ paused: true })
-        newTl.to(element, {
-          scale: 1.1,
-          y: -5,
-          duration: 0.2,
-          ease: 'back.out(2)',
-        })
-        return newTl
-      }
-
-      tl = createAnimation()
-
-      let isHovering = false
 
       const handleMouseEnter = (): void => {
-        isHovering = true
-
-        gsap.killTweensOf(element)
-        gsap.set(element, { scale: 1, y: 0 })
-
-        tl = createAnimation()
-        tl.play()
+        gsap.to(element, {
+          scale: 1.1,
+          y: -3,
+          duration: 0.2,
+          ease: 'back.out(1.7)',
+          overwrite: true,
+        })
       }
 
       const handleMouseLeave = (): void => {
-        isHovering = false
-
-        gsap.killTweensOf(element)
-
         gsap.to(element, {
           scale: 1,
           y: 0,
@@ -66,9 +44,7 @@ const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: stri
       return () => {
         element.removeEventListener('mouseenter', handleMouseEnter)
         element.removeEventListener('mouseleave', handleMouseLeave)
-        if (tl) tl.kill()
         gsap.killTweensOf(element)
-        gsap.set(element, { scale: 1, y: 0, clearProps: 'all' })
       }
     }, [])
 
@@ -84,10 +60,10 @@ const TechItem = React.forwardRef<HTMLDivElement, { tech: Tech; className?: stri
           }
           itemRef.current = el
         }}
-        className={`tech-item flex items-center bg-secondary text-secondary-foreground px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-sm cursor-pointer transition-shadow hover:shadow-md text-xs md:text-sm ${className}`}
+        className="whitespace-nowrap px-2 py-2 md:px-4 md:py-4 md:gap-4 font-semibold bg-gray-800 text-sky-200 rounded text-sm flex items-center gap-2"
       >
         <TechIcon iconName={tech.iconName} />
-        <span className="tech-name font-medium">{tech.name}</span>
+        <span className="text-xs">{tech.name}</span>
       </div>
     )
   },
@@ -118,36 +94,40 @@ export default function Tech(): JSX.Element {
       const masterTimeline = gsap.timeline({ paused: true })
       timelineRef.current = masterTimeline
 
-      gsap.killTweensOf([
-        headingRef.current,
-        descriptionRef.current,
-        ...categoryRefs.current.filter(Boolean),
-        ...techItemRefs.current.filter(Boolean),
-      ])
+      // Reset all elements
+      gsap.set(
+        [
+          headingRef.current,
+          descriptionRef.current,
+          ...categoryRefs.current.filter(Boolean),
+          ...techItemRefs.current.filter(Boolean),
+        ],
+        { clearProps: 'all' },
+      )
 
+      // Set initial states
       gsap.set([headingRef.current, descriptionRef.current], {
-        autoAlpha: 0,
-        y: 30,
-      })
-
-      gsap.set(categoryRefs.current.filter(Boolean), {
         autoAlpha: 0,
         y: 20,
       })
 
-      gsap.set(techItemRefs.current.filter(Boolean), {
+      gsap.set(categoryRefs.current.filter(Boolean), {
         autoAlpha: 0,
-        scale: 0.9,
         y: 15,
       })
 
-      const isMobile = window.innerWidth < 768
+      gsap.set(techItemRefs.current.filter(Boolean), {
+        autoAlpha: 0,
+        scale: 0.95,
+        y: 10,
+      })
 
+      // Build animation timeline
       masterTimeline
         .to(headingRef.current, {
           autoAlpha: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.5,
           ease: 'power2.out',
         })
         .to(
@@ -155,16 +135,13 @@ export default function Tech(): JSX.Element {
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.5,
             ease: 'power2.out',
           },
           '-=0.3',
         )
 
-      const initialCategoryDelay = isMobile ? 0.15 : 0.2
-
-      const cascadeEase = 'power2.in'
-
+      // Animate each category and its tech items
       techCategories.forEach((_, categoryIndex) => {
         const categoryRef = categoryRefs.current[categoryIndex]
 
@@ -177,9 +154,7 @@ export default function Tech(): JSX.Element {
           .slice(startIndex, startIndex + categoryTechCount)
           .filter(Boolean)
 
-        const categoryDelayFactor = Math.max(0.05, initialCategoryDelay - categoryIndex * 0.03)
-        const timePosition = `>-${0.4 - categoryIndex * categoryDelayFactor}`
-
+        // Add category animation
         if (categoryRef) {
           masterTimeline.to(
             categoryRef,
@@ -189,53 +164,30 @@ export default function Tech(): JSX.Element {
               duration: 0.4,
               ease: 'power2.out',
             },
-            timePosition,
+            '>-0.2',
           )
 
+          // Add tech items animation
           if (categoryTechItems.length > 0) {
-            const baseStaggerAmount = isMobile ? 0.12 : 0.16
-            const staggerAmount = baseStaggerAmount - 0.02 * categoryIndex
-
             masterTimeline.to(
               categoryTechItems,
               {
                 autoAlpha: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.5,
+                duration: 0.4,
                 ease: 'back.out(1.2)',
                 stagger: {
-                  amount: staggerAmount,
+                  amount: 0.3,
                   from: 'start',
-                  ease: cascadeEase,
+                  ease: 'power1.in',
                 },
               },
-              '>-0.2',
+              '>-0.1',
             )
           }
         }
       })
-
-      const allTechItems = techItemRefs.current.filter(Boolean)
-      if (allTechItems.length > 0) {
-        masterTimeline.to(
-          allTechItems,
-          {
-            scale: 1.03,
-            duration: 0.3,
-            stagger: {
-              amount: 0.8,
-              from: 'center',
-              grid: 'auto',
-              ease: 'sine.inOut',
-            },
-            ease: 'power1.inOut',
-            yoyo: true,
-            repeat: 1,
-          },
-          '>0.5',
-        )
-      }
 
       return () => {
         if (timelineRef.current) {
@@ -254,41 +206,41 @@ export default function Tech(): JSX.Element {
     } else if (!isActive && timelineRef.current) {
       timelineRef.current.pause(0)
 
+      // Reset all elements when section is not active
       gsap.set([headingRef.current, descriptionRef.current], {
-        autoAlpha: 0,
-        y: 30,
-      })
-
-      gsap.set(categoryRefs.current.filter(Boolean), {
         autoAlpha: 0,
         y: 20,
       })
 
+      gsap.set(categoryRefs.current.filter(Boolean), {
+        autoAlpha: 0,
+        y: 15,
+      })
+
       gsap.set(techItemRefs.current.filter(Boolean), {
         autoAlpha: 0,
-        scale: 0.9,
-        y: 15,
+        scale: 0.95,
+        y: 10,
       })
     }
   }, [activeSectionId])
 
   return (
     <div ref={sectionRef} className="flex items-center justify-center h-full w-full">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10 md:mb-14">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4" ref={headingRef}>
-            {t('heading') || 'Technologies I Work With'}
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="mb-6 md:mb-10">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3" ref={headingRef}>
+            {t('heading')}
           </h2>
           <p
-            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto"
             ref={descriptionRef}
           >
-            {t('description') ||
-              'A collection of technologies and tools I use to build modern web applications'}
+            {t('description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
           {techCategories.map((category, categoryIndex) => (
             <div
               key={category.title}
@@ -297,10 +249,10 @@ export default function Tech(): JSX.Element {
                 categoryRefs.current[categoryIndex] = el
               }}
             >
-              <h3 className="text-lg md:text-xl font-medium mb-3 md:mb-4 border-b pb-2">
+              <h3 className="text-base md:text-lg font-medium mb-2 md:mb-3 border-b pb-1 w-full text-center">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-2 md:gap-3">
+              <div className="flex flex-wrap gap-1.5">
                 {category.techs.map((tech, techIndex) => {
                   const globalIndex =
                     techCategories

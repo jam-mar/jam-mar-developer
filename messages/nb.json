@@ -26,8 +26,8 @@
     "profileImageAlt": "Profilbilde"
   },
   "tech": {
-    "heading": "About Me",
-    "description": "I'm a passionate full-stack developer with expertise in React, Next.js, and modern web technologies. With a keen eye for design and a love for clean code, I create digital experiences that are both beautiful and functional.",
+    "heading": "Tech",
+    "description": "These are just some of the technologies I am familiar with.",
     "skillsHeading": "My Skills",
     "profileImageAlt": "Profile photo"
   },
