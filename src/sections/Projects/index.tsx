@@ -12,13 +12,20 @@ import TechIcon from '@/components/TechIcon'
 import { Badge } from '@/components/ui/badge'
 import { IconName } from '@/types'
 
+interface TechItem {
+  iconName: IconName
+  name?: string
+  href?: string
+}
+
 interface ProjectCardContentProps {
   project: {
     title: string
-    subtitle: string
-    period: string
-    role: string
+    subtitle?: string
+    period?: string
+    role?: string
     shortDescription?: string
+    techStack?: TechItem[]
   }
 }
 
@@ -45,7 +52,7 @@ export default function Projects() {
 
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
-  const projectRefs = useRef([])
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([])
   const timelineRef = useRef<GSAPTimeline | null>(null)
 
   const projects = t.raw('projects') || []
@@ -165,13 +172,13 @@ export default function Projects() {
                     isWip?: boolean
                     logoSrc?: string
                     title: string
-                    techStack?: string
+                    techStack?: TechItem[]
                     subtitle?: string
                     period?: string
                     role?: string
                     shortDescription?: string | undefined
                   },
-                  index: string | number,
+                  index: number,
                 ) => (
                   <div
                     key={project.id}
@@ -184,12 +191,12 @@ export default function Projects() {
                     <ExperienceCard
                       workInProgress={project.isWip}
                       onClick={() => openProjectModal(project.id)}
-                      onMouseOver={() => setHoverTarget(project.id)}
+                      onMouseOver={() => setHoverTarget(project.id ?? '')}
                       onMouseLeave={() => setHoverTarget('')}
                       logoSlot={
                         <div className="relative w-full h-full flex items-center justify-center">
                           <Image
-                            src={project.logoSrc}
+                            src={project.logoSrc || '/placeholder-logo.png'}
                             alt={`${project.title} Logo`}
                             width={50}
                             height={50}
@@ -205,23 +212,16 @@ export default function Projects() {
                       techSlot={
                         <>
                           {project.techStack &&
-                            project.techStack.slice(0, 5).map(
-                              (
-                                tech: {
-                                  iconName: IconName
-                                  name: string | undefined
-                                  href: string | undefined
-                                },
-                                techIndex: React.Key | null | undefined,
-                              ) => (
+                            project.techStack
+                              .slice(0, 5)
+                              .map((tech, techIndex) => (
                                 <TechIcon
                                   key={techIndex}
-                                  iconName={tech.iconName as IconName}
+                                  iconName={tech.iconName}
                                   name={tech.name}
                                   href={tech.href}
                                 />
-                              ),
-                            )}
+                              ))}
                           {project.techStack && project.techStack.length > 5 && (
                             <Badge variant="outline">+{project.techStack.length - 5}</Badge>
                           )}

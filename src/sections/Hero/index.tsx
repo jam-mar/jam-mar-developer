@@ -304,6 +304,9 @@ export default function Hero() {
           speedIndicator.style.left = '50%'
           speedIndicator.style.transform = 'translate(-50%, -50%)'
           speedIndicator.style.textShadow = '0 0 8px rgba(255,255,255,0.8)'
+
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           wheel.appendChild(speedIndicator)
 
           gsap.to(speedIndicator, {
@@ -333,7 +336,11 @@ export default function Hero() {
         wheels.forEach(({ element: wheel, name }) => {
           if (wheel) {
             gsap.killTweensOf(wheel)
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             gsap.killTweensOf(wheel.querySelectorAll('.wheel-element'))
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             wheel.removeEventListener('click', () => {})
 
             if (tweensRef.current[name]) {

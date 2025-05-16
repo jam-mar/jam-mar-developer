@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { getTranslations } from 'next-intl/server'
+import payloadConfig from '@/payload.config'
 // import { getPayload } from 'payload'
 // import { headers as getHeaders } from 'next/headers.js'
 // import config from '@/payload.config'
@@ -34,7 +35,7 @@ export default async function PayLoadAdmin({ locale }: PayLoadAdminProps) {
         <div className="links">
           <a
             className="admin"
-            href={payloadConfig.routes.admin}
+            href={(await payloadConfig).routes.admin}
             rel="noopener noreferrer"
             target="_blank"
           >
