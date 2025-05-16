@@ -275,6 +275,8 @@ export default function Hero() {
           ease: 'sine.inOut',
         })
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         wheel.addEventListener('click', () => {
           if (speedLevelRef.current[name] >= MAX_SPEED_LEVEL) return
 
