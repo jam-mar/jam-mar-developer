@@ -12,16 +12,16 @@ export default function Contact() {
   const { activeSectionId } = useFullPage()
 
   const sectionRef = useRef(null)
-  const elementsRef = useRef([])
+  const elementsRef = useRef<HTMLElement[]>([])
 
   // Create refs for all animated elements
-  const addToRefs = (el) => {
+  const addToRefs = (el: HTMLElement | null) => {
     if (el && !elementsRef.current.includes(el)) {
       elementsRef.current.push(el)
     }
   }
 
-  const timelineRef = useRef(null)
+  const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
   useGSAP(
     () => {
