@@ -101,10 +101,8 @@ const iconMap: Record<IconName, React.FC> = {
   [IconName.WORDPRESS]: WordpressIcon,
 }
 
-interface DynamicIconProps {
+interface DynamicIconProps extends React.SVGAttributes<SVGElement> {
   name: IconName | keyof typeof IconName
-  className?: string
-  [key: string]: unknown
 }
 
 export const DynamicIcon: React.FC<DynamicIconProps> = ({ name, ...props }) => {
