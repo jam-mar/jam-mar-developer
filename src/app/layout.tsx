@@ -6,12 +6,7 @@ export const metadata = {
   keywords: 'James Marriott, Portfolio, Web Developer, Software Engineer',
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-  params: unknown
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>

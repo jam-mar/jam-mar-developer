@@ -1,10 +1,11 @@
 import { redirect } from 'next/navigation'
 import { routing } from '@/i18n/routing'
+import { getLocale } from 'next-intl/server'
 
-export default async function LocaleRootPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale || routing.defaultLocale
+export default async function LocaleRootPage() {
+  const locale = await getLocale()
 
-  if (!routing.locales.includes(locale)) {
+  if (!locale.includes(locale)) {
     redirect(`/${routing.defaultLocale}`)
   } else {
     redirect(`/${locale}`)
