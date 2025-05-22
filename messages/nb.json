@@ -18,7 +18,7 @@
     "name": "James Marriott",
     "heading": "Full-Stack Utvikler",
     "subheading": "Skaper skalerbare webapplikasjoner med React, TypeScript og Node.js",
-    "scrollCta": "Utforsk arbeidet mitt",
+    "scrollCta": "Utforsk Mitt Arbeid",
     "email": "jamesrmarriott@gmail.com",
     "badges": [
       {
@@ -49,25 +49,25 @@
     ]
   },
   "aboutMe": {
-    "heading": "Om meg",
-    "description": "Jeg er en full-stack utvikler med over 5 års erfaring i å bygge webapplikasjoner på bedriftsnivå. Jeg er basert i Kristiansand, Norge, og spesialiserer meg innen React, TypeScript og Node.js økosystemene med særlig ekspertise innen Next.js og GraphQL-implementeringer. Jeg har dokumentert erfaring i å utvikle skalerbare frontend- og backend-løsninger og erfaring med å jobbe i smidige miljøer med tverrfaglig samarbeid på tvers av flere land. Mine gode problemløsningsevner har blitt demonstrert gjennom optimalisering av databasestrukturer og implementering av effektive server-side integrasjoner. Jeg er opptatt av å skrive ren, vedlikeholdbar kode som balanserer teknisk eksellense med forretningskrav. For tiden åpen for nye muligheter i Norge, EU og Storbritannia.",
-    "skillsHeading": "Mine ferdigheter",
+    "heading": "Om Meg",
+    "description": "Som Full Stack Utvikler fokuserer jeg på å levere høytytende webapplikasjoner på bedriftsnivå. Jeg bygger brukersentrerte frontend-grensesnitt og driver utvikling gjennom rask prototyping, raske iterasjoner, testmiljøer og integrering av tilbakemeldinger fra brukere i tett samarbeid med designteam. Mitt arbeid prioriterer en optimalisert brukeropplevelse ved å utnytte server-side rendering og effektiv datahenting for å skape ytelsessterke applikasjoner.",
+    "skillsHeading": "Mine Ferdigheter",
     "profileImageAlt": "Profilbilde"
   },
   "expertise": {
-    "heading": "Min ekspertise",
-    "description": "Med over 5 års erfaring innen full-stack utvikling, utmerker jeg meg i å bygge applikasjoner på bedriftsnivå som prioriterer brukeropplevelse og ytelse. Min tekniske ekspertise spenner over både frontend- og backend-utvikling, med fokus på å skape skalerbare, vedlikeholdbare løsninger ved hjelp av moderne rammeverk og verktøy. Jeg er spesielt dyktig på Next.js-implementeringer, GraphQL, og mikrotjeneste-arkitekturer. Jeg forstår viktigheten av å balansere teknisk med forretningskrav, og jeg er opptatt av å levere løsninger som oppfyller både brukerbehov og organisatoriske mål. Enten det er optimalisering av databasestrukturer, implementering av effektive server-side integrasjoner, eller utvikling av responsive brukergrensesnitt, tilnærmer jeg meg hvert prosjekt med en pragmatisk tankegang og fokus på å levere verdi."
+    "heading": "Min Ekspertise",
+    "description": "Med over 5 års erfaring innen full-stack utvikling utmerker jeg meg ved å bygge applikasjoner på bedriftsnivå som prioriterer brukeropplevelse og ytelse. Min tekniske ekspertise spenner over både frontend- og backend-utvikling, med fokus på å skape skalerbare, vedlikeholdbare løsninger ved hjelp av moderne rammeverk og verktøy. Jeg er spesielt dyktig i Next.js-implementasjoner, GraphQL og mikroservice-arkitekturer. Jeg forstår viktigheten av å balansere teknisk fortreffelighet med forretningskrav, og jeg er forpliktet til å levere løsninger som møter både brukerbehov og organisatoriske mål. Enten det gjelder optimalisering av databasestrukturer, implementering av effektive server-side integrasjoner eller opprettelse av responsive brukergrensesnitt, tilnærmer jeg hvert prosjekt med en pragmatisk tankegang og fokus på å levere verdi."
   },
   "tech": {
-    "heading": "Teknologi-stack",
-    "description": "Jeg jobber med et bredt spekter av teknologier på tvers av hele utviklingsstack.",
+    "heading": "Teknologi Stack",
+    "description": "Jeg jobber med et bredt spekter av teknologier på tvers av hele utviklingsstacken.",
     "skills": {
       "languages": {
         "title": "Språk",
         "items": ["TypeScript", "JavaScript (ES6+)", "HTML", "CSS", "SQL", "GraphQL", "Python"]
       },
       "frameworks": {
-        "title": "Rammeverk og biblioteker",
+        "title": "Rammeverk og Biblioteker",
         "items": ["React", "Next.js", "Node.js", "Flask", "Apollo", "LLM finjustering"]
       },
       "databases": {
@@ -75,32 +75,32 @@
         "items": ["PostgreSQL", "MongoDB", "Firebase", "SQLite"]
       },
       "devops": {
-        "title": "Skytjenester og DevOps",
+        "title": "Sky og DevOps",
         "items": ["AWS Lambda", "Docker", "GitHub Actions", "Cloud Build", "Google Cloud"]
       },
       "other": {
-        "title": "Andre verktøy",
+        "title": "Andre Verktøy",
         "items": ["HubSpot CMS", "Prisma ORM", "Auth0/OAuth 2.0", "Figma"]
       }
     },
     "profileImageAlt": "Profilbilde"
   },
   "projects": {
-    "heading": "Mine prosjekter",
+    "heading": "Mine Prosjekter",
     "description": "Her er noen av prosjektene jeg har jobbet med. Hvert representerer en unik utfordring og læringsopplevelse.",
     "liveDemo": "Live Demo",
     "sourceCode": "Kildekode",
     "projectOne": {
-      "title": "Portefølje nettside",
-      "description": "En responsiv portefølje nettside bygget med Next.js, med GSAP-animasjoner og støtte for flere språk."
+      "title": "Portefølje Nettsted",
+      "description": "Et responsivt portefølje nettsted bygget med Next.js, med GSAP-animasjoner og flerspråklig støtte."
     },
     "projectTwo": {
       "title": "E-handelsplattform",
-      "description": "En komplett nettbutikk med brukerautentisering, produktadministrasjon og betalingsbehandling."
+      "description": "En fullverdig nettbutikk med brukerautentisering, produkthåndtering og betalingsbehandling."
     },
     "projectThree": {
-      "title": "Mobilapplikasjon",
-      "description": "En kryssplattform mobilapplikasjon bygget med React Native for både iOS og Android enheter."
+      "title": "Mobilapp",
+      "description": "En kryssplattform mobilapplikasjon bygget med React Native for både iOS og Android-enheter."
     }
   },
   "work": {
@@ -109,51 +109,51 @@
     "companies": {
       "company1": {
         "name": "Ducky",
-        "position": "Senior Frontend Utvikler",
-        "period": "2021 - Nåværende",
-        "shortDescription": "Leder frontend-utvikling for en klimateknologiplattform",
-        "description": "Som Senior Frontend Utvikler hos Ducky er jeg ansvarlig for å utforme og implementere funksjoner for vår klimaaksjonsplattform, med fokus på ytelsesoptimalisering og brukeropplevelse.",
-        "location": "Oslo, Norge",
+        "position": "Senior Programvareutvikler",
+        "period": "2022 - Nåværende",
+        "shortDescription": "Leder programvareutvikling for bærekraftsløsninger på bedriftsnivå",
+        "description": "Som Senior Programvareutvikler hos Ducky leder jeg utvikling av React/Next.js-applikasjoner og arkitekterte Python/Flask-baserte mikrotjenester for naturlig språkbehandling. Forfremmet til Senior Utvikler etter vurdering og intervjuprosess som anerkjente betydelig påvirkning og teknisk lederskap.",
+        "location": "Trondheim, Norge (Tidligere Oslo)",
         "sections": {
           "responsibilities": {
             "title": "Hovedansvar",
-            "content": "Lede frontend-arkitektur, implementere nye funksjoner, veilede juniorutviklere, og samarbeide med designteamet om UX-forbedringer."
+            "content": "Leder utvikling av React/Next.js-applikasjoner, arkitektere Python/Flask mikrotjenestearkitektur på Google Cloud, utvikle RESTful backend API-tjenester og sikre omfattende testdekning med Vitest og React Testing Library."
           },
           "achievements": {
-            "title": "Oppnåelser",
-            "content": "Reduserte sidens lastetider med 40%, implementerte komponentbibliotek, økte testdekningen til 85%, og ledet migreringen fra eldre kodebase til Next.js."
+            "title": "Prestasjoner",
+            "content": "Forfremmet til Senior Utvikler-rolle, ledet overgang fra web-komponent designsystem til shadcn + Tailwind som reduserte utviklingstid betydelig, leverte høytytende SPAer med Next.js og integrerte komplekse tredjeparti ERP-systemer inkludert Visma Connect."
           },
           "technologies": {
-            "title": "Teknologier brukt",
-            "content": "React, TypeScript, Next.js, GraphQL, PostgreSQL, Docker, og AWS."
+            "title": "Teknologier Brukt",
+            "content": "React, Next.js, TypeScript, Python, Flask, GraphQL, Apollo, PostgreSQL, Prisma ORM, Google Cloud, shadcn, Tailwind CSS, GitHub Actions og Cloud Build."
           }
         }
       },
       "company2": {
-        "name": "Oslo Nye Fagskole",
-        "position": "Webutviklingsinstruktør (Deltid)",
-        "period": "2024 - Nåværende",
-        "shortDescription": "Underviser i grunnleggende webutvikling for studenter",
-        "description": "Utviklet og leverte læreplan for moderne webutviklingspraksis, med fokus på praktiske ferdigheter og bransje-relevante teknologier.",
-        "location": "Oslo, Norge",
+        "name": "Oslo Nye Fagskole AS",
+        "position": "Faglærer",
+        "period": "2024 - 2025",
+        "shortDescription": "Underviser webutvikling grunnleggende på yrkesskole",
+        "description": "Ledet utvikling og levering av omfattende Front End & Web Essentials-pensum, inkludert alt medieinnhold for kjernekurs. Ga omfattende studentstøtte og 1:1 mentoring til junior utviklere.",
+        "location": "Oslo, Norge (Deltid ~25%)",
         "sections": {
           "achievements": {
-            "title": "Viktige oppnåelser",
-            "content": "Designet læreplan fra bunnen av, veiledet over 50 studenter, og bidro til 90% jobbplasseringsrate for programdeltakere."
+            "title": "Hovedprestasjoner",
+            "content": "Utviklet omfattende Front End & Web Essentials-pensum fra bunnen av, ga omfattende studentstøtte i både Front End og Back End Essentials, og oppnådde konsekvent høy studenttilfredshet med eksepsjonelle tilbakemeldinger på en-til-en mentoringsøkter."
           }
         }
       },
       "company3": {
-        "name": "Frilans Webutvikler",
-        "position": "Webutvikler",
-        "period": "2019 - 2021",
-        "shortDescription": "Bygging av nettsider og webapplikasjoner for kunder",
-        "description": "Jobbet direkte med kunder for å designe og utvikle skreddersydde nettsider og webapplikasjoner tilpasset deres spesifikke behov og forretningsmål.",
-        "location": "Fjernjobb",
+        "name": "Digital Frilanser",
+        "position": "Webutvikler og Utdanner",
+        "period": "2017 - 2022",
+        "shortDescription": "Uavhengig kontraktør som leverer webutvikling og utdanningstjenester",
+        "description": "Jobbet som uavhengig kontraktør og leverte webutvikling og utdanningstjenester til små bedrifter, designet og utviklet tilpassede nettsteder og skapte utdanningsinnhold.",
+        "location": "Hjemmefra",
         "sections": {
           "highlights": {
             "title": "Høydepunkter",
-            "content": "Fullførte over 30 prosjekter for kunder i ulike bransjer, opprettholdt langvarige relasjoner med viktige kunder, og leverte konsekvent prosjekter i tide og innenfor budsjett."
+            "content": "Designet, utviklet og leverte over 15 klientnettsteder på tvers av diverse bransjer, produserte engasjerende utdanningsinnhold og interaktive nettbaserte spill ved hjelp av HTML, CSS, JavaScript og WordPress, og dyrket sterke langsiktige klientrelasjoner med konsekvent høye tilfredshetsvurderinger."
           }
         }
       }
@@ -161,46 +161,43 @@
   },
   "projects": {
     "heading": "Prosjekter",
-    "subheading": "Noen av mine nylige arbeid og personlige prosjekter.",
+    "subheading": "Noen av mine nylige arbeider og personlige prosjekter.",
     "projects": [
       {
         "id": "woodforgood",
         "title": "Wood For Good",
-        "subtitle": "Plattform for Bærekraftige Møbler",
+        "subtitle": "Bærekraftig Møbelplattform",
         "tagline": "Interaktiv 3D-teknologi møter sirkulær økonomi",
         "period": "Feb 2025 - Nåværende",
         "role": "Hovedutvikler og Systemarkitekt",
-        "shortDescription": "En plattform med dobbel inntektsstrøm som kombinerer interaktiv 3D-visualiseringsteknologi med et e-handelssystem for bærekraftige møbler",
+        "shortDescription": "En dobbel inntektsplattform som kombinerer interaktiv 3D-visualiseringsteknologi med et e-handelssystem for bærekraftige møbler",
         "logoSrc": "/images/projects/woodforgood/logo.png",
         "isWip": true,
-        "description": "Wood For Good er en skalerbar plattform som kombinerer interaktiv 3D-visualiseringsteknologi med et e-handelssystem for å utnytte muligheter i markedet for bærekraftige møbler. Virksomheten implementerer en freemium-modell med doble inntektsstrømmer: gratis tilgang til 3D-snekkerverkstedveiledninger som driver brukeranskaffelse, og premium-inntekt fra ferdig tilskårne møbelsett laget av gjenvunnet og bærekraftige trekilder. Systemet utnytter moderne webteknologier for å skape en teknisk og forretningsmessig løsning som samsvarer med markedets etterspørsel etter møbler av høy kvalitet til lave priser med mål for miljømessig bærekraft.",
+        "description": "Wood For Good er en skalerbar plattform som kombinerer interaktiv 3D-visualiseringsteknologi med et e-handelssystem for å adressere muligheter i det bærekraftige møbelmarkedet. Virksomheten implementerer en freemium-modell med doble inntektsstrømmer: gratis tilgang til 3D-trearbeidsveiledninger som driver brukeranskaffelse, og premiuminntekter fra forhåndsklippede møbelsett laget av gjenvunnet og bærekraftig tre. Systemet utnytte moderne webteknologier for å skape en teknisk og forretningsløsning som sammenstiller markedsetterspørsel etter høykvalitetsmøbler til lave priser med miljømessige bærekraftsmål.",
         "location": "Kristiansand, Norge",
         "sections": [
           {
             "title": "Teknisk Arkitektur",
-            "content": "Plattformen er bygget på et Next.js/TypeScript-rammeverk med Three.js-integrasjon for sanntids 3D-rendering. Arkitekturen har en headless e-handelsimplementering med tilpasset lagerstyring for både digitale eiendeler (3D-modeller) og fysiske produkter (ferdig tilskårne sett). Systemet er distribuert på Vercel med CI/CD-rørledninger for rask iterasjon og inkluderer omfattende analysessporing for brukerengasjement og konverteringsoptimalisering."
+            "content": "Plattformen er bygget på en Next.js/TypeScript-stack med Three.js-integrasjon for sanntids 3D-rendering. Arkitekturen har en hodeløs e-handelsimplementasjon med tilpasset lagerstyring for både digitale ressurser (3D-modeller) og fysiske produkter (forhåndsklippede sett). Systemet er utplassert på Vercel med CI/CD-pipelines for rask iterasjon og inkluderer omfattende analytikksporing for brukerengasjement og konverteringsoptimalisering."
           },
           {
             "title": "Markedsmulighet og Forretningsmodell",
-            "content": "Wood For Good retter seg mot to voksende markedssegmenter: DIY-møbelentusiaster og bærekraftbevisste forbrukere. Freemium-modellen bruker gratis 3D-veiledninger som en brukeranskaffelseskanal, som driver konverteringer til de premiumtilskårne settilbudene. Denne tilnærmingen gir høy fortjenestemargin fra de fysiske produktene samtidig som den skaper skalerbar vekst gjennom det digitale innholdet. Innledende testing viser en konverteringsrate på 12% fra veiledningsbrukere til settpurchasers."
+            "content": "Wood For Good retter seg mot to voksende markedssegmenter: DIY-møbelentusiaster og bærekraftsbevisste forbrukere. Freemium-modellen bruker kostnadsfrie 3D-veiledninger som en brukeranskaffelsestrakt, som driver konverteringer til premium forhåndsklippede settilbud. Denne tilnærmingen leverer høymargin inntekter fra de fysiske produktene samtidig som den skaper skalerbar vekst gjennom det digitale innholdet. Innledende testing viser en 12% konverteringsrate fra veiledningsbrukere til settkjøpere."
           },
           {
             "title": "Forsyningskjedeinnovasjon",
-            "content": "Foretaket implementerer en sirkulær økonomitilnærming til materialanskaffelse, etablerer partnerskap med byggeselskaper og møbelprodusenter for å gjenvinne treverk av høy kvalitet som ellers ville bli kastet. Dette gir virksomheten et konkurransefortrinn både på kostnader og bærekraftmålinger. Forsyningskjedestyringssystemet integreres med e-handelsbackenden, og oppdaterer automatisk inventar og utløser ny materialanskaffelse basert på salgshastighet."
+            "content": "Foretaket implementerer en sirkulær økonomi-tilnærming til materialinnkjøp, etablerer partnerskap med byggefirmaer og møbelprodusenter for å gjennvinne høykvalitetstrevirke som ellers ville blitt kastet. Dette gir virksomheten et konkurransefortrinn både på kostnader og bærekraftsmålinger. Forsyningskjedestyringssystemet integreres med e-handels-backend, oppdaterer automatisk lager og utløser ny materialanskaffelse basert på salgshastighet."
           },
           {
-            "title": "Teknologisk Differensiering",
-            "content": "Plattformens viktigste tekniske differensiator er dens proprietære 3D-visualiseringsmotor som lar ikke-tekniske brukere samhandle med komplekse snekkerdesign. Systemet implementerer optimalisert WebGL-rendering for kompatibilitet på tvers av enheter og bruker tilpassede geometrialgoritmer for å sikre nøyaktig visualisering av skjøtdetaljer og monteringssekvenser. Denne teknologien skaper betydelige inngangsbarrierer for potensielle konkurrenter."
+            "title": "Teknologidifferensiering",
+            "content": "Plattformens viktigste tekniske differensiator er dens proprietære 3D-visualiseringsmotor som lar ikke-tekniske brukere samhandle med komplekse trearbeidsdesign. Systemet implementerer optimalisert WebGL-rendering for kryssenhetskompatibilitet og bruker tilpassede geometri-algoritmer for å sikre nøyaktig visualisering av skjøtedetaljer og monteringssekvenser. Denne teknologien skaper betydelige adgangsbarrierer for potensielle konkurrenter."
           },
           {
             "title": "Skaleringsstrategi",
-            "content": "Det nåværende utviklingsveikart fokuserer på tre kjernområder for skalering: 1) Utvidelse av prosjektbiblioteket gjennom en optimalisert innholdsproduksjonspipeline, 2) Implementering av en partner-API for å tillate tredjepartsdesignere å bidra med prosjekter og motta inntektsdeling, og 3) Utvikling av logistikkoptimalisering for fysisk produktdistribusjon for å støtte internasjonal ekspansjon. Systemarkitekturen er designet for å støtte 10x vekst med minimal refaktorering."
+            "content": "Det nåværende utviklingsveikart fokuserer på tre kjerneområder for skalering: 1) Utvide prosjektbiblioteket gjennom en optimalisert innholdsskapingspipeline, 2) Implementere en partner-API for å la tredjepartsdesignere bidra med prosjekter og motta inntektsdeling, og 3) Utvikle logistikkoptimalisering for den fysiske produktdistribusjonen for å støtte internasjonal ekspansjon. Systemarkitekturen har blitt designet for å støtte 10x vekst med minimal refaktorering."
           }
         ],
-        "screenshots": [
-          "/images/projects/woodforgood/screenshot001.webp",
-          "/images/projects/woodforgood/screenshot002.webp"
-        ],
+        "screenshots": ["/images/projects/woodforgood/logo.png"],
         "liveUrl": "https://www.woodforgood.com/",
         "techStack": [
           {
@@ -242,24 +239,24 @@
       },
       {
         "id": "portfolio",
-        "title": "Portefølje nettside",
-        "subtitle": "Personlig portefølje",
-        "tagline": "En fremvisning av mitt arbeid",
+        "title": "Portefølje Nettsted",
+        "subtitle": "Personlig Portefølje",
+        "tagline": "En Utstilling av Mitt Arbeid",
         "period": "Mai 2023 - Nåværende",
         "role": "Designer og Utvikler",
-        "shortDescription": "En fremvisning av mitt arbeid og ferdigheter som utvikler",
+        "shortDescription": "En utstilling av mitt arbeid og ferdigheter som utvikler",
         "logoSrc": "/images/projects/portfolio/logo.png",
         "isWip": false,
-        "description": "En fremvisning av mitt arbeid og ferdigheter som utvikler, med interaktive elementer og jevne animasjoner.",
+        "description": "En utstilling av mitt arbeid og ferdigheter som utvikler, med interaktive elementer og jevne animasjoner.",
         "location": "Oslo, Norge",
         "sections": [
           {
             "title": "Visjonen",
-            "content": "Å skape en portefølje som ikke bare viser frem prosjektene mine, men også demonstrerer mine ferdigheter innen animasjon og interaktiv UI-utvikling."
+            "content": "Å skape en portefølje som ikke bare viser fram mine prosjekter, men også demonstrerer mine ferdigheter innen animasjon og interaktiv UI-utvikling."
           },
           {
-            "title": "Den tekniske reisen",
-            "content": "Bygget med Next.js, React og GSAP for animasjoner. Fokusert på ytelse, tilgjengelighet og responsivt design."
+            "title": "Den Tekniske Reisen",
+            "content": "Bygget med Next.js, React og GSAP for animasjoner. Fokuserte på ytelse, tilgjengelighet og responsivt design."
           }
         ],
         "screenshots": ["/images/projects/portfolio/screenshot1.png"],
@@ -285,39 +282,39 @@
     ]
   },
   "contact": {
-    "availability": "Jeg er for tiden tilgjengelig for nye muligheter i Norge, EU, og Storbritannia.",
-    "description": "Har du et prosjekt i tankene eller ønsker å diskutere en potensiell rolle? Ta gjerne kontakt!",
+    "availability": "Jeg er for øyeblikket tilgjengelig for nye muligheter innenfor Norge, EU og Storbritannia.",
+    "description": "Har du et prosjekt i tankene eller vil diskutere en potensiell rolle? Ta gjerne kontakt!",
     "email": "jamesrmarriott@gmail.com",
     "emailLabel": "E-post",
-    "emailMe": "Send meg e-post",
-    "errorGeneric": "Noe gikk galt. Vennligst prøv igjen.",
-    "errorMessage": "Det oppstod en feil ved sending av meldingen din. Vennligst prøv igjen.",
+    "emailMe": "Send E-post",
+    "errorGeneric": "Noe gikk galt. Prøv igjen.",
+    "errorMessage": "Det oppstod en feil ved sending av meldingen din. Prøv igjen.",
     "formEmail": "E-post",
-    "formEmailPlaceholder": "Skriv inn e-postadressen din",
+    "formEmailPlaceholder": "Skriv inn din e-post",
     "formMessage": "Melding",
     "formMessagePlaceholder": "Fortell meg om prosjektet ditt eller muligheten",
     "formName": "Navn",
-    "formNamePlaceholder": "Skriv inn navnet ditt",
+    "formNamePlaceholder": "Skriv inn ditt navn",
     "formSubject": "Emne",
     "formSubjectPlaceholder": "Hva handler dette om?",
-    "formSubmit": "Send melding",
-    "heading": "Ta kontakt",
+    "formSubmit": "Send Melding",
+    "heading": "Ta Kontakt",
     "location": "Kristiansand, Norge",
     "mailto": "mailto:jamesrmarriott@gmail.com",
     "phone": "Telefon",
     "phoneLink": "tel:+4794511284",
-    "phoneLabel": "Ring meg",
+    "phoneLabel": "Ring Meg",
     "phoneNumber": "+47 945 11 284",
     "sending": "Sender...",
     "socialsLabel": "Sosiale medier",
-    "successMessage": "Meldingen din har blitt sendt!"
+    "successMessage": "Din melding har blitt sendt!"
   },
   "footer": {
     "siteName": "James Marriott",
-    "tagline": "Full Stack Utvikler med ekspertise i React, TypeScript og Node.js",
+    "tagline": "Full Stack Utvikler med ekspertise innen React, TypeScript og Node.js",
     "navigation": "Navigasjon",
     "home": "Hjem",
-    "about": "Om meg",
+    "about": "Om",
     "tech": "Teknologi",
     "work": "Arbeid",
     "projects": "Prosjekter",
@@ -325,7 +322,7 @@
     "contact": "Kontakt",
     "connect": "Koble til",
     "languages": "Språk",
-    "copyright": "Alle rettigheter forbeholdt",
+    "copyright": "Alle Rettigheter Reservert",
     "poweredBy": "Drevet av"
   }
 }

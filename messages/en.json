@@ -50,7 +50,7 @@
   },
   "aboutMe": {
     "heading": "About Me",
-    "description": "I am a full-stack developer with 5+ years of experience in building enterprise-level web applications. Based in Kristiansand, Norway, I specialize in React, TypeScript, and Node.js ecosystems with particular expertise in Next.js and GraphQL implementations. I have a proven track record in developing scalable frontend and backend solutions and experience working in agile environments with cross-functional collaboration across multiple countries. My strong problem-solving skills have been demonstrated through optimizing database structures and implementing efficient server-side integrations. I'm committed to writing clean, maintainable code that balances technical excellence with business requirements. Currently open to new opportunities within Norway, the EU, and the UK.",
+    "description": "As a Full Stack Developer, I focus on delivering high-performance, enterprise-level web applications. I build user-centric front-end interfaces, driving development through rapid prototyping, quick iterations, test environments, and integrating user feedback in close collaboration with design teams. My work prioritizes an optimized user experience by leveraging server-side rendering, efficient data fetching, to create performant applications.",
     "skillsHeading": "My Skills",
     "profileImageAlt": "Profile photo"
   },
@@ -109,51 +109,51 @@
     "companies": {
       "company1": {
         "name": "Ducky",
-        "position": "Senior Frontend Developer",
-        "period": "2021 - Present",
-        "shortDescription": "Leading frontend development for a climate tech platform",
-        "description": "As a Senior Frontend Developer at Ducky, I'm responsible for architecting and implementing features for our climate action platform, focusing on performance optimization and user experience.",
-        "location": "Oslo, Norway",
+        "position": "Senior Software Developer",
+        "period": "2022 - Present",
+        "shortDescription": "Leading software development for enterprise-level sustainability solutions",
+        "description": "As a Senior Software Developer at Ducky, I lead development of React/Next.js applications and architected Python/Flask-based microservices for natural language processing. Promoted to Senior Developer following appraisal and interview process recognizing significant impact and technical leadership.",
+        "location": "Trondheim, Norway (Previously Oslo)",
         "sections": {
           "responsibilities": {
             "title": "Key Responsibilities",
-            "content": "Leading frontend architecture, implementing new features, mentoring junior developers, and collaborating with design team on UX improvements."
+            "content": "Leading development of React/Next.js applications, architecting Python/Flask microservice architecture on Google Cloud, developing RESTful backend API services, and ensuring comprehensive test coverage with Vitest and React Testing Library."
           },
           "achievements": {
             "title": "Achievements",
-            "content": "Reduced page load times by 40%, implemented component library, increased test coverage to 85%, and led migration from legacy codebase to Next.js."
+            "content": "Promoted to Senior Developer role, spearheaded transition from web-component design system to shadcn + Tailwind reducing development time significantly, delivered high-performance SPAs with Next.js, and integrated complex 3rd party ERP systems including Visma Connect."
           },
           "technologies": {
             "title": "Technologies Used",
-            "content": "React, TypeScript, Next.js, GraphQL, PostgreSQL, Docker, and AWS."
+            "content": "React, Next.js, TypeScript, Python, Flask, GraphQL, Apollo, PostgreSQL, Prisma ORM, Google Cloud, shadcn, Tailwind CSS, GitHub Actions, and Cloud Build."
           }
         }
       },
       "company2": {
-        "name": "Oslo Nye Fagskole",
-        "position": "Web Development Instructor (Part-time)",
-        "period": "2024 - Present",
-        "shortDescription": "Teaching web development fundamentals to students",
-        "description": "Developed and delivered curriculum on modern web development practices, with a focus on practical skills and industry-relevant technologies.",
-        "location": "Oslo, Norway",
+        "name": "Oslo Nye Fagskole AS",
+        "position": "Subject Teacher (Faglærer)",
+        "period": "2024 - 2025",
+        "shortDescription": "Teaching web development fundamentals at vocational school",
+        "description": "Led development and delivery of comprehensive Front End & Web Essentials curriculum, including all media content for core courses. Provided extensive student support and 1:1 mentoring to junior developers.",
+        "location": "Oslo, Norway (Part-time ~25%)",
         "sections": {
           "achievements": {
             "title": "Key Achievements",
-            "content": "Designed curriculum from ground up, mentored over 50 students, and contributed to 90% job placement rate for program graduates."
+            "content": "Developed comprehensive Front End & Web Essentials curriculum from ground up, provided extensive student support in both Front End and Back End Essentials, and consistently achieved high student satisfaction ratings with exceptional feedback on one-on-one mentoring sessions."
           }
         }
       },
       "company3": {
-        "name": "Freelance",
-        "position": "Web Developer",
-        "period": "2019 - 2021",
-        "shortDescription": "Building websites and web applications for clients",
-        "description": "Worked directly with clients to design and develop custom websites and web applications tailored to their specific needs and business goals.",
+        "name": "Digital Freelancer",
+        "position": "Web Developer & Educator",
+        "period": "2017 - 2022",
+        "shortDescription": "Independent contractor providing web development and educational services",
+        "description": "Worked as independent contractor providing web development and educational services to small businesses, designing and developing custom websites and creating educational content.",
         "location": "Remote",
         "sections": {
           "highlights": {
             "title": "Highlights",
-            "content": "Completed over 30 projects for clients in various industries, maintained long-term relationships with key clients, and consistently delivered projects on time and within budget."
+            "content": "Designed, developed, and delivered over 15 client websites across diverse industries, produced engaging educational content and interactive web-based games using HTML, CSS, JavaScript, and WordPress, and cultivated strong long-term client relationships with consistently high satisfaction rates."
           }
         }
       }
