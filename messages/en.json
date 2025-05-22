@@ -198,7 +198,7 @@
           }
         ],
         "screenshots": ["/images/projects/woodforgood/logo.png"],
-        "liveUrl": "https://www.woodforgood.com/",
+        "liveUrl": "https://woodforgood.vercel.app",
         "techStack": [
           {
             "name": "TypeScript",
@@ -260,7 +260,7 @@
           }
         ],
         "screenshots": ["/images/projects/portfolio/screenshot1.png"],
-        "liveUrl": "https://www.yourportfolio.com/",
+        "liveUrl": "https://james-marriott.vercel.app",
         "techStack": [
           {
             "name": "React",
