@@ -60,7 +60,6 @@ export interface Project {
   liveUrl?: string
   techStack: TechStack[]
 }
-
 export interface TranslationData {
   navigation: {
     brand: string
@@ -170,4 +169,6 @@ export interface TranslationData {
     copyright: string
     poweredBy: string
   }
+  // Allows indexing with any string, value is unknown
+  [key: string]: unknown
 }
