@@ -64,7 +64,7 @@
     "skills": {
       "languages": {
         "title": "Språk",
-        "items": ["TypeScript", "JavaScript (ES6+)", "HTML", "CSS", "SQL", "GraphQL", "Python"]
+        "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL", "GraphQL", "Python"]
       },
       "frameworks": {
         "title": "Rammeverk og Biblioteker",
@@ -310,19 +310,19 @@
     "successMessage": "Din melding har blitt sendt!"
   },
   "footer": {
+    "about": "Om",
+    "connect": "Koble til",
+    "contact": "Kontakt",
+    "copyright": "Alle Rettigheter Reservert",
+    "experience": "Erfaring",
+    "home": "Hjem",
+    "languages": "Språk",
+    "navigation": "Navigasjon",
+    "poweredBy": "Drevet av",
+    "projects": "Prosjekter",
     "siteName": "James Marriott",
     "tagline": "Full Stack Utvikler med ekspertise innen React, TypeScript og Node.js",
-    "navigation": "Navigasjon",
-    "home": "Hjem",
-    "about": "Om",
     "tech": "Teknologi",
-    "work": "Arbeid",
-    "projects": "Prosjekter",
-    "experience": "Erfaring",
-    "contact": "Kontakt",
-    "connect": "Koble til",
-    "languages": "Språk",
-    "copyright": "Alle Rettigheter Reservert",
-    "poweredBy": "Drevet av"
+    "work": "Arbeid"
   }
 }

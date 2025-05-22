@@ -14,3 +14,7 @@ To spin up this template locally, follow these steps:
 ### Admin Panel for Payload CMS
 
 1. Coming soon.
+
+### Usage
+
+1. You are welcome to use this template as a starting point for your own portfolio. It would be great if you could give me credit in your README or footer, but it is not required.

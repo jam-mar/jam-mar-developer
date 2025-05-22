@@ -64,7 +64,7 @@
     "skills": {
       "languages": {
         "title": "Languages",
-        "items": ["TypeScript", "JavaScript (ES6+)", "HTML", "CSS", "SQL", "GraphQL", "Python"]
+        "items": ["TypeScript", "JavaScript", "HTML", "CSS", "SQL", "GraphQL", "Python"]
       },
       "frameworks": {
         "title": "Frameworks & Libraries",
@@ -310,19 +310,19 @@
     "successMessage": "Your message has been sent successfully!"
   },
   "footer": {
+    "about": "About",
+    "connect": "Connect",
+    "contact": "Contact",
+    "copyright": "All Rights Reserved",
+    "experience": "Experience",
+    "home": "Home",
+    "languages": "Languages",
+    "navigation": "Navigation",
+    "poweredBy": "Powered by",
+    "projects": "Projects",
     "siteName": "James Marriott",
     "tagline": "Full Stack Developer with expertise in React, TypeScript, and Node.js",
-    "navigation": "Navigation",
-    "home": "Home",
-    "about": "About",
     "tech": "Tech",
-    "work": "Work",
-    "projects": "Projects",
-    "experience": "Experience",
-    "contact": "Contact",
-    "connect": "Connect",
-    "languages": "Languages",
-    "copyright": "All Rights Reserved",
-    "poweredBy": "Powered by"
+    "work": "Work"
   }
 }
