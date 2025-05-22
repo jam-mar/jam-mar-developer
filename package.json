@@ -13,7 +13,9 @@
     "check:types": "tsc --noEmit --incremental false",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "test": "cross-env NODE_OPTIONS=--no-deprecation vitest",
+    "test:watch": "cross-env NODE_OPTIONS=--no-deprecation vitest --watch"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

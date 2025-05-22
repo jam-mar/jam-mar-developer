@@ -259,18 +259,18 @@ export default function Tech(): JSX.Element {
   }, [activeSectionId])
 
   return (
-    <div ref={sectionRef} className="max-w-screen-xl w-full mx-auto px-4 md:px-6 lg:px-8">
-      <div className="space-y-6">
+    <div ref={sectionRef} className="max-w-screen-xl w-full mx-auto px-2 md:px-4 lg:px-8">
+      <div className="space-y-4 md:space-y-6">
         <div>
           <h2 className="text-3xl font-bold tracking-tight" ref={headingRef}>
             {t('heading')}
           </h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl" ref={descriptionRef}>
+          <p className="text-muted-foreground mt-1 md:mt-2 max-w-2xl" ref={descriptionRef}>
             {t('description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
           {techCategories.map((category, categoryIndex) => (
             <Card
               key={category.title}
@@ -279,11 +279,11 @@ export default function Tech(): JSX.Element {
                 categoryRefs.current[categoryIndex] = el
               }}
             >
-              <div className="p-1 bg-muted">
-                <h3 className="text-sm font-medium py-1.5 text-center">{category.title}</h3>
+              <div className="p-0.5 md:p-1 bg-muted">
+                <h3 className="text-sm font-medium py-1 md:py-1.5 text-center">{category.title}</h3>
               </div>
-              <CardContent className="p-3">
-                <div className="flex flex-wrap gap-1.5">
+              <CardContent className="p-2 md:p-3">
+                <div className="flex flex-wrap gap-1 md:gap-1.5">
                   {category.techs.map((tech, techIndex) => {
                     const globalIndex =
                       techCategories
