@@ -16,7 +16,6 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 
 interface Section {
@@ -50,27 +49,26 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
-  // Only render the component if we have a project
   if (!project) return null
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
-        className="text-white max-w-6xl max-h-[90vh] p-0 overflow-hidden bg-background/95 backdrop-blur-sm border shadow-lg"
         fullWidth
+        className="text-white max-w-6xl max-h-[90vh] p-0 bg-background/95 backdrop-blur-sm border shadow-lg flex flex-col"
       >
         <DialogClose className="absolute top-3 right-3 z-50 rounded-full p-1.5 text-muted-foreground hover:text-foreground bg-background hover:bg-muted transition-all duration-200">
           <span className="sr-only">Close</span>
         </DialogClose>
 
-        <ScrollArea className="h-full px-6 py-6">
-          <DialogHeader className="mb-4">
-            <DialogTitle className="text-2xl">{project.title}</DialogTitle>
-            <DialogDescription className="text-primary font-medium">
-              {project.subtitle}
-            </DialogDescription>
-          </DialogHeader>
+        <DialogHeader className="px-6 pt-6 pb-4 flex-shrink-0 border-b border-border/50">
+          <DialogTitle className="text-2xl">{project.title}</DialogTitle>
+          <DialogDescription className="text-primary font-medium">
+            {project.subtitle}
+          </DialogDescription>
+        </DialogHeader>
 
+        <div className="flex-1 overflow-y-auto px-6 py-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="col-span-full md:col-span-2 space-y-3">
               <div className="flex items-center gap-2">
@@ -132,7 +130,7 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                   {project.screenshots.map((screenshot, index) => (
                     <div
                       key={index}
-                      className="overflow-hidden rounded-lg border bg-card shadow-sm hover:shadow-md transition-all duration-300 group"
+                      className="overflow-hidden rounded-lg border bg-card shadow-sm hover:shadow-md transition-all duration-300 group relative"
                     >
                       <Image
                         src={screenshot}
@@ -148,12 +146,12 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
               </div>
             )}
 
-            <div className="col-span-full space-y-6 mt-4">
+            <div className="col-span-full space-y-6 mt-4 pb-4">
               {project.liveUrl && (
                 <div>
                   <Button
                     variant="outline"
-                    className="gap-2 hover:bg-primary hover:text-primary-foreground"
+                    className="gap-2 hover:bg-primary hover:text-primary-foreground group"
                     asChild
                   >
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -184,7 +182,7 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
               )}
             </div>
           </div>
-        </ScrollArea>
+        </div>
       </DialogContent>
     </Dialog>
   )
