@@ -5,8 +5,8 @@ import config from '@payload-config'
 import NavBar from '@/components/NavBar'
 import BlogList from '@/components/BlogList'
 
-// Force dynamic rendering to avoid build-time Payload initialization. There should be a better way to handle this, but for now, this works.
-export const dynamic = 'force-dynamic'
+// Enable static generation with revalidation
+export const revalidate = 3600 // Revalidate every hour
 
 export async function generateMetadata({
   params,
@@ -43,7 +43,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
         },
       },
       sort: '-publishedAt',
-      depth: 1, // This will populate the featuredImage relationship
+      depth: 1,
       limit: 50,
     })
 

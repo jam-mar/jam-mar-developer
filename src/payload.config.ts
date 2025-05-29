@@ -14,10 +14,6 @@ import { Blog } from './collections/Blog'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-console.log('DATABASE_URI:', process.env.DATABASE_URI ? 'SET' : 'NOT SET')
-console.log('DATABASE_AUTH_TOKEN:', process.env.DATABASE_AUTH_TOKEN ? 'SET' : 'NOT SET')
-console.log('PAYLOAD_SECRET:', process.env.PAYLOAD_SECRET ? 'SET' : 'NOT SET')
-
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -27,9 +23,7 @@ export default buildConfig({
   },
   collections: [Users, Media, Blog],
   editor: lexicalEditor(),
-  secret:
-    process.env.PAYLOAD_SECRET ||
-    'f6ac3c3ec2bedbc906e5be393d22dd37e266305c68a1ef51cdacff8cf828fc4b0c7947cb1e26ded0e2761893547abde99543cfce0444f5e90a47b49b8f1aadd3',
+  secret: process.env.PAYLOAD_SECRET || 'some-incredibly-long-and-secure-secret',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
@@ -42,6 +36,6 @@ export default buildConfig({
   sharp,
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    // Removed vercelBlobStorage - will use local storage for now
   ],
 })
