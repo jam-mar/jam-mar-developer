@@ -42,45 +42,44 @@ export default function BlogList({ posts = [] }: BlogListProps) {
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {posts.map((post) => (
           <Card key={post.id} className="h-full flex flex-col hover:shadow-lg transition-shadow">
-            {post.featuredImage &&
-              typeof post.featuredImage === 'object' &&
-              post.featuredImage.url && (
-                <div className="relative aspect-video overflow-hidden rounded-t-lg">
-                  <Image
-                    src={post.featuredImage.url}
-                    alt={post.featuredImage.alt || post.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+            <Link href={`/${locale}/blog/${post.slug}`} className="block">
+              {post.featuredImage &&
+                typeof post.featuredImage === 'object' &&
+                post.featuredImage.url && (
+                  <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                    <Image
+                      src={post.featuredImage.url}
+                      alt={post.featuredImage.alt || post.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+
+              <CardHeader className="flex-1">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <CalendarDays className="h-4 w-4" />
+                  <time dateTime={post.publishedAt || post.createdAt}>
+                    {formatDate(post.publishedAt || post.createdAt)}
+                  </time>
                 </div>
-              )}
 
-            <CardHeader className="flex-1">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                <CalendarDays className="h-4 w-4" />
-                <time dateTime={post.publishedAt || post.createdAt}>
-                  {formatDate(post.publishedAt || post.createdAt)}
-                </time>
-              </div>
+                <CardTitle className="line-clamp-2 hover:text-primary transition-colors">
+                  {post.title}
+                </CardTitle>
 
-              <CardTitle className="line-clamp-2 hover:text-primary transition-colors">
-                <Link href={`/${locale}/blog/${post.slug}`}>{post.title}</Link>
-              </CardTitle>
+                {post.excerpt && (
+                  <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+                )}
+              </CardHeader>
 
-              {post.excerpt && (
-                <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
-              )}
-            </CardHeader>
-
-            <CardContent className="pt-0">
-              <Link
-                href={`/${locale}/blog/${post.slug}`}
-                className="inline-flex items-center text-sm font-medium text-primary hover:underline"
-              >
-                {t('blog.readMore')} →
-              </Link>
-            </CardContent>
+              <CardContent className="pt-0">
+                <span className="inline-flex items-center text-sm font-medium text-primary hover:underline">
+                  {t('blog.readMore')} →
+                </span>
+              </CardContent>
+            </Link>
           </Card>
         ))}
       </div>
