@@ -14,6 +14,10 @@ import { Blog } from './collections/Blog'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+console.log('DATABASE_URI:', process.env.DATABASE_URI ? 'SET' : 'NOT SET')
+console.log('DATABASE_AUTH_TOKEN:', process.env.DATABASE_AUTH_TOKEN ? 'SET' : 'NOT SET')
+console.log('PAYLOAD_SECRET:', process.env.PAYLOAD_SECRET ? 'SET' : 'NOT SET')
+
 export default buildConfig({
   admin: {
     user: Users.slug,
