@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
-import { Menu, X, Download } from 'lucide-react'
+import { Menu, X, Download, Settings } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
   NavigationMenu,
@@ -12,6 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet'
+import { Button } from '@/components/ui/button'
 import LanguageSelector from '@/components/LanguageSelector'
 import { useFullPage } from '@/context/index'
 import { navItems, DEFAULT_SECTION_IDS } from '@/constants/index'
@@ -109,18 +110,23 @@ export default function NavBar({ scrollBehavior = false }) {
             <NavigationMenuList>
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.id}>
-                  {isFullPageActive ? (
+                  {isFullPageActive && !item.isExternalLink ? (
                     <SpaSectionNavLinkCtx targetSectionId={item.id}>
                       {t(item.labelKey)}
                     </SpaSectionNavLinkCtx>
                   ) : (
                     <Link
                       href={
-                        item.isRootPageLink ? localizedHref('/') : localizedHref(`/#${item.id}`)
+                        item.isExternalLink
+                          ? localizedHref(item.href || `/#${item.id}`)
+                          : item.isRootPageLink
+                            ? localizedHref('/')
+                            : localizedHref(`/#${item.id}`)
                       }
                       className={cn(
                         navigationMenuTriggerStyle(),
                         (item.isRootPageLink && (pathname === `/${locale}` || pathname === '/')) ||
+                          (item.isExternalLink && pathname.startsWith(`/${locale}${item.href}`)) ||
                           (typeof window !== 'undefined' && window.location.hash === `#${item.id}`)
                           ? 'font-medium text-white underline'
                           : 'text-white/70 hover:text-white',
@@ -168,7 +174,7 @@ export default function NavBar({ scrollBehavior = false }) {
                   <nav className="flex flex-col text-white">
                     {navItems.map((item) => (
                       <div key={item.id} className="py-3 border-b border-white/20">
-                        {isFullPageActive ? (
+                        {isFullPageActive && !item.isExternalLink ? (
                           <SpaSectionNavLinkCtx
                             targetSectionId={item.id}
                             onClick={() => setIsOpen(false)}
@@ -178,14 +184,18 @@ export default function NavBar({ scrollBehavior = false }) {
                         ) : (
                           <Link
                             href={
-                              item.isRootPageLink
-                                ? localizedHref('/')
-                                : localizedHref(`/#${item.id}`)
+                              item.isExternalLink
+                                ? localizedHref(item.href || `/#${item.id}`)
+                                : item.isRootPageLink
+                                  ? localizedHref('/')
+                                  : localizedHref(`/#${item.id}`)
                             }
                             className={cn(
                               'block w-full text-left py-2 hover:text-white transition-colors',
                               (item.isRootPageLink &&
                                 (pathname === `/${locale}` || pathname === '/')) ||
+                                (item.isExternalLink &&
+                                  pathname.startsWith(`/${locale}${item.href}`)) ||
                                 (typeof window !== 'undefined' &&
                                   window.location.hash === `#${item.id}`)
                                 ? 'font-medium text-white'
@@ -198,16 +208,24 @@ export default function NavBar({ scrollBehavior = false }) {
                         )}
                       </div>
                     ))}
-                    <div className="mt-4 py-2">
+                    <div className="mt-4 space-y-3">
                       <a
                         href="/assets/developer-cv.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 py-2 px-3 bg-primary/10 border border-primary/20 text-primary rounded-md text-sm" // Adjusted colors for primary accent
+                        className="flex items-center space-x-2 py-2 px-3 bg-primary/10 border border-primary/20 text-primary rounded-md text-sm"
                       >
                         <span>{t('navigation.cv')}</span>
                         <Download className="h-4 w-4" />
                       </a>
+                      <Link
+                        href="/admin"
+                        className="flex items-center space-x-2 py-2 px-3 bg-white/10 border border-white/20 text-white hover:bg-white/20 rounded-md text-sm transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span>Admin</span>
+                        <Settings className="h-4 w-4" />
+                      </Link>
                     </div>
                   </nav>
                 </div>
@@ -226,6 +244,17 @@ export default function NavBar({ scrollBehavior = false }) {
               <span>{t('navigation.cv')}</span>
               <Download className="h-4 w-4" />
             </a>
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="border-white/20 text-white hover:bg-white/10 hover:text-white"
+            >
+              <Link href="/admin" className="flex items-center space-x-2">
+                <Settings className="h-4 w-4" />
+                <span>Admin</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
