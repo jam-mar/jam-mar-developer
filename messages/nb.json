@@ -309,6 +309,19 @@
     "socialsLabel": "Sosiale medier",
     "successMessage": "Din melding har blitt sendt!"
   },
+  "blog": {
+    "title": "Blogg",
+    "subtitle": "Tanker, innsikter og oppdateringer fra min utviklingsreise",
+    "noPosts": "Ingen blogginnlegg tilgjengelig ennå.",
+    "readMore": "Les mer",
+    "backToBlog": "Tilbake til Blogg",
+    "allPosts": "Alle Innlegg",
+    "lastUpdated": "Sist oppdatert",
+    "publishedOn": "Publisert",
+    "minuteRead": "min lesing",
+    "couldNotRender": "Innholdet kunne ikke vises.",
+    "admin": "Admin"
+  },
   "footer": {
     "about": "Om",
     "connect": "Koble til",

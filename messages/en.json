@@ -309,6 +309,19 @@
     "socialsLabel": "Socials",
     "successMessage": "Your message has been sent successfully!"
   },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Thoughts, insights, and updates from my development journey",
+    "noPosts": "No blog posts available yet.",
+    "readMore": "Read more",
+    "backToBlog": "Back to Blog",
+    "allPosts": "All Posts",
+    "lastUpdated": "Last updated",
+    "publishedOn": "Published on",
+    "minuteRead": "min read",
+    "couldNotRender": "Content could not be rendered.",
+    "admin": "Admin"
+  },
   "footer": {
     "about": "About",
     "connect": "Connect",
