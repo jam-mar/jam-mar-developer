@@ -5,7 +5,7 @@ const SocialsComponent = () => {
   return (
     <>
       <a
-        href="https://github.com/yourusername"
+        href="https://github.com/jam-mar"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-white transition-colors"
@@ -14,7 +14,7 @@ const SocialsComponent = () => {
         <Github size={20} />
       </a>
       <a
-        href="https://linkedin.com/in/yourusername"
+        href="https://www.linkedin.com/in/james-marriott/"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-white transition-colors"
