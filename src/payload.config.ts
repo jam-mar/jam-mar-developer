@@ -23,7 +23,9 @@ export default buildConfig({
   },
   collections: [Users, Media, Blog],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret:
+    process.env.PAYLOAD_SECRET ||
+    'f6ac3c3ec2bedbc906e5be393d22dd37e266305c68a1ef51cdacff8cf828fc4b0c7947cb1e26ded0e2761893547abde99543cfce0444f5e90a47b49b8f1aadd3',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
