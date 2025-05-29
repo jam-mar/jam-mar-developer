@@ -5,6 +5,9 @@ import config from '@payload-config'
 import NavBar from '@/components/NavBar'
 import BlogList from '@/components/BlogList'
 
+// Force dynamic rendering to avoid build-time Payload initialization. There should be a better way to handle this, but for now, this works.
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({
   params,
 }: {
@@ -25,7 +28,9 @@ interface BlogPageProps {
   }>
 }
 
-export default async function BlogPage({}: BlogPageProps) {
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { locale } = await params
+
   try {
     const payload = await getPayload({ config })
 

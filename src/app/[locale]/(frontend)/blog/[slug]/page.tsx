@@ -6,6 +6,9 @@ import config from '@payload-config'
 import BlogDetail from '@/components/BlogDetail'
 import NavBar from '@/components/NavBar'
 
+// Force dynamic rendering to avoid build-time Payload initialization. There should be a better way to handle this, but for now, this works.
+export const dynamic = 'force-dynamic'
+
 interface BlogDetailPageProps {
   params: Promise<{
     locale: string
