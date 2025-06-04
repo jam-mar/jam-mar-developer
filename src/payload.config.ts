@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
+import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import path from 'path'
@@ -20,6 +21,11 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    ...(process.env.NODE_ENV === 'development' && {
+      meta: {
+        titleSuffix: ' - DEV',
+      },
+    }),
   },
   collections: [Users, Media, Blog],
   editor: lexicalEditor(),
@@ -28,38 +34,23 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
 
-  // Simplified database configuration
   db: sqliteAdapter({
     client: {
       url: process.env.DATABASE_URI || '',
       authToken: process.env.DATABASE_AUTH_TOKEN || '',
     },
-    migrationDir: path.resolve(dirname, 'migrations'),
-    push: process.env.NODE_ENV === 'development',
   }),
 
   sharp,
 
+  // Keep original plugins - don't change what's working
   plugins: [
-    ...(process.env.BLOB_READ_WRITE_TOKEN
-      ? [
-          vercelBlobStorage({
-            collections: {
-              media: true,
-            },
-            token: process.env.BLOB_READ_WRITE_TOKEN,
-          }),
-        ]
-      : []),
+    payloadCloudPlugin(),
+    vercelBlobStorage({
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
   ],
-
-  upload: {
-    limits: {
-      fileSize: 5000000, // 5MB
-    },
-  },
-
-  cors: [process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3001'],
-
-  csrf: [process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3001'],
 })
