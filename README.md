@@ -6,11 +6,12 @@ A portfolio & personal website for Full-Stack Developer James Marriott - Built w
 
 To spin up this template locally, follow these steps:
 
-1. First [clone the repo](#clone) if you have not done so already
+1. Clone the repo
 2. `cd my-project && cp .env.example .env` to copy the example environment variables. I am using SQLite for with[turso](https://payloadcms.com/posts/guides/how-to-set-up-payload-with-sqlite-and-turso-for-deployment-on-vercel)
 3. `bun install && bun dev` to install dependencies and start the dev server
 4. open `http://localhost:3000` to open the app in your browser
-5. copy the `.env` variables from the `.env.example` as set your environment variables in your local `.env` file. My db is set to use SQLite with Turso, so you will need to create a Turso database and set the `DATABASE_URL` variable accordingly.
+5. copy the `.env` variables from the `.env.example` as set your environment variables in your local `.env` file.
+6. create a sql lite database in the data folder called 'dev-database.db'
 
 ## Deployment
 
