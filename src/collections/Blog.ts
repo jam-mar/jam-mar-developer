@@ -8,7 +8,7 @@ export const Blog: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'status', 'publishedAt'],
+    defaultColumns: ['title', 'status', 'publishedAt', 'readingTime'],
   },
   access: {
     read: () => true, // Public read access
@@ -97,6 +97,30 @@ export const Blog: CollectionConfig = {
             // Auto-set publishedAt when status changes to published
             if (data?.status === 'published' && !value && originalDoc?.status !== 'published') {
               return new Date()
+            }
+            return value
+          },
+        ],
+      },
+    },
+    {
+      name: 'readingTime',
+      type: 'number',
+      required: true,
+      min: 1,
+      max: 60,
+      admin: {
+        description: 'Estimated reading time in minutes',
+      },
+      hooks: {
+        beforeChange: [
+          ({ value, data }) => {
+            // Auto-calculate if not provided
+            if (!value && data?.content) {
+              // Simple calculation: ~200 words per minute
+              const contentText = JSON.stringify(data.content).replace(/<[^>]*>/g, ' ')
+              const wordCount = contentText.split(/\s+/).filter((word) => word.length > 0).length
+              return Math.max(1, Math.ceil(wordCount / 200))
             }
             return value
           },

@@ -190,6 +190,10 @@ export interface Blog {
    * When this post was published
    */
   publishedAt?: string | null;
+  /**
+   * Estimated reading time in minutes
+   */
+  readingTime: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -299,6 +303,7 @@ export interface BlogSelect<T extends boolean = true> {
   featuredImage?: T;
   status?: T;
   publishedAt?: T;
+  readingTime?: T;
   updatedAt?: T;
   createdAt?: T;
 }
