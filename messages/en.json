@@ -311,7 +311,7 @@
   },
   "blog": {
     "title": "Blog",
-    "subtitle": "Thoughts, insights, and updates from my development journey",
+    "subtitle": "Usually about web development, but sometimes about other things.",
     "noPosts": "No blog posts available yet.",
     "readMore": "Read more",
     "backToBlog": "Back to Blog",
