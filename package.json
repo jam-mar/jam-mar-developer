@@ -15,7 +15,8 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "test": "cross-env NODE_OPTIONS=--no-deprecation vitest",
     "test:watch": "cross-env NODE_OPTIONS=--no-deprecation vitest --watch",
-    "migrate": "cross-env NODE_OPTIONS=--no-deprecation NODE_ENV=development payload migrate"
+    "migrate": "cross-env NODE_OPTIONS=--no-deprecation NODE_ENV=development payload migrate",
+    "ci": "payload migrate && bun build"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

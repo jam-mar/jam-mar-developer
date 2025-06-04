@@ -21,11 +21,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    ...(process.env.NODE_ENV === 'development' && {
-      meta: {
-        titleSuffix: ' - DEV',
-      },
-    }),
+    meta: {
+      titleSuffix: process.env.NODE_ENV === 'development' ? ' - DEV' : '',
+    },
   },
   collections: [Users, Media, Blog],
   editor: lexicalEditor(),
@@ -39,7 +37,9 @@ export default buildConfig({
       url: process.env.DATABASE_URI || '',
       authToken: process.env.DATABASE_AUTH_TOKEN || '',
     },
-    push: true,
+    migrationDir: path.resolve(dirname, 'migrations'),
+    // Auto-push in dev, manual in prod
+    push: process.env.NODE_ENV === 'development',
   }),
 
   sharp,
