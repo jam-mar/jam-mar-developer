@@ -43,8 +43,6 @@ export default buildConfig({
   }),
 
   sharp,
-
-  // Keep original plugins - don't change what's working
   plugins: [
     payloadCloudPlugin(),
     vercelBlobStorage({
