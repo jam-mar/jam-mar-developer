@@ -311,7 +311,7 @@
   },
   "blog": {
     "title": "Blogg",
-    "subtitle": "Tanker, innsikter og oppdateringer fra min utviklingsreise",
+    "subtitle": "Usually about web development, but sometimes about other things.",
     "noPosts": "Ingen blogginnlegg tilgjengelig ennå.",
     "readMore": "Les mer",
     "backToBlog": "Tilbake til Blogg",
