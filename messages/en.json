@@ -1,4 +1,11 @@
 {
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again later.",
+    "notFound": "Page not found",
+    "goBack": "Go Back",
+    "contactMe": "Contact Me"
+  },
   "navigation": {
     "brand": "James Marriott",
     "home": "Home",
@@ -318,9 +325,10 @@
     "allPosts": "All Posts",
     "lastUpdated": "Last updated",
     "publishedOn": "Published on",
-    "minuteRead": "min read",
+    "minRead": "min read",
     "couldNotRender": "Content could not be rendered.",
-    "admin": "Admin"
+    "admin": "Admin",
+    "viewAll": "View All Posts"
   },
   "footer": {
     "about": "About",

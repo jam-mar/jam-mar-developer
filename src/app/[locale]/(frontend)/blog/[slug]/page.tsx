@@ -1,38 +1,43 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getPayload } from 'payload'
-import config from '@payload-config'
 import BlogDetail from '@/components/BlogDetail'
 import NavBar from '@/components/NavBar'
+import { RenderBlocks } from '@/blocks'
+import { RichText } from '@/components/RichText'
+import { getCachedPayload } from '@/lib/payload'
 
 export const revalidate = 3600 // Revalidate every hour
 
-interface BlogDetailPageProps {
-  params: Promise<{
-    locale: string
-    slug: string
-  }>
+// interface BlogDetailPageProps {
+//   params: Promise<{
+//     locale: string
+//     slug: string
+//   }>
+// }
+
+async function getBlogPost(slug: string) {
+  const payload = await getCachedPayload()
+
+  const { docs } = await payload.find({
+    collection: 'posts',
+    where: {
+      slug: { equals: slug },
+    },
+    depth: 1,
+    limit: 1,
+  })
+
+  return docs[0] || null
 }
 
-// Generate metadata for SEO
-export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }): Promise<Metadata> {
   const { slug } = await params
 
   try {
-    const payload = await getPayload({ config })
+    const post = await getBlogPost(slug)
+    console.log('Generating metadata for post:', post)
 
-    const { docs } = await payload.find({
-      collection: 'blog',
-      where: {
-        slug: { equals: slug },
-        status: { equals: 'published' },
-      },
-      depth: 1,
-      limit: 1,
-    })
-
-    const post = docs[0]
     if (!post) {
       return { title: 'Post Not Found' }
     }
@@ -52,61 +57,41 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
       },
     }
   } catch (error) {
+    console.error('Error generating metadata for blog post:', error)
     return { title: 'Blog Post' }
   }
 }
 
-// Generate static params for popular posts
-export async function generateStaticParams() {
-  try {
-    const payload = await getPayload({ config })
+// // Generate static params for popular posts
+// export async function generateStaticParams() {
+//   try {
+//     const payload = await getCachedPayload()
 
-    const { docs: posts } = await payload.find({
-      collection: 'blog',
-      where: { status: { equals: 'published' } },
-      limit: 10, // Only generate static pages for first 10 posts
-      sort: '-publishedAt',
-    })
-
-    return posts.map((post) => ({
-      slug: post.slug,
-      locale: 'en', // Add your locales here
-    }))
-  } catch (error) {
-    console.warn('Could not generate static params:', error)
-    return []
-  }
-}
+//     return posts.map((post) => ({
+//       slug: post.slug,
+//       locale: 'en', // Add your locales here
+//     }))
+//   } catch (error) {
+//     console.warn('Could not generate static params:', error)
+//     return []
+//   }
+// }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { locale, slug } = await params
 
   try {
-    const payload = await getPayload({ config })
-
-    const { docs } = await payload.find({
-      collection: 'blog',
-      where: {
-        slug: { equals: slug },
-        status: { equals: 'published' },
-      },
-      depth: 1,
-      limit: 1,
-    })
-
-    const post = docs[0]
-
+    const post = await getBlogPost(slug)
+    console.log('Fetched blog post:', post) // Debug log
     if (!post) {
       notFound()
     }
 
     return (
-      <div className="min-h-screen bg-background">
-        <NavBar scrollBehavior={true} />
-        <main className="pt-16">
-          <BlogDetail post={post} />
-        </main>
-      </div>
+      <>
+        <RenderBlocks blocks={post.blockTest} />
+        {post.content && <RichText data={post.content} />}
+      </>
     )
   } catch (error) {
     console.error('Error fetching blog post:', error)

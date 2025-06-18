@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { CalendarDays, ArrowLeft, Clock } from 'lucide-react'
 import { Blog } from '@/payload-types'
-import { JSX } from 'react'
-
+import { RichText } from '@/components/RichText'
 interface BlogDetailProps {
   post: Blog
 }
@@ -36,165 +34,13 @@ export default function BlogDetail({ post }: BlogDetailProps) {
     })
   }
 
-  const getReadingTime = (content: any) => {
-    // Simple reading time calculation (assuming 200 words per minute)
-    if (!content || !content.root || !content.root.children) return 1
-
-    let wordCount = 0
-
-    const countWords = (children: any[]) => {
-      children?.forEach((child: any) => {
-        if (child.type === 'text' && child.text) {
-          wordCount += child.text
-            .split(/\s+/)
-            .filter((word: string | any[]) => word.length > 0).length
-        }
-        if (child.children) {
-          countWords(child.children)
-        }
-      })
-    }
-
-    content.root.children.forEach((node: any) => {
-      if (node.children) {
-        countWords(node.children)
-      }
-    })
-
-    return Math.max(1, Math.ceil(wordCount / 200))
-  }
-
-  // Function to render inline content (text, links, formatting)
-  const renderInlineContent = (children: any[]) => {
-    return children?.map((child: any, childIndex: number) => {
-      if (child.type === 'text') {
-        // Handle text formatting (bold, italic, etc.)
-        let textElement = <span key={childIndex}>{child.text}</span>
-
-        if (child.format === 2) {
-          // Bold
-          textElement = <strong key={childIndex}>{child.text}</strong>
-        } else if (child.format === 1) {
-          // Italic
-          textElement = <em key={childIndex}>{child.text}</em>
-        }
-
-        return textElement
-      } else if (child.type === 'autolink') {
-        // Handle embedded links
-        const url = child.fields?.url || '#'
-        const linkText = child.children?.[0]?.text || url
-
-        // Check if it's an external link or internal
-        const isExternal = url.startsWith('http://') || url.startsWith('https://')
-
-        if (isExternal) {
-          return (
-            <a
-              key={childIndex}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              {linkText}
-            </a>
-          )
-        } else {
-          // Internal link - use Next.js Link
-          return (
-            <Link key={childIndex} href={url} className="text-primary hover:underline">
-              {linkText}
-            </Link>
-          )
-        }
-      }
-      return null
-    })
-  }
-
-  // Enhanced function to render rich text content
-  const renderContent = (content: any) => {
-    if (!content) return null
-
-    // Handle Lexical editor content
-    if (content.root && content.root.children) {
-      return (
-        <div className="prose prose-lg max-w-none">
-          {content.root.children.map((node: any, index: number) => {
-            switch (node.type) {
-              case 'heading':
-                const HeadingTag = node.tag as keyof JSX.IntrinsicElements
-                return (
-                  <HeadingTag key={index} className="font-bold mt-8 mb-4">
-                    {renderInlineContent(node.children)}
-                  </HeadingTag>
-                )
-
-              case 'paragraph':
-                // Skip empty paragraphs
-                if (!node.children || node.children.length === 0) {
-                  return <div key={index} className="h-4" /> // Empty space
-                }
-
-                return (
-                  <p key={index} className="mb-4 leading-relaxed">
-                    {renderInlineContent(node.children)}
-                  </p>
-                )
-
-              case 'list':
-                const ListTag = node.listType === 'number' ? 'ol' : 'ul'
-                return (
-                  <ListTag key={index} className="mb-4 ml-6">
-                    {node.children?.map((listItem: any, itemIndex: number) => (
-                      <li key={itemIndex} className="mb-2">
-                        {renderInlineContent(listItem.children)}
-                      </li>
-                    ))}
-                  </ListTag>
-                )
-
-              case 'quote':
-                return (
-                  <blockquote key={index} className="border-l-4 border-primary pl-4 italic my-6">
-                    {renderInlineContent(node.children)}
-                  </blockquote>
-                )
-
-              default:
-                // Fallback for unknown node types
-                if (node.children) {
-                  return (
-                    <div key={index} className="mb-4">
-                      {renderInlineContent(node.children)}
-                    </div>
-                  )
-                }
-                return null
-            }
-          })}
-        </div>
-      )
-    }
-
-    // Fallback for other content types
-    if (typeof content === 'string') {
-      return (
-        <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: content }} />
-      )
-    }
-
-    return (
-      <div className="prose prose-lg max-w-none">
-        <p>{t('blog.couldNotRender')}</p>
-      </div>
-    )
+  // Simplified reading time - use the readingTime field from your schema
+  const getReadingTime = () => {
+    return post.readingTime || 1
   }
 
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
-      {/* Back button */}
       <div className="mb-8">
         <Button variant="ghost" asChild className="pl-0">
           <Link href={`/${locale}/blog`} className="flex items-center gap-2">
@@ -204,7 +50,6 @@ export default function BlogDetail({ post }: BlogDetailProps) {
         </Button>
       </div>
 
-      {/* Featured image */}
       {post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url && (
         <div className="relative w-full h-32 sm:h-40 md:h-48 overflow-hidden rounded-lg mb-8">
           <Image
@@ -218,9 +63,13 @@ export default function BlogDetail({ post }: BlogDetailProps) {
         </div>
       )}
 
-      {/* Header */}
       <header className="mb-8">
-        {/* Meta information */}
+        <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
+
+        {post.excerpt && (
+          <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{post.excerpt}</p>
+        )}
+
         <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
           <div className="flex items-center gap-2">
             <CalendarDays className="h-4 w-4" />
@@ -228,18 +77,17 @@ export default function BlogDetail({ post }: BlogDetailProps) {
               {formatDate(post.publishedAt || post.createdAt)}
             </time>
           </div>
-          {/* Added reading time display */}
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
-            <span>{getReadingTime(post.content)} min read</span>
+            <span>{getReadingTime()} min read</span>
           </div>
         </div>
       </header>
 
-      {/* Content */}
-      <div className="prose prose-lg max-w-none mb-12">{renderContent(post.content)}</div>
+      <div className="prose prose-lg max-w-none mb-12 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
+        <RichText data={post.content} />
+      </div>
 
-      {/* Footer */}
       <footer className="border-t pt-8">
         <div className="flex justify-between items-center">
           <Button variant="outline" asChild>

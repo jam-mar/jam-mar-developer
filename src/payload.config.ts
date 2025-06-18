@@ -9,6 +9,7 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
+import { Posts } from '@/collections/Posts/config'
 import { Media } from './collections/Media'
 import { Blog } from './collections/Blog'
 
@@ -25,8 +26,8 @@ export default buildConfig({
       titleSuffix: process.env.NODE_ENV === 'development' ? ' - DEV' : '',
     },
   },
-  collections: [Users, Media, Blog],
-  editor: lexicalEditor(),
+  collections: [Users, Media, Blog, Posts],
+  editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'some-incredibly-long-and-secure-secret',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
