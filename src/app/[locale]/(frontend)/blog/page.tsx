@@ -32,7 +32,7 @@ export default async function BlogPage({}: BlogPageProps) {
     const payload = await getCachedPayload()
 
     const { docs: posts } = await payload.find({
-      collection: 'blog',
+      collection: 'posts',
       where: {
         status: {
           equals: 'published',

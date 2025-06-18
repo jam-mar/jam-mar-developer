@@ -4,8 +4,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { CalendarDays, ArrowLeft, Clock } from 'lucide-react'
 import { Blog } from '@/payload-types'
-import { RichText } from '@payloadcms/richtext-lexical/react'
-
+import { RichText } from '@/components/RichText'
 interface BlogDetailProps {
   post: Blog
 }

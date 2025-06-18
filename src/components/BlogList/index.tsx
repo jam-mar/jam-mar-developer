@@ -5,10 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CalendarDays } from 'lucide-react'
 import { Blog } from '@/payload-types'
 
-interface BlogListProps {
-  posts: Blog[]
-}
-
 export default function BlogList({ posts = [] }: BlogListProps) {
   const locale = useLocale()
   const t = useTranslations()
