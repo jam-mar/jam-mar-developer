@@ -1,4 +1,11 @@
 {
+  "common": {
+    "loading": "Laster...",
+    "error": "En feil oppstod",
+    "notFound": "Siden ble ikke funnet",
+    "goBack": "Gå tilbake",
+    "goHome": "Gå til Hjem"
+  },
   "navigation": {
     "brand": "James Marriott",
     "home": "Hjem",
@@ -318,9 +325,10 @@
     "allPosts": "Alle Innlegg",
     "lastUpdated": "Sist oppdatert",
     "publishedOn": "Publisert",
-    "minuteRead": "min lesing",
+    "minRead": "min lesing",
     "couldNotRender": "Innholdet kunne ikke vises.",
-    "admin": "Admin"
+    "admin": "Admin",
+    "viewAll": "Se Alle Innlegg"
   },
   "footer": {
     "about": "Om",
