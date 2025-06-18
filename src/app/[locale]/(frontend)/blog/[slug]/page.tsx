@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getPayload } from 'payload'
-import config from '@payload-config'
 import BlogDetail from '@/components/BlogDetail'
 import NavBar from '@/components/NavBar'
+import { getCachedPayload } from '@/lib/payload'
 
 export const revalidate = 3600 // Revalidate every hour
 
@@ -15,24 +14,28 @@ interface BlogDetailPageProps {
   }>
 }
 
-// Generate metadata for SEO
+async function getBlogPost(slug: string) {
+  const payload = await getCachedPayload()
+
+  const { docs } = await payload.find({
+    collection: 'blog',
+    where: {
+      slug: { equals: slug },
+      status: { equals: 'published' },
+    },
+    depth: 1,
+    limit: 1,
+  })
+
+  return docs[0] || null
+}
+
 export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
   const { slug } = await params
 
   try {
-    const payload = await getPayload({ config })
+    const post = await getBlogPost(slug)
 
-    const { docs } = await payload.find({
-      collection: 'blog',
-      where: {
-        slug: { equals: slug },
-        status: { equals: 'published' },
-      },
-      depth: 1,
-      limit: 1,
-    })
-
-    const post = docs[0]
     if (!post) {
       return { title: 'Post Not Found' }
     }
@@ -52,6 +55,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
       },
     }
   } catch (error) {
+    console.error('Error generating metadata for blog post:', error)
     return { title: 'Blog Post' }
   }
 }
@@ -59,7 +63,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
 // Generate static params for popular posts
 export async function generateStaticParams() {
   try {
-    const payload = await getPayload({ config })
+    const payload = await getCachedPayload()
 
     const { docs: posts } = await payload.find({
       collection: 'blog',
@@ -82,19 +86,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { locale, slug } = await params
 
   try {
-    const payload = await getPayload({ config })
-
-    const { docs } = await payload.find({
-      collection: 'blog',
-      where: {
-        slug: { equals: slug },
-        status: { equals: 'published' },
-      },
-      depth: 1,
-      limit: 1,
-    })
-
-    const post = docs[0]
+    const post = await getBlogPost(slug)
 
     if (!post) {
       notFound()
